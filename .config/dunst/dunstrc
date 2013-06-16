@@ -1,0 +1,48 @@
+[global]
+    font = "Terminus 8"
+    allow_markup = yes
+    format = "<b>%s %p</b>\n%b"
+    sort = yes
+    #indicate_hidden = true
+    # geometry = "x5"
+    idle_threshold = 0
+    geometry = "300x5-6+25"
+    alignment = center
+    show_age_threshold = 60
+    sticky_history = yes
+    follow = mouse
+    word_wrap = yes
+    separator_height = 2
+    padding = 10
+    horizontal_padding = 10
+    separator_color = frame
+    startup_notification = true
+
+[frame]
+    width = 3
+    color = "#224488"
+
+[shortcuts]
+    #close = ctrl+space
+    #close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#eeeeee"
+    foreground = "#000000"
+    timeout = 30
+
+[urgency_normal]
+    background = "#92b2f8"
+    foreground = "#000000"
+    timeout = 45
+
+[urgency_critical]
+    background = "#f48a8a"
+    foreground = "#000000"
+    timeout = 0
+
+[ttytter]
+    summary = "TTYtter*"
+    urgency = low
