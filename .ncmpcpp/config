@@ -1,0 +1,30 @@
+# connection
+mpd_host = "localhost"
+mpd_port = "6600"
+mpd_music_dir = "/media/strg1/music"
+mpd_connection_timeout = "3"
+
+# columns
+song_columns_list_format = "(6f)[green]{l} (22)[cyan]{a} (26)[cyan]{b} (42)[]{t|f} (4)[blue]{yr}"
+
+# various settings
+playlist_display_mode = "columns"
+progressbar_look = "::"
+mouse_support = "no"
+enable_window_title = "no"
+empty_tag_marker = "<null>"
+
+# colors
+colors_enabled = "yes"
+empty_tag_color = "cyan"
+header_window_color = "blue"
+#volume_color = "default"
+#state_line_color = "default"
+#state_flags_color = "default"
+main_window_color = "white"
+color1 = "white"
+color2 = "green"
+main_window_highlight_color = "white"
+progressbar_color = "default"
+#statusbar_color = "default"
+active_column_color = "cyan"
