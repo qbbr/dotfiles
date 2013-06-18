@@ -31,12 +31,12 @@
 [urgency_low]
     background = "#eeeeee"
     foreground = "#000000"
-    timeout = 30
+    timeout = 10
 
 [urgency_normal]
     background = "#92b2f8"
     foreground = "#000000"
-    timeout = 45
+    timeout = 30
 
 [urgency_critical]
     background = "#f48a8a"
@@ -45,4 +45,9 @@
 
 [ttytter]
     summary = "TTYtter*"
+    urgency = low
+
+[newsbeuter]
+    summary = newsbeuter
+    background = "#aaaaaa"
     urgency = low
