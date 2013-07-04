@@ -1,0 +1,3 @@
+[submodule "sft/dwm"]
+	path = sft/dwm
+	url = git@github.com:qbbr/dwm.git
