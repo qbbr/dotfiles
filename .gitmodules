@@ -1,3 +1,6 @@
 [submodule "sft/dwm"]
 	path = sft/dwm
 	url = git@github.com:qbbr/dwm.git
+[submodule "sft/skb"]
+	path = sft/skb
+	url = git@github.com:polachok/skb.git
