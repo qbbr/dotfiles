@@ -10,18 +10,6 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-# vol down
-"~/scrpts/volumechanger -d 5"
-	Control + KP_Divide
-
-# vol up
-"~/scrpts/volumechanger -i 5"
-	Control + KP_Multiply
-
-# vol toggle mute
-"~/scrpts/volumechanger -t"
-	Control + KP_Subtract
-
 # vol toggle headphone <-> front
 "amixer set Headphone toggle && amixer set Front toggle"
 	Control + KP_Add
