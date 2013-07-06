@@ -1,0 +1,150 @@
+! =========================================================
+! file:   ~/.Xdefaults
+! author: Sokolov Innokenty, <sokolov.innokenty@gmail.com>
+! =========================================================
+
+
+! xterm
+! =========================================================
+xterm*termName:                        xterm-256color
+xterm*geometry:                        80x25
+xterm*faceName:                        terminus:pixelsize=16
+xterm*boldMode:                        false
+xterm*dynamicColors:                   true
+xterm*utf8:                            2
+#xterm*eightBitInput:                   true
+xterm*saveLines:                       2000
+xterm*scrollTtyKeypress:               true
+xterm*scrollTtyOutput:                 false
+xterm*scrollBar:                       true
+xterm*rightScrollBar:                  true
+xterm*scrollbar*thickness:             8
+xterm*scrollbar.foreground:            #5c81af
+xterm*scrollbar.thumb:                 black
+xterm*loginShell:                      true
+xterm*jumpScroll:                      false
+xterm*multiScroll:                     true
+xterm*utf8Title:                       true
+xterm*on2Clicks:                       word
+xterm*on3Clicks:                       regex [^ \n<>]+
+xterm*on4Clicks:                       line
+xterm*on5Clicks:                       none
+xterm*metaSendsEscape:                 true
+xterm*transparent:                     true
+xterm*shading:                         40
+
+! colors
+! =========================================================
+*background:                           #101010
+*foreground:                           #eeeeee
+! Black
+*color0:                               #000000
+*color8:                               #000000
+! Red
+*color1:                               #bf4646
+*color9:                               #f48a8a
+! Green
+*color2:                               #67b25f
+*color10:                              #a5d79f
+! Yellow
+*color3:                               #cfc44e
+*color11:                              #e1da84
+! Blue
+*color4:                               #224488
+*color12:                              #5C81AF
+! Magenta
+*color5:                               #ca6eff
+*color13:                              #e2b0ff
+! Cyan
+*color6:                               #92b2f8
+*color14:                              #bacdf8
+! White
+*color7:                               #d5d5d5
+*color15:                              #d5d5d5
+
+
+! xpdf
+! =========================================================
+xpdf*enableFreetype:                   yes
+xpdf*antialias:                        yes
+!xpdf*foreground:                       white
+!xpdf*background:                       black
+xpdf*urlCommand:                       /usr/bin/chromium-browser %s
+xpdf*viKeys:                           on
+
+
+! xcalc
+! =========================================================
+xcalc*geometry:                        200x275
+xcalc.ti.bevel.background:             #729FCF
+xcalc.ti.bevel.screen.DEG.foreground:  white
+xcalc.ti.bevel.screen.GRAD.foreground: white
+xcalc.ti.bevel.screen.RAD.foreground:  white
+xcalc.ti.bevel.screen.INV.foreground:  Red
+xcalc.ti.bevel.screen.LCD.foreground:  white
+xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+xcalc.ti.bevel.screen.M.foreground:    white
+xcalc.ti.bevel.screen.P.foreground:    Yellow
+xcalc.ti.Command.foreground:           White
+xcalc.ti.Command.background:           #888888
+xcalc.ti.button5.background:           #bf4646
+xcalc.ti.button19.background:          #666666
+xcalc.ti.button18.background:          #666666
+xcalc.ti.button20.background:          #555555
+xcalc.ti.button20.label:               /
+xcalc.ti.button25.background:          #555555
+xcalc.ti.button30.background:          #555555
+xcalc.ti.button35.background:          #555555
+xcalc.ti.button40.background:          #67b25f
+xcalc.ti.button22.background:          #516083
+xcalc.ti.button23.background:          #516083
+xcalc.ti.button24.background:          #516083
+xcalc.ti.button27.background:          #516083
+xcalc.ti.button28.background:          #516083
+xcalc.ti.button29.background:          #516083
+xcalc.ti.button32.background:          #516083
+xcalc.ti.button33.background:          #516083
+xcalc.ti.button34.background:          #516083
+xcalc.ti.button37.background:          #516083
+xcalc.ti.button38.background:          #516083
+xcalc.ti.button39.background:          #516083
+
+
+! xclock
+! =========================================================
+xclock*update:                         1
+xclock*analog:                         false
+xclock*foreground:                     white
+!xclock*background:                     black
+
+
+! xscreensaver
+! =========================================================
+!font settings
+!-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*
+xscreensaver.Dialog.headingFont:        -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-terminus-bold-r-*-*-12-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #eeeeee
+xscreensaver.Dialog.background:         #224488
+xscreensaver.Dialog.topShadowColor:     #eeeeee
+xscreensaver.Dialog.bottomShadowColor:  #eeeeee
+xscreensaver.Dialog.Button.foreground:  #eeeeee
+xscreensaver.Dialog.Button.background:  #224488
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #eeeeee
+xscreensaver.Dialog.text.background:    #5C81AF
+xscreensaver.Dialog.internalBorderWidth:0
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    3
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #bf4646
+xscreensaver.passwd.thermometer.background:  #000000
+xscreensaver.passwd.thermometer.width:       10
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:                %I:%M%P %a %b %d, %Y
