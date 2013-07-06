@@ -27,3 +27,4 @@ alias pong="ping -c 3 www.google.com"
 
 alias tree="tree -Csuh"
 alias df="df -Th"
+alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
