@@ -34,7 +34,7 @@ extract () {
 }
 
 # simple notes
-NOTES_DIR="$HOME/.notes/"
+NOTES_DIR="$HOME/Dropbox/.notes/"
 
 n() {
 	if [ -n "$*" ]; then
