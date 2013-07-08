@@ -4,3 +4,6 @@
 [submodule "sft/skb"]
 	path = sft/skb
 	url = git@github.com:polachok/skb.git
+[submodule ".vim"]
+	path = .vim
+	url = git@github.com:qbbr/dotvim.git
