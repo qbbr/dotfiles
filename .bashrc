@@ -41,7 +41,7 @@ else
 		user_color="36m"
 	fi
 
-	PS1="┌─[\[\e[44m\]\h\e[0m\]:\e[${user_color}\]\u\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─~ "
+	PS1="┌─[\[\e[44m\]\h\e[0m\]:\e[${user_color}\]\u\[\e[0m\]]\e[34m\](\t)\e[0m\][\[\e[32m\]\w\[\e[0m\]]\n└─~ "
 	unset user_color
 
 	# colour coreutils
