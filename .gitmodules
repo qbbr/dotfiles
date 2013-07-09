@@ -7,3 +7,12 @@
 [submodule ".vim"]
 	path = .vim
 	url = git@github.com:qbbr/dotvim.git
+[submodule "sft/wmname"]
+	path = sft/wmname
+	url = http://git.suckless.org/wmname
+[submodule "sft/slock"]
+	path = sft/slock
+	url = http://git.suckless.org/slock
+[submodule "sft/dmenu"]
+	path = sft/dmenu
+	url = http://git.suckless.org/dmenu/
