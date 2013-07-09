@@ -16,3 +16,6 @@
 [submodule "sft/dmenu"]
 	path = sft/dmenu
 	url = http://git.suckless.org/dmenu/
+[submodule "sft/dzenbar"]
+	path = sft/dzenbar
+	url = https://github.com/qbbr/dzenbar
