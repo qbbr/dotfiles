@@ -34,6 +34,7 @@ extract () {
 }
 
 # simple notes
+# sudo aptitude install tree
 NOTES_DIR="$HOME/Dropbox/.notes/"
 
 n() {
