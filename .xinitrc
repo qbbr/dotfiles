@@ -30,5 +30,4 @@ uxterm &
 
 # start dwm + dzenbar with logging
 cd ~/sft/dzenbar/ && ./dzenbar &
-~/sft/dwm/status &
-dwm 2> ~/sft/dwm/dwm.log
+~/sft/dwm/bin/startdwm
