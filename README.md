@@ -11,3 +11,9 @@ dotfiles
      / _` |/ _ \| __| |_| | |/ _ \/ __|
     | (_| | (_) | |_|  _| | |  __/\__ \
      \__,_|\___/ \__|_| |_|_|\___||___/
+
+## simple notes bash completion
+
+```bash
+$ sudo ln -s ~/git/dotfiles/simplenotes /etc/bash_completion.d/
+```

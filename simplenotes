@@ -1,0 +1,15 @@
+# bash completion for simple notes
+# n <tab>
+
+_simplenotes()
+{
+        local cur opts
+
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        opts=`ls -1 ~/Dropbox/.notes/ | sed -e 's/\..*$//'`
+
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0;
+}
+complete -F _simplenotes n
