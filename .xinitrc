@@ -29,5 +29,5 @@ sh ~/.fehbg &
 uxterm &
 
 # start dwm + dzenbar with logging
-cd ~/sft/dzenbar/ && ./dzenbar &
+~/sft/dzenbar/dzenbar &
 ~/sft/dwm/bin/startdwm
