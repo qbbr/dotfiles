@@ -22,7 +22,7 @@ schedule = watch_directory,5,5,load_start=/media/dwnlds/torrent_files/*.torrent
 schedule = low_diskspace,5,60,close_low_diskspace=100M
 
 # диапазон портов по которым будет идти подключение
-port_range = 6890-6999
+port_range = 6881-6999
 
 # открывает случайный порт из заданного диапазона
 port_random = yes
