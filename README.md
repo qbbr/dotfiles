@@ -15,5 +15,5 @@ dotfiles
 ## simple notes bash completion
 
 ```bash
-$ sudo ln -s ~/git/dotfiles/simplenotes /etc/bash_completion.d/
+$ sudo ln -s ~/git/dotfiles/scrpts/simplenotes /etc/bash_completion.d/
 ```
