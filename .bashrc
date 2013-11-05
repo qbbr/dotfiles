@@ -66,3 +66,6 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
+
+#export JAVA_HOME=/usr/java/jre1.7.0_25/
+#export PATH=${PATH}:${JAVA_HOME}/bin
