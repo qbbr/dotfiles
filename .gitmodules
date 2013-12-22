@@ -1,12 +1,12 @@
 [submodule "sft/dwm"]
 	path = sft/dwm
-	url = git@github.com:qbbr/dwm.git
+	url = https://github.com/qbbr/dwm.git
 [submodule "sft/skb"]
 	path = sft/skb
-	url = git@github.com:polachok/skb.git
+	url = https://github.com/polachok/skb.git
 [submodule ".vim"]
 	path = .vim
-	url = git@github.com:qbbr/dotvim.git
+	urk = https://github.com/qbbr/dotvim.git
 [submodule "sft/wmname"]
 	path = sft/wmname
 	url = http://git.suckless.org/wmname

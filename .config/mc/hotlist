@@ -1,4 +1,5 @@
-ENTRY "usb" URL "/media/usb/"
-ENTRY "www" URL "/var/www/"
 ENTRY "strg1" URL "/media/strg1/"
 ENTRY "dwnlds" URL "/media/dwnlds/"
+ENTRY "www" URL "/var/www/"
+ENTRY "usb0" URL "/media/usb0/"
+ENTRY "usb1" URL "/media/usb1/"
