@@ -1,0 +1,13 @@
+#!/bin/bash
+
+MY_HOME_DIR=/home/qbbr
+rm -rf $MY_HOME_DIR/.w3m/*
+rm -f $MY_HOME_DIR/.local/share/recently-used.xbel
+# mc
+rm -rf $MY_HOME_DIR/.cache/mc/*
+> $MY_HOME_DIR/.local/share/mc/history
+# vim
+> $MY_HOME_DIR/.viminfo
+rm -f $MY_HOME_DIR/.cache/ctrlp/mru/cache.txt
+# easytag
+> $MY_HOME_DIR/.easytag/easytag.log
