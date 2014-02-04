@@ -1,8 +1,8 @@
-browser chromium
+browser x-www-browser
 auto-reload yes
 reload-time 10
 reload-threads 2
-macro i set browser "feh %u"; open ; set browser "chromium"a
+macro i set browser "feh %u"; open ; set browser "x-www-browser"
 
 #notify-always yes
 notify-format "%d %n %f"
