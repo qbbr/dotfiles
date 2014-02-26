@@ -19,3 +19,6 @@
 [submodule "sft/dzenbar"]
 	path = sft/dzenbar
 	url = https://github.com/qbbr/dzenbar
+[submodule "sft/dunst"]
+	path = sft/dunst
+	url = https://github.com/knopwob/dunst.git
