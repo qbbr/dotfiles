@@ -37,7 +37,7 @@ extract () {
 # sudo aptitude install tree
 NOTES_DIR="$DROPBOX_DIR/.notes/"
 
-n() {
+n () {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
 	else
@@ -46,10 +46,20 @@ n() {
 	$EDITOR "$NOTES_DIR$FILE_NAME.markdown"
 }
 
-nrm() {
+nrm () {
 	rm -i "$NOTES_DIR$1.markdown"
 }
 
 nls () {
 	tree -CR --noreport $NOTES_DIR | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
+}
+
+nprint () {
+	if [ -n "$*" ]; then
+		FILE_NAME="$*"
+	else
+		echo "[E] filename is not determined!"
+		exit
+	fi
+	cat "$NOTES_DIR$FILE_NAME.markdown"
 }
