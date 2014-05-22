@@ -1,6 +1,10 @@
 #!/bin/bash
 
-MY_HOME_DIR=/home/qbbr
+MY_HOME_DIR=$HOME
+
+# bash history
+> $MY_HOME_DIR/.bash_history
+
 rm -rf $MY_HOME_DIR/.w3m/*
 rm -f $MY_HOME_DIR/.local/share/recently-used.xbel
 # mc
@@ -11,3 +15,10 @@ rm -rf $MY_HOME_DIR/.cache/mc/*
 rm -f $MY_HOME_DIR/.cache/ctrlp/mru/cache.txt
 # easytag
 > $MY_HOME_DIR/.easytag/easytag.log
+# fucking flash
+rm -rf $MY_HOME_DIR/.adobe/
+rm -rf $MY_HOME_DIR/.macromedia/
+# ff
+rm -rf $MY_HOME_DIR/.cache/mozilla/
+# thumbnails
+rm -rf $MY_HOME_DIR/.thumbnails/
