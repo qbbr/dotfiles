@@ -24,6 +24,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias rm="rm -i"
+alias crontab="crontab -i"
 alias pong="ping -c 3 www.google.com"
 
 alias tree="tree -Csuh"
