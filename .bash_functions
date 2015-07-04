@@ -35,7 +35,7 @@ extract () {
 
 # simple notes
 # sudo aptitude install tree
-NOTES_DIR="$DROPBOX_DIR/.notes/"
+NOTES_DIR="/media/strg1/.notes/"
 
 n () {
 	if [ -n "$*" ]; then

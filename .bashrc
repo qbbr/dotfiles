@@ -48,8 +48,6 @@ else
 	eval $(dircolors -b $HOME/.dircolors)
 fi
 
-export DROPBOX_DIR=/media/strg1/Dropbox
-
 # ~/.bash_functions
 if [ -f ~/.bash_functions ]; then
 	. ~/.bash_functions
@@ -68,6 +66,3 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
-
-#export JAVA_HOME=/usr/java/jre1.7.0_25
-#export PATH=${PATH}:${JAVA_HOME}/bin
