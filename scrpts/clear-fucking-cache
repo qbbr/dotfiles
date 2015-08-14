@@ -22,3 +22,5 @@ rm -rf $MY_HOME_DIR/.macromedia/
 rm -rf $MY_HOME_DIR/.cache/mozilla/
 # thumbnails
 rm -rf $MY_HOME_DIR/.thumbnails/
+# gthumb
+> $MY_HOME_DIR/.config/gthumb/history.xbel
