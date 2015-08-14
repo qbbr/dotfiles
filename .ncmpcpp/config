@@ -13,7 +13,7 @@ visualizer_type = "spectrum"
 visualizer_look = "▌▌"
 
 # columns
-song_columns_list_format = "(6f)[green]{l} (22)[cyan]{a} (26)[cyan]{b} (42)[]{t|f} (4)[blue]{yr}"
+song_columns_list_format = "(6f)[green]{l} (20)[cyan]{a} (24)[cyan]{b} (40)[]{t|f} (6)[cyan]{gr} (4)[blue]{yr}"
 
 # various settings
 playlist_display_mode = "columns"
