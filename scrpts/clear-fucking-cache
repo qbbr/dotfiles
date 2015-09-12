@@ -7,6 +7,7 @@ MY_HOME_DIR=$HOME
 
 rm -rf $MY_HOME_DIR/.w3m/*
 rm -f $MY_HOME_DIR/.local/share/recently-used.xbel
+rm -f $MY_HOME_DIR/.recently-used
 # mc
 rm -rf $MY_HOME_DIR/.cache/mc/*
 > $MY_HOME_DIR/.local/share/mc/history
