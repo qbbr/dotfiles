@@ -1,6 +1,6 @@
 [user]
 	name = Sokolov Innokenty
-	email = r2.kenny@gmail.com
+	email = im@qbbr.io
 [color]
 	diff = auto
 	status = auto
@@ -10,8 +10,13 @@
 	ci = commit
 	st = status
 	br = branch
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	hist = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	type = cat-file -t
 	dump = cat-file -p
 [push]
-	default = simple
+	default = current
+[merge]
+	tool = meld
+	conflictstyle = diff3
