@@ -134,14 +134,22 @@ EXEC 01;32
 .log                  38;5;178
 .gitignore            38;5;240
 .gitmodules           38;5;240
+.gitkeep              38;5;240
+.lock                 38;5;245
 .diff                 48;5;7;38;5;232
 
 # web
+.php                  38;5;250
 .js                   38;5;130
-.htm                  38;5;147
-.html                 38;5;210;1
-.css                  38;5;210;1
-.xml                  38;5;133
+.json                 38;5;166
+.htm                  38;5;205
+.html                 38;5;205
+.twig                 38;5;204
+.css                  38;5;210
+.scss                 38;5;210
+.sass                 38;5;210
+.less                 38;5;210
+.xml                  38;5;170
 .htaccess             38;5;240
 
 # config
