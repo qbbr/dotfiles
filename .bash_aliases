@@ -31,6 +31,8 @@ alias tree="tree -Csuh"
 alias df="df -Th"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 
+alias mc="mc --skin=$HOME/.config/mc/default.ini"
+
 # aptitude install source-highlight
 export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
 export LESS=' -R '
