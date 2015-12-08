@@ -33,15 +33,20 @@ EXEC 01;32
 .svg                  38;5;24
 .xpm                  38;5;36
 
-# images
-.iso                  38;5;124
+# partition images
+.iso                  38;5;168
+.bin                  38;5;168
+.nrg                  38;5;168
+.qcow                 38;5;168
+.sparseimage          38;5;168
+.img                  38;5;168
 
 # video
 .avi                  38;5;114
 .flv                  38;5;131
 .mkv                  38;5;172
 .mov                  38;5;42
-.mp4                  38;5;124
+.mp4                  38;5;115
 .mpg                  38;5;60
 .mpeg                 38;5;60
 .ogm                  38;5;97
@@ -56,6 +61,7 @@ EXEC 01;32
 .mid                  38;5;102
 .midi                 38;5;102
 .mp3                  38;5;191
+.m3u                  38;5;190
 .oga                  38;5;95
 .ogg                  38;5;96
 .wav                  38;5;149
@@ -97,6 +103,8 @@ EXEC 01;32
 .tgz                  38;5;35;1
 .xz                   38;5;118
 .zip                  38;5;41
+.apk                  38;5;42
+.deb                  38;5;161
 
 # open document formats
 .odt                  38;5;111
