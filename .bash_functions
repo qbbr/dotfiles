@@ -57,9 +57,8 @@ nls () {
 nprint () {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
+		cat "$NOTES_DIR$FILE_NAME.markdown"
 	else
 		echo "[E] filename is not determined!"
-		exit
 	fi
-	cat "$NOTES_DIR$FILE_NAME.markdown"
 }
