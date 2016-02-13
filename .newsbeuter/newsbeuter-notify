@@ -55,7 +55,7 @@ sub newsbeuter_cache_fetch {
     my $limit = shift;
     my $more = 0;
 
-    if ($limit > 5) { 
+    if ($limit > 5) {
         $more = $limit - 5;
         $limit = 5;
     }
@@ -120,7 +120,7 @@ Make it more generic, support more notification frameworks.
 
 =head1 AUTHOR
 
-Mikael Fridh 
+Mikael Fridh
 
 =cut
 
