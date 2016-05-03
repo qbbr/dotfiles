@@ -67,7 +67,7 @@ xpdf*enableFreetype:                   yes
 xpdf*antialias:                        yes
 !xpdf*foreground:                       white
 !xpdf*background:                       black
-xpdf*urlCommand:                       /usr/bin/chromium %s
+xpdf*urlCommand:                       /usr/bin/iceweasel %s
 xpdf*viKeys:                           on
 
 ! xcalc
