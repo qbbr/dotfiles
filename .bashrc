@@ -35,22 +35,22 @@ fi
 if [ "$TERM" = "linux" ]; then
 	PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
 else
-	if [ "$USER" == "root" ]; then
-		user_color="31m"
-	else
-		user_color="36m"
-	fi
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUNTRACKEDFILES=true
 
-	__git_br_ps1() {
-		local branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+	__get_ps1_user () {
+		local user_color
 
-		if [ ! -z "$branch" ]; then
-			echo -e " \e[35m{$branch}\e[0m"
+		if [ "$USER" == "root" ]; then
+			user_color="\e[31m"
+		else
+			user_color="\e[36m"
 		fi
+
+		echo -e "$user_color$USER\e[0m"
 	}
 
-
-	PS1="┌─[\[\e[44m\]\H\e[0m\]:\e[${user_color}\]\u\[\e[0m\]]\e[34m\](\t)\e[0m\][\[\e[32m\]\w\[\e[0m\]]\$(__git_br_ps1)\n└─~ "
+	PS1='┌─[\[\e[44m\]\H\[\e[0m\]:$(__get_ps1_user)]\[\e[34m\](\t)\[\e[0m\][\[\e[32m\]\w\[\e[0m\]]$(declare -F __git_ps1 &>/dev/null && __git_ps1 " \[\e[35m\]{%s}\[\e[0m\]")\n└─~ '
 	unset user_color
 
 	# colour coreutils
