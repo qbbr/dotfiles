@@ -41,7 +41,16 @@ else
 		user_color="36m"
 	fi
 
-	PS1="┌─[\[\e[44m\]\H\e[0m\]:\e[${user_color}\]\u\[\e[0m\]]\e[34m\](\t)\e[0m\][\[\e[32m\]\w\[\e[0m\]]\n└─~ "
+	__git_br_ps1() {
+		local branch=$(git branch 2>/dev/null | grep '^*' | colrm 1 2)
+
+		if [ ! -z "$branch" ]; then
+			echo -e " \e[35m{$branch}\e[0m"
+		fi
+	}
+
+
+	PS1="┌─[\[\e[44m\]\H\e[0m\]:\e[${user_color}\]\u\[\e[0m\]]\e[34m\](\t)\e[0m\][\[\e[32m\]\w\[\e[0m\]]\$(__git_br_ps1)\n└─~ "
 	unset user_color
 
 	# colour coreutils
