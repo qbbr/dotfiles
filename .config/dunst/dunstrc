@@ -9,7 +9,6 @@
 	geometry = "300x5-6+25"
 	alignment = center
 	show_age_threshold = 60
-	sticky_history = yes
 	follow = mouse
 	word_wrap = yes
 	separator_height = 2
@@ -18,8 +17,13 @@
 	separator_color = frame
 	startup_notification = true
 	icon_position = left
+	max_icon_size = 32
 	frame_width = 3
 	frame_color = "#224488"
+	dmenu = /usr/local/bin/dmenu -fn "Terminus:size=12" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
+	browser = /usr/bin/iceweasel -new-tab
+	sticky_history = yes
+	history_length = 20
 
 [shortcuts]
 	#close = ctrl+space
