@@ -35,6 +35,10 @@ alias mc="mc --skin=$HOME/.config/mc/default.ini"
 
 alias python="python3"
 
-# aptitude install source-highlight
-export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+# apt install source-highlight
+#export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+# apt install highlight
+export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --style solarized-dark"
 export LESS=" -R "
+alias less="less -m -N -g -i -J --line-numbers --underline-special"
+alias more="less"

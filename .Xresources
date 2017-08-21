@@ -1,6 +1,8 @@
 ! =========================================================
 ! file:   ~/.Xresources
-! author: Sokolov Innokenty, <sokolov.innokenty@gmail.com>
+! author: Sokolov Innokenty, <imqbbr@gmail.com>
+! =========================================================
+! xrdb -merge ~/.Xresources
 ! =========================================================
 
 ! xterm
@@ -11,8 +13,10 @@ xterm*faceName:                        terminus:pixelsize=16
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            2
+xterm*selectToClipboard:               true
 !xterm*eightBitInput:                   true
-xterm*saveLines:                       2000
+xterm*saveLines:                       5000
+xterm*fullscreen:                      never
 xterm*scrollTtyKeypress:               true
 xterm*scrollTtyOutput:                 false
 xterm*scrollBar:                       true
@@ -28,8 +32,17 @@ xterm*on2Clicks:                       word
 xterm*on3Clicks:                       regex [^ \n<>]+
 xterm*on4Clicks:                       line
 xterm*on5Clicks:                       none
+xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
+xterm*translations:                    #override \
+                                       Shift <Btn1Up>: exec-formatted("iceweasel '%t'", CLIPBOARD)\n\
+                                       Shift <Btn2Up>: exec-formatted("phpstorm '%t'", CLIPBOARD)\n\
+                                       Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
+                                       Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
+                                       Shift <Key>Home: scroll-back(5000)\n\
+                                       Shift <Key>End: scroll-forw(5000)\n\
+                                       Ctrl <Key>slash: print-everything()
 xterm*metaSendsEscape:                 true
-xterm*transparent:                     true
+xterm*transparent:                     false
 xterm*shading:                         40
 
 ! colors
