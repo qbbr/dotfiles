@@ -1,5 +1,7 @@
-#!/bin/bash
-# access translate.google.com from terminal
+#!/usr/bin/env bash
+
+# translate.google.com from terminal
+# depends: html2text
 
 help='translate <text> [[<source language>] <target language>]
 if target missing, use DEFAULT_TARGET_LANG

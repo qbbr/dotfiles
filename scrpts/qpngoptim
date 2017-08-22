@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # use: ./script file.png
 # depends: optipng, advancecomp

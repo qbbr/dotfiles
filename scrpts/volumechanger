@@ -1,13 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# depending: dzen2, dbar
+# depends: dzen2, dbar
 
-# customize this stuff
 IF="Master"
 IF_HP="Headphone"
 SECS="1"
 
-FONT='-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*'
+FONT="-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*"
 BG="#224488"
 FG="#ffffff"
 XPOS=825
