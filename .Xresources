@@ -13,15 +13,15 @@ xterm*faceName:                        terminus:pixelsize=16
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            2
-xterm*selectToClipboard:               true
-!xterm*eightBitInput:                   true
+xterm*selectToClipboard:               false
+xterm*eightBitInput:                   false
 xterm*saveLines:                       5000
 xterm*fullscreen:                      never
 xterm*scrollTtyKeypress:               true
 xterm*scrollTtyOutput:                 false
 xterm*scrollBar:                       true
 xterm*rightScrollBar:                  true
-xterm*scrollbar*thickness:             8
+xterm*scrollbar.thickness:             8
 xterm*scrollbar.foreground:            #5c81af
 xterm*scrollbar.thumb:                 black
 xterm*loginShell:                      true
@@ -34,8 +34,8 @@ xterm*on4Clicks:                       line
 xterm*on5Clicks:                       none
 xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
 xterm*translations:                    #override \
-                                       Shift <Btn1Up>: exec-formatted("iceweasel '%t'", CLIPBOARD)\n\
-                                       Shift <Btn2Up>: exec-formatted("phpstorm '%t'", CLIPBOARD)\n\
+                                       Shift <Btn1Up>: exec-formatted("iceweasel '%t'", PRIMARY)\n\
+                                       Shift <Btn2Up>: exec-formatted("phpstorm '%t'", PRIMARY)\n\
                                        Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
                                        Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
                                        Shift <Key>Home: scroll-back(5000)\n\
@@ -76,12 +76,14 @@ xterm*shading:                         40
 
 ! xpdf
 ! =========================================================
+xpdf*initialZoom:                      page
 xpdf*enableFreetype:                   yes
 xpdf*antialias:                        yes
 !xpdf*foreground:                       white
 !xpdf*background:                       black
-xpdf*urlCommand:                       /usr/bin/iceweasel %s
+xpdf*urlCommand:                       iceweasel %s
 xpdf*viKeys:                           on
+xpdf*textEncoding:                     utf-8
 
 ! xcalc
 ! =========================================================
@@ -118,3 +120,11 @@ xcalc.ti.button34.background:          #516083
 xcalc.ti.button37.background:          #516083
 xcalc.ti.button38.background:          #516083
 xcalc.ti.button39.background:          #516083
+
+! xmessage
+! =========================================================
+xmessage*message.background:           #101010
+xmessage.form.okay.background:         #224488
+xmessage.form.okay.foreground:         #FFFFFF
+xmessage.defaultButton:                okay
+xmessage.form.message.Scroll:          WhenNeeded
