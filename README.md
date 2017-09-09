@@ -15,5 +15,5 @@ dotfiles
 ## simple notes bash completion
 
 ```bash
-$ sudo ln -s $PWD/etc/simplenotes /etc/bash_completion.d/
+$ sudo ln -sf $PWD/.config/simplenotes /etc/bash_completion.d/
 ```
