@@ -14,4 +14,5 @@ _simplenotes()
 }
 
 complete -F _simplenotes n
+complete -F _simplenotes nrm
 complete -F _simplenotes nprint

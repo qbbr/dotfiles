@@ -12,6 +12,10 @@ restart() {
 	sudo /etc/init.d/$1 restart
 }
 
+status() {
+	sudo /etc/init.d/$1 status
+}
+
 extract () {
 	if [ -z $1 ] ; then
 		# if no parameters given display usage
@@ -42,7 +46,7 @@ extract () {
 }
 
 # simple notes
-# sudo aptitude install tree pandoc
+# sudo apt install tree pandoc
 NOTES_DIR="/media/strg1/.notes/"
 
 n () {
