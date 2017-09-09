@@ -1,24 +1,24 @@
-[submodule "sft/dwm"]
-	path = sft/dwm
+[submodule "src/dwm"]
+	path = src/dwm
 	url = https://github.com/qbbr/dwm.git
-[submodule "sft/skb"]
-	path = sft/skb
+[submodule "src/skb"]
+	path = src/skb
 	url = https://github.com/polachok/skb.git
 [submodule ".vim"]
 	path = .vim
 	urk = https://github.com/qbbr/dotvim.git
-[submodule "sft/wmname"]
-	path = sft/wmname
+[submodule "src/wmname"]
+	path = src/wmname
 	url = http://git.suckless.org/wmname
-[submodule "sft/slock"]
-	path = sft/slock
+[submodule "src/slock"]
+	path = src/slock
 	url = http://git.suckless.org/slock
-[submodule "sft/dmenu"]
-	path = sft/dmenu
+[submodule "src/dmenu"]
+	path = src/dmenu
 	url = http://git.suckless.org/dmenu/
-[submodule "sft/dzenbar"]
-	path = sft/dzenbar
+[submodule "src/dzenbar"]
+	path = src/dzenbar
 	url = https://github.com/qbbr/dzenbar
-[submodule "sft/dunst"]
-	path = sft/dunst
+[submodule "src/dunst"]
+	path = src/dunst
 	url = https://github.com/knopwob/dunst.git
