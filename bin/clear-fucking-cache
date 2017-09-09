@@ -25,3 +25,5 @@ rm -rf $MY_HOME_DIR/.cache/mozilla/
 rm -rf $MY_HOME_DIR/.thumbnails/
 # gthumb
 > $MY_HOME_DIR/.config/gthumb/history.xbel
+# python
+rm -f $MY_HOME_DIR/.python_history
