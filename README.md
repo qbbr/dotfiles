@@ -25,7 +25,7 @@
 
  * `start/stop/restart/status <daemon_name>` - for managing daemons `/etc/init.d/<daemon_name>`
  * `extract <archive_path>` - for extract any archive
- * `n/nls/nrm/npront` - [simple notes](#simple-notes)
+ * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
 
 
 ## Simple notes
