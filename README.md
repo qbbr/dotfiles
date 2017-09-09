@@ -46,7 +46,7 @@ $ sudo ln -sf $PWD/.config/simplenotes /etc/bash_completion.d/
 
 ### Usage
 
-`n <note_name>` - edit `<note_name>.markdown`
-`nls` - ls notes dir
-`nrm <note_name>` - rm `<note_name>.markdown`
-`nprint <note_name`  cat `<note_name>.markdown`
+ * `n <note_name>` - edit `<note_name>.markdown`
+ * `nls` - ls notes dir
+ * `nrm <note_name>` - rm `<note_name>.markdown`
+ * `nprint <note_name`  cat `<note_name>.markdown`
