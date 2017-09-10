@@ -1,5 +1,19 @@
 #!/bin/bash
 
+update_xtitle()
+{
+	if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
+		command -v xttitle > /dev/null 2>&1 && xttitle "[$$] [${USER}@${HOSTNAME}] $PWD"
+	fi
+}
+
+update_xtitle
+
+cd() {
+	builtin cd $*
+	update_xtitle
+}
+
 start() {
 	sudo /etc/init.d/$1 start
 }
@@ -16,7 +30,7 @@ status() {
 	sudo /etc/init.d/$1 status
 }
 
-extract () {
+extract() {
 	if [ -z $1 ] ; then
 		# if no parameters given display usage
 		echo "Usage: extract <file_name>.<tar.bz2|tar.gz|tar.xz|lzma|bz2|rar|gz|tar|tbz2|tgz|zip|Z|7z|xz>"
@@ -49,7 +63,7 @@ extract () {
 # sudo apt install tree pandoc
 NOTES_DIR="/media/strg1/.notes/"
 
-n () {
+n() {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
 	else
@@ -58,15 +72,15 @@ n () {
 	$EDITOR "$NOTES_DIR$FILE_NAME.markdown"
 }
 
-nrm () {
+nrm() {
 	rm -i "$NOTES_DIR$1.markdown"
 }
 
-nls () {
+nls() {
 	tree -CR --noreport $NOTES_DIR | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
 }
 
-nprint () {
+nprint() {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
 		pandoc -t plain "$NOTES_DIR$FILE_NAME.markdown"
