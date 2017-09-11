@@ -47,7 +47,7 @@ xterm*shading:                         40
 
 ! colors
 ! =========================================================
-*background:                           #101010
+*background:                           #121212
 *foreground:                           #eeeeee
 ! Black
 *color0:                               #000000
