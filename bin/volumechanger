@@ -7,8 +7,8 @@ IF_HP="Headphone"
 SECS="1"
 
 FONT="-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*"
-BG="#224488"
-FG="#ffffff"
+BG="#B58900"
+FG="#FDF6E3"
 XPOS=825
 YPOS=450
 PANEL_WIDTH=272
