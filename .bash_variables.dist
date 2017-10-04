@@ -1,0 +1,7 @@
+#!/bin/bash
+
+##
+# simple notes configuration
+##
+#NOTES_DIR="/path/to/.notes/" # default "$HOME/.notes/"
+NOTES_PRINT="pandoc -t plain" # default "cat"

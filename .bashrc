@@ -57,6 +57,11 @@ else
 	eval $(dircolors -b $HOME/.dircolors)
 fi
 
+# ~/.bash_variables
+if [ -f ~/.bash_variables ]; then
+	. ~/.bash_variables
+fi
+
 # ~/.bash_functions
 if [ -f ~/.bash_functions ]; then
 	. ~/.bash_functions

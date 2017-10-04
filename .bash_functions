@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# sudo apt install xttitle
 update_xtitle()
 {
 	if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
@@ -63,7 +64,7 @@ extract() {
 MC_SKIN="$HOME/.config/mc/solarized.ini"
 # simple notes
 # sudo apt install tree pandoc
-NOTES_DIR="/media/strg1/.notes/"
+NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
 n() {
 	if [ -n "$*" ]; then
@@ -85,7 +86,7 @@ nls() {
 nprint() {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
-		pandoc -t plain "$NOTES_DIR$FILE_NAME.markdown"
+		${NOTES_PRINT:-cat} "$NOTES_DIR$FILE_NAME.markdown"
 	else
 		echo "[E] filename is not determined!"
 	fi
