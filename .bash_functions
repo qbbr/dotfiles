@@ -60,8 +60,6 @@ extract() {
 	fi
 }
 
-# mc skin
-MC_SKIN="$HOME/.config/mc/solarized.ini"
 # simple notes
 # sudo apt install tree pandoc
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
