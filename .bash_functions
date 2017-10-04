@@ -15,6 +15,10 @@ cd() {
 	update_xtitle
 }
 
+f() {
+	setsid uxterm &> /dev/null
+}
+
 start() {
 	sudo /etc/init.d/$1 start
 }
