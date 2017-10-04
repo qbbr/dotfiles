@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# sudo apt install xttitle
 update_xtitle()
 {
 	if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
