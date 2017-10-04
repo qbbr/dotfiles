@@ -1,6 +1,7 @@
 #!/bin/bash
 
 alias q="exit"
+alias c="clear"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -42,3 +43,4 @@ export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --
 export LESS=" -R "
 alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
+alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
