@@ -1,3 +1,4 @@
 *.pyc
 *.swp
 .ncmpcpp/error.log
+.bash_variables

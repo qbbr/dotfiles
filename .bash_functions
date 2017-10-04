@@ -43,7 +43,7 @@ extract () {
 
 # simple notes
 # sudo aptitude install tree pandoc
-NOTES_DIR="/media/strg1/.notes/"
+NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
 n () {
 	if [ -n "$*" ]; then
@@ -65,7 +65,7 @@ nls () {
 nprint () {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
-		pandoc -t plain "$NOTES_DIR$FILE_NAME.markdown"
+		${NOTES_PRINT:-cat} "$NOTES_DIR$FILE_NAME.markdown"
 	else
 		echo "[E] filename is not determined!"
 	fi
