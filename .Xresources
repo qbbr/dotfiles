@@ -19,11 +19,11 @@ xterm*saveLines:                       5000
 xterm*fullscreen:                      never
 xterm*scrollTtyKeypress:               true
 xterm*scrollTtyOutput:                 false
-xterm*scrollBar:                       true
-xterm*rightScrollBar:                  true
-xterm*scrollbar.thickness:             8
-xterm*scrollbar.foreground:            #5c81af
-xterm*scrollbar.thumb:                 black
+xterm*scrollBar:                       false
+!xterm*rightScrollBar:                  true
+!xterm*scrollbar.thickness:             8
+!xterm*scrollbar.foreground:            #5c81af
+!xterm*scrollbar.thumb:                 black
 xterm*loginShell:                      true
 xterm*jumpScroll:                      false
 xterm*multiScroll:                     true
@@ -47,7 +47,7 @@ xterm*shading:                         40
 
 ! colors
 ! =========================================================
-*background:                           #101010
+*background:                           #121212
 *foreground:                           #eeeeee
 ! Black
 *color0:                               #000000

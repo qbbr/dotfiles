@@ -23,37 +23,63 @@ EXEC 01;32
 
 # pictures, icons
 .bmp                  38;5;62
+.BMP                  38;5;62
 .cdr                  38;5;59
+.CDR                  38;5;59
 .gif                  38;5;72
+.GIF                  38;5;72
 .ico                  38;5;73
+.ICO                  38;5;73
 .jpeg                 38;5;66
+.JPEG                 38;5;66
 .jpg                  38;5;66
 .JPG                  38;5;66
 .png                  38;5;65
+.PNG                  38;5;65
 .svg                  38;5;24
+.SVG                  38;5;24
 .xpm                  38;5;36
+.XPM                  38;5;36
 
 # partition images
 .iso                  38;5;168
+.ISO                  38;5;168
 .bin                  38;5;168
+.BIN                  38;5;168
 .nrg                  38;5;168
+.NRG                  38;5;168
 .qcow                 38;5;168
+.QCOW                 38;5;168
 .sparseimage          38;5;168
+.SPARSEIMAGE          38;5;168
 .img                  38;5;168
+.IMG                  38;5;168
 
 # video
 .avi                  38;5;114
+#.AVI                  38;5;114
 .flv                  38;5;131
+.FLV                  38;5;131
 .mkv                  38;5;172
+.MKV                  38;5;172
 .mov                  38;5;42
+.MOV                  38;5;42
 .mp4                  38;5;115
+.MP4                  38;5;115
 .mpg                  38;5;60
+.MPG                  38;5;60
 .mpeg                 38;5;60
+.MPEG                 38;5;60
 .ogm                  38;5;97
+.OGM                  38;5;97
 .ogv                  38;5;94
+.OGV                  38;5;94
 .ts                   38;5;62
+.TS                   38;5;62
 .webm                 38;5;132
+.WEBM                 38;5;132
 .wmv                  38;5;113
+.WMV                  38;5;113
 
 # audio
 .cue                  38;5;137
