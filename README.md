@@ -12,6 +12,10 @@
 	| (_| | (_) | |_|  _| | |  __/\__ \
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
+```bash
+cp .bash_variables.dist .bash_variables
+```
+
 ## Binds
 
  * `Selected text + Shift + MouseBtn1` - open url/path in browser
@@ -29,7 +33,6 @@
  * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
  * `update_xtitle` - update X title after cd (xttitle required)
 
-
 ## Simple notes
 
 ### Requirements
@@ -39,7 +42,6 @@
  * [pandoc](https://packages.debian.org/jessie/pandoc)
 
 ### Installation
-
 
 ```bash
 $ sudo apt install bash-completion tree pandoc
