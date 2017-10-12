@@ -1,7 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 # simple notes configuration
 ##
 #NOTES_DIR="/path/to/.notes/" # default "$HOME/.notes/"
 NOTES_PRINT="pandoc -t plain" # default "cat"
+
+##
+# Midnight Commander
+##
+MC_SKIN="$HOME/.config/mc/solarized.ini"

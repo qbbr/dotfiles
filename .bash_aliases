@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias q="exit"
 alias c="clear"
@@ -31,8 +31,6 @@ alias pong="ping -c 3 www.google.com"
 alias tree="tree -Csuh"
 alias df="df -Th"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
-
-alias mc="mc --skin=$HOME/.config/mc/default.ini"
 
 alias python="python3"
 

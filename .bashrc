@@ -24,9 +24,6 @@ shopt -s histappend
 # set vim as default editor
 export EDITOR=vim
 
-# set mc skin
-export MC_SKIN="$HOME/.config/mc/solarized.ini"
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
