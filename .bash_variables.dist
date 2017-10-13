@@ -9,4 +9,4 @@ NOTES_PRINT="pandoc -t plain" # default "cat"
 ##
 # Midnight Commander
 ##
-MC_SKIN="$HOME/.config/mc/solarized.ini"
+export MC_SKIN="$HOME/.config/mc/solarized.ini"
