@@ -15,3 +15,8 @@ export MC_SKIN="$HOME/.config/mc/solarized.ini"
 # Yarn
 ##
 export PATH="$PATH:`yarn global bin`"
+
+##
+# RVM
+##
+export PATH="$PATH:$HOME/.rvm/bin"
