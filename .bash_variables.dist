@@ -10,3 +10,8 @@ NOTES_PRINT="pandoc -t plain" # default "cat"
 # Midnight Commander
 ##
 export MC_SKIN="$HOME/.config/mc/solarized.ini"
+
+##
+# Yarn
+##
+export PATH="$PATH:`yarn global bin`"
