@@ -3,22 +3,30 @@
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/.notes/" # default "$HOME/.notes/"
-NOTES_PRINT="pandoc -t plain" # default "cat"
+#NOTES_DIR="/path/to/.notes/"  # default "$HOME/.notes/"
+#NOTES_PRINT="pandoc -t plain" # default "cat"
 
 ##
 # Midnight Commander
 ##
-export MC_SKIN="$HOME/.config/mc/solarized.ini"
+#export MC_SKIN="$HOME/.config/mc/solarized.ini"
 
 ##
 # Yarn
 ##
-export PATH="$PATH:`yarn global bin`"
+#export PATH="$PATH:`yarn global bin`"
 
 ##
 # RVM
 ##
-export PATH="$PATH:$HOME/.rvm/bin"
+#export PATH="$PATH:$HOME/.rvm/bin"
 # load RVM into a shell session *as a function*
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+##
+# Java / Android Studio
+##
+#export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+#export ANDROID_HOME="$HOME/Android/Sdk"
+#export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
+#export PATH="$PATH:$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS"
