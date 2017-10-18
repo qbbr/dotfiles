@@ -1,28 +1,34 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
 	*) return;;
 esac
 
-# bash options
-shopt -s checkwinsize   # update the value of LINES and COLUMNS after each command if altered
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
-# set history variables
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=1000
+
 # don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoredups
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
 # share history across all terminals
 PROMPT_COMMAND="history -a"
+
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# set vim as default editor
-export EDITOR=vim
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

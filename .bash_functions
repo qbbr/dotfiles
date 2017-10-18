@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 # sudo apt install xttitle
-update_xtitle()
-{
+update_xtitle() {
 	if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
-		command -v xttitle > /dev/null 2>&1 && xttitle "[$$] [${USER}@${HOSTNAME}] $PWD"
+		command -v xttitle > /dev/null 2>&1 && xttitle "[$$] [${USER}@${HOSTNAME}] $PWD" > /dev/null
 	fi
 }
 
@@ -36,11 +35,11 @@ status() {
 }
 
 extract() {
-	if [ -z $1 ] ; then
+	if [ -z $1 ]; then
 		# if no parameters given display usage
-		echo "Usage: extract <file_name>.<tar.bz2|tar.gz|tar.xz|lzma|bz2|rar|gz|tar|tbz2|tgz|zip|Z|7z|xz>"
+		echo "Usage: extract <filename>.<tar.bz2|tar.gz|tar.xz|lzma|bz2|rar|gz|tar|tbz2|tgz|zip|Z|7z|xz>"
 	else
-		if [ -f "$1" ] ; then
+		if [ -f "$1" ]; then
 			case $1 in
 				*.tar.bz2) tar xvjf $1   ;;
 				*.tar.gz)  tar xvzf $1   ;;
@@ -56,10 +55,10 @@ extract() {
 				*.Z)       uncompress $1 ;;
 				*.7z)      7z x $1       ;;
 				*.xz)      unxz $1       ;;
-				*)         echo "'$1' cannot be extracted via >extract<" ;;
+				*)         echo "[E] File extension is not supported!" ;;
 			esac
 		else
-			echo "'$1' is not a valid file"
+			echo "[E] File \"$1\" not found!"
 		fi
 	fi
 }
@@ -88,7 +87,7 @@ nls() {
 nprint() {
 	if [ -n "$*" ]; then
 		FILE_NAME="$*"
-		${NOTES_PRINT:-cat} "$NOTES_DIR$FILE_NAME.markdown"
+		${NOTES_PRINT_CMD:-cat} "$NOTES_DIR$FILE_NAME.markdown"
 	else
 		echo "[E] filename is not determined!"
 	fi

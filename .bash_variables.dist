@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+# set default editor
+export EDITOR=vim
+
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/.notes/"  # default "$HOME/.notes/"
-#NOTES_PRINT="pandoc -t plain" # default "cat"
+#NOTES_DIR="/path/to/.notes/"      # default "$HOME/.notes/"
+#NOTES_PRINT_CMD="pandoc -t plain" # default "cat"
 
 ##
 # Midnight Commander
