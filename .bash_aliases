@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 alias q="exit"
+alias qq="exit"
 alias c="clear"
+alias cc="clear"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -14,6 +16,7 @@ alias getclip="xclip -o"
 
 if [ -x /usr/bin/dircolors ]; then
 	alias l="ls -lAF --color --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
+	alias ll="l"
 	alias ls="ls --color=auto"
 	alias dir="dir --color=auto"
 	alias vdir="vdir --color=auto"
