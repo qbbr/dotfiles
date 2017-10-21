@@ -27,6 +27,10 @@ HISTCONTROL=ignoreboth
 # share history across all terminals
 PROMPT_COMMAND="history -a"
 
+# Disable completion when the input buffer is empty.  i.e. Hitting tab
+# and waiting a long time for bash to expand all of $PATH.
+shopt -s no_empty_cmd_completion
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
