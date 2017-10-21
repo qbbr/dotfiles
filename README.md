@@ -31,7 +31,7 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * `start/stop/restart/status <daemon_name>` - for managing daemons `/etc/init.d/<daemon_name>`
  * `extract <archive_path>` - for extract any archive
  * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
- * `update_xtitle` - update X title after cd (xttitle required)
+ * `update_xtitle` - update X title after cd ([xttitle](https://packages.debian.org/stretch/xttitle) required)
  * `f` - fork terminal (+bash session)
 
 ## Simple notes
