@@ -11,7 +11,7 @@ update_xttitle() {
 echo -e "${_c_bold}PID:${_c_reset}  ${_c_yellow}$$${_c_reset}"
 echo -e "${_c_bold}DATE:${_c_reset} ${_c_cyan}$(date)${_c_reset}"
 echo -e "${_c_bold}HOME:${_c_reset} ${_c_green}${HOME}${_c_reset}"
-echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -a)${_c_reset}"
+echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -norm)${_c_reset}"
 echo
 
 update_xttitle
