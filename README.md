@@ -13,7 +13,7 @@
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
 ```bash
-cp .bash_variables.dist .bash_variables
+cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
 ```
 
 ## Binds
@@ -32,6 +32,7 @@ cp .bash_variables.dist .bash_variables
  * `extract <archive_path>` - for extract any archive
  * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
  * `update_xtitle` - update X title after cd (xttitle required)
+ * `f` - fork terminal (+bash session)
 
 ## Simple notes
 
@@ -39,7 +40,7 @@ cp .bash_variables.dist .bash_variables
 
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
- * [pandoc](https://packages.debian.org/jessie/pandoc)
+ * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
 
 ### Installation
 
