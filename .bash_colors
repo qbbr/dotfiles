@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+
+##
+# Modifiers
+##
+
+# `_c_` - set prefix
+_c_bold='\e[1m'                  # bold
+_c_dim='\e[2m'                   # dim
+_c_underline='\e[4m'             # underline
+_c_blink='\e[5m'                 # blink
+_c_reverse='\e[7m'               # reverse bg <-> fg
+_c_hidden='\e[8m'                # hidden
+
+# `_c_reset` - reset prefix
+_c_reset='\e[0m'                 # reset all
+_c_reset_bold='\e[21m'           # reset bold
+_c_reset_dim='\e[22m'            # reset dim
+_c_reset_u='\e[24m'              # reset underline
+_c_reset_blink='\e[25m'          # reset blink
+_c_reset_reverse='\e[27m'        # reset reverse fg <-> bg
+_c_reset_hidden='\e[28m'         # reset hidden
+
+##
+# Colors
+##
+
+# `_c_` - foreground color
+_c_default='\e[39m'             # default
+_c_black='\e[30m'               # black
+_c_red='\e[31m'                 # red
+_c_green='\e[32m'               # green
+_c_yellow='\e[33m'              # yellow
+_c_blue='\e[34m'                # blue
+_c_magenta='\e[35m'             # magenta
+_c_cyan='\e[36m'                # cyan
+_c_white='\e[37m'               # white (light gray)
+
+# `_c_bg_` - background color
+_c_bg_default='\e[49m'          # default
+_c_bg_black='\e[40m'            # black
+_c_bg_red='\e[41m'              # red
+_c_bg_green='\e[42m'            # green
+_c_bg_yellow='\e[43m'           # yellow
+_c_bg_blue='\e[44m'             # blue
+_c_bg_magenta='\e[45m'          # magenta
+_c_bg_cyan='\e[46m'             # cyan
+_c_bg_white='\e[47m'            # white
+
+# `_c_light_` - light foreground color
+_c_light_black='\e[90m'        # black (dark gray)
+_c_light_red='\e[91m'          # red
+_c_light_green='\e[92m'        # green
+_c_light_yellow='\e[93m'       # yellow
+_c_light_blue='\e[94m'         # blue
+_c_light_magenta='\e[95m'      # magenta
+_c_light_cyan='\e[96m'         # cyan
+_c_light_white='\e[97m'        # white
+
+# `_c_bg_light_` - light background color
+_c_bg_light_black='\e[100m'    # black
+_c_bg_light_red='\e[101m'      # red
+_c_bg_light_green='\e[102m'    # green
+_c_bg_light_yellow='\e[103m'   # yellow
+_c_bg_light_blue='\e[104m'     # blue
+_c_bg_light_magenta='\e[105m'  # magenta
+_c_bg_light_cyan='\e[106m'     # cyan
+_c_bg_light_white='\e[107m'    # white
+
+##
+# Modifier + Color
+##
+
+# `_c_bold_` - bold prefix
+_c_bold_black='\e[1;30m'         # black
+_c_bold_red='\e[1;31m'           # red
+_c_bold_green='\e[1;32m'         # green
+_c_bold_yellow='\e[1;33m'        # yellow
+_c_bold_blue='\e[1;34m'          # blue
+_c_bold_magenta='\e[1;35m'       # magenta
+_c_bold_cyan='\e[1;36m'          # cyan
+_c_bold_white='\e[1;37m'         # white
+
+# `_c_u_` - underline prefix
+_c_u_black='\e[4;30m'            # black
+_c_u_red='\e[4;31m'              # red
+_c_u_green='\e[4;32m'            # green
+_c_u_yellow='\e[4;33m'           # yellow
+_c_u_blue='\e[4;34m'             # blue
+_c_u_magenta='\e[4;35m'          # magenta
+_c_u_cyan='\e[4;36m'             # cyan
+_c_u_white='\e[4;37m'            # white
+
+# `_c_bold_light_` - bold+light
+_c_bold_light_black='\e[1;90m'   # black
+_c_bold_light_red='\e[1;91m'     # red
+_c_bold_light_green='\e[1;92m'   # green
+_c_bold_light_yellow='\e[1;93m'  # yellow
+_c_bold_light_blue='\e[1;94m'    # blue
+_c_bold_light_magenta='\e[1;95m' # magenta
+_c_bold_light_cyan='\e[1;96m'    # cyan
+_c_bold_light_white='\e[1;97m'   # white
