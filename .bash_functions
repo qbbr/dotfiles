@@ -1,17 +1,24 @@
 #!/usr/bin/env bash
 
 # sudo apt install xttitle
-update_xtitle() {
+update_xttitle() {
 	if [ "$TERM" == "xterm" ] || [ "$TERM" == "xterm-256color" ]; then
-		command -v xttitle > /dev/null 2>&1 && xttitle "[$$] [${USER}@${HOSTNAME}] $PWD" > /dev/null
+		command -v xttitle > /dev/null 2>&1 && xttitle "$$ [${USER}@${HOSTNAME}] $PWD"
 	fi
 }
 
-update_xtitle
+# hello msg
+echo -e "${_c_bold}PID:${_c_reset}  ${_c_yellow}$$${_c_reset}"
+echo -e "${_c_bold}DATE:${_c_reset} ${_c_cyan}$(date)${_c_reset}"
+echo -e "${_c_bold}HOME:${_c_reset} ${_c_green}${HOME}${_c_reset}"
+echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -a)${_c_reset}"
+echo
+
+update_xttitle
 
 cd() {
 	builtin cd $*
-	update_xtitle
+	update_xttitle
 }
 
 f() {
