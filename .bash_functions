@@ -16,6 +16,7 @@ echo
 
 update_xttitle
 
+# BUG: cd to dirname with "$$"
 cd() {
 	builtin cd $*
 	update_xttitle
