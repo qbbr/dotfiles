@@ -22,12 +22,9 @@ wmname LG3D &
 # set background image
 sh ~/.fehbg &
 
-# start dropbox daemon
-~/.dropbox-dist/dropboxd &
-
 # open terminal
 uxterm &
 
-# start dwm + dzenbar with logging
-~/sft/dzenbar/dzenbar &
-~/sft/dwm/bin/startdwm
+# start dwm + dzenbar
+~/git/dzenbar/dzenbar &
+~/git/dwm/bin/startdwm
