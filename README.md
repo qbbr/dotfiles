@@ -45,8 +45,8 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
 ### Installation
 
 ```bash
-$ sudo apt install bash-completion tree pandoc
-$ sudo ln -sf $PWD/.config/simplenotes /etc/bash_completion.d/
+$ sudo apt install bash-completion tree #pandoc
+$ sudo ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
 ```
 
 ### Usage
