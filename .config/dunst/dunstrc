@@ -1,49 +1,55 @@
 [global]
 	font = "Terminus 8"
-	markup = yes
-	format = "<b>%s %p</b>\n%b"
+	allow_markup = yes
+	format = "<b>%a</b>\n<b>%s %p</b>\n%b"
 	sort = yes
-	#indicate_hidden = true
-	# geometry = "x5"
-	idle_threshold = 0
-	geometry = "300x5-6+25"
+	indicate_hidden = true
 	alignment = center
+	bounce_freq = 0
 	show_age_threshold = 60
-	follow = mouse
 	word_wrap = yes
+	ignore_newline = no
+	geometry = "300x5-2+20"
+	transparency = 20
+	idle_threshold = 120
+	#monitor = 0
+	follow = mouse
+	sticky_history = yes
+	line_height = 0
 	separator_height = 2
-	padding = 10
-	horizontal_padding = 10
+	padding = 5
+	horizontal_padding = 5
 	separator_color = frame
 	startup_notification = true
+	dmenu = /usr/local/bin/dmenu -fn "Terminus:size=12" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
+	browser = /usr/bin/firefox -new-tab
 	icon_position = left
 	max_icon_size = 32
-	frame_width = 3
-	frame_color = "#224488"
-	dmenu = /usr/local/bin/dmenu -fn "Terminus:size=12" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
-	browser = /usr/bin/iceweasel -new-tab
-	sticky_history = yes
 	history_length = 20
 
+[frame]
+	width = 2
+	color = "#B58900"
+
 [shortcuts]
-	#close = ctrl+space
-	#close_all = ctrl+shift+space
+	close = ctrl+space
+	close_all = ctrl+shift+space
 	history = ctrl+grave
 	context = ctrl+shift+period
 
 [urgency_low]
-	background = "#eeeeee"
-	foreground = "#000000"
+	background = "#657b83"
+	foreground = "#eee8d5"
 	timeout = 10
 
 [urgency_normal]
-	background = "#92b2f8"
-	foreground = "#000000"
+	background = "#073642"
+	foreground = "#eee8d5"
 	timeout = 30
 
 [urgency_critical]
-	background = "#f48a8a"
-	foreground = "#000000"
+	background = "#dc322f"
+	foreground = "#eee8d5"
 	timeout = 0
 
 [ttytter]
