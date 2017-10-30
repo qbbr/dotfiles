@@ -13,6 +13,9 @@ xset -b
 #xset +fp ~/.fonts/
 #xset fp rehash
 
+# notification daemon
+dunst &
+
 # enable numlock
 numlockx on &
 
@@ -25,6 +28,6 @@ sh ~/.fehbg &
 # open terminal
 uxterm &
 
-# start dwm + dzenbar
-~/git/dzenbar/dzenbar &
-~/git/dwm/bin/startdwm
+# start dwm + dzenbar with logging (see dwm.log)
+dzenbar &
+startdwm
