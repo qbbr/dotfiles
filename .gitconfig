@@ -6,10 +6,11 @@
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	quotepath = false
 [color]
-	ui = true
+	ui = auto
 	diff = auto
 	status = auto
 	branch = auto
+	interactive = auto
 [alias]
 	co = checkout
 	ci = commit
@@ -24,6 +25,8 @@
 	aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
 [push]
 	default = simple
+[fetch]
+	prune = true
 [merge]
 	tool = phpstorm
 [mergetool "phpstorm"]
