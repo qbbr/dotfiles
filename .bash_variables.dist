@@ -38,6 +38,8 @@ export EDITOR=vim
 #export ANDROID_HOME="$HOME/Android/Sdk"
 #export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 #export PATH="$PATH:$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS"
+# https://wiki.archlinux.org/index.php/java#Better_font_rendering
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
 ##
 # Git
