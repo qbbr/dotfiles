@@ -13,9 +13,9 @@ echo -e "${_c_bold}DATE:${_c_reset} ${_c_cyan}$(date)${_c_reset}"
 echo -e "${_c_bold}HOME:${_c_reset} ${_c_green}${HOME}${_c_reset}"
 echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -norm)${_c_reset}"
 IPs=$(hostname --all-ip-addresses)
-if [ -n "$IPS" ]; then
-	IPs=$(echo -e ${IPS} | sed "s/ /$(echo -e ${_c_reset}), $(echo -e ${_c_light_red})/g") # separator color fix
-	echo -e "${_c_bold}IPs:${_c_reset}  ${_c_light_red}${IPS}${_c_reset}"
+if [ -n "$IPs" ]; then
+	IPs=$(echo -e ${IPs} | sed "s/ /$(echo -e ${_c_reset}), $(echo -e ${_c_light_red})/g") # separator color fix
+	echo -e "${_c_bold}IPs:${_c_reset}  ${_c_light_red}${IPs}${_c_reset}"
 fi
 echo
 
