@@ -4,6 +4,8 @@ MY_HOME_DIR=$HOME
 
 # bash history
 > $MY_HOME_DIR/.bash_history
+# dmenu
+rm -f $MY_HOME_DIR/.cache/dmenu_run
 
 rm -rf $MY_HOME_DIR/.w3m/*
 rm -f $MY_HOME_DIR/.local/share/recently-used.xbel
@@ -27,3 +29,8 @@ rm -rf $MY_HOME_DIR/.thumbnails/
 > $MY_HOME_DIR/.config/gthumb/history.xbel
 # python
 rm -f $MY_HOME_DIR/.python_history
+# sqlite/posgresql history
+rm -f $MY_HOME_DIR/.sqlite_history
+rm -f $MY_HOME_DIR/.psql_history
+# less history
+rm -f $MY_HOME_DIR/.lesshst
