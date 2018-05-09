@@ -4,7 +4,8 @@
 
 IF="Master"
 IF_HP="Headphone"
-SECS="1"
+CARD=0
+SLEEP_SECS="1"
 
 FONT="-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*"
 BG="#B58900"
@@ -54,12 +55,12 @@ case "$1" in
 esac
 
 # check headphone
-if [[ -n "$(amixer get Headphone | grep '\[on\]')" && "$AMIXARG" != "toggle" ]]; then
+if [[ -n "$(amixer -c $CARD get Headphone | grep '\[on\]')" && "$AMIXARG" != "toggle" ]]; then
 	IF="$IF_HP"
 fi
 
 # actual volume changing (readability low)
-AMIXOUT="$(amixer set "$IF" "$AMIXARG" | tail -n 1)"
+AMIXOUT="$(amixer -c $CARD set "$IF" "$AMIXARG" | tail -n 1)"
 MUTE="$(cut -d '[' -f 4 <<<"$AMIXOUT")"
 if [ "$MUTE" = "off]" ]; then
 	VOL="0"
@@ -76,4 +77,4 @@ if [ ! -e "$PIPE" ]; then
 fi
 
 # feed the pipe!
-(echo "Volume ($IF)" ; echo "$VOL" | dbar ; sleep "$SECS") > "$PIPE"
+(echo "Volume ($IF)" ; echo "$VOL" | dbar ; sleep "$SLEEP_SECS") > "$PIPE"
