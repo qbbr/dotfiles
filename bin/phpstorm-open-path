@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# grep file path
+# {path/to/file}:{line_number}:
+
+REGEX="^(.*):(.*):$"
+
+if [[ $1 =~ $REGEX ]]; then
+    phpstorm --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
+fi

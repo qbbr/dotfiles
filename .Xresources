@@ -35,7 +35,7 @@ xterm*on5Clicks:                       none
 xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
 xterm*translations:                    #override \
                                        Shift <Btn1Up>: exec-formatted("x-www-browser '%t'", PRIMARY)\n\
-                                       Shift <Btn2Up>: exec-formatted("phpstorm '%t'", PRIMARY)\n\
+                                       Shift <Btn2Up>: exec-formatted("phpstorm-open-path '%t'", PRIMARY)\n\
                                        Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
                                        Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
                                        Shift <Key>Home: scroll-back(5000)\n\
