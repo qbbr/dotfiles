@@ -15,7 +15,7 @@ xftfont terminus:size=8
 own_window_transparent no
 own_window_colour white
 # Text alpha when using Xft
-xftalpha 0.8
+#xftalpha 0.8
 
 # Update interval in seconds
 update_interval 1
@@ -55,8 +55,8 @@ default_outline_color white
 # Text alignment, other possible values are commented
 #alignment top_left
 #minimum_size 10 10
-gap_x 20
-gap_y 40
+gap_x 120
+gap_y 70
 #alignment top_right
 alignment top_left
 #alignment bottom_right
@@ -172,16 +172,16 @@ uppercase no
 #  seti_credit                       Seti@hoome total user credit
 
 TEXT
-${color #EEE8D5}Uptime:${color #B58900} $uptime_short${color}${alignr}Load:${color grey} $loadavg
-${color #EEE8D5}Processes:${color #B58900} $processes ${alignr}${color grey}Running:$color $running_processes
+${color #EEE8D5}Uptime:${color #268BD2} $uptime_short${color}${alignr}Load:${color grey} $loadavg
+${color #EEE8D5}Processes:${color #268BD2} $processes ${alignr}${color grey}Running:$color $running_processes
 
 ${color}Name                 PID   CPU%   MEM%
-${color #B58900}  ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color #268BD2}  ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color grey}  ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
 ${color grey}  ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
 ${color grey}  ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
 ${color grey}  ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
 ${color}Mem usage
-${color #B58900}  ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color #268BD2}  ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
 ${color grey}  ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${color grey}  ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
