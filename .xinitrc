@@ -28,6 +28,7 @@ sh ~/.fehbg &
 # open terminal
 uxterm &
 
-# start dwm + dzenbar with logging (see dwm.log)
+# start dwm + conky + dzenbar with logging (see dwm.log)
 dzenbar &
+startconky &
 startdwm
