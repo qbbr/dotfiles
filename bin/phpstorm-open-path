@@ -6,7 +6,7 @@
 REGEX="^(.*):(.*):$"
 
 if [[ "$1" =~ $REGEX ]]; then
-    phpstorm --line echo "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
+    phpstorm --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
 else
     phpstorm $1 &
 fi
