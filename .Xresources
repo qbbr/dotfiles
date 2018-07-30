@@ -9,7 +9,13 @@
 ! =========================================================
 xterm*termName:                        xterm-256color
 xterm*geometry:                        80x25
-xterm*faceName:                        terminus:size=12
+xterm*faceName:                        xft:Terminess Powerline:size=12
+!xft.autohint:                          0
+!xft.lcdfilter:                         lcddefault
+!xft.hintstyle:                         hintslight
+!xft.hinting:                           1
+!xft.antialias:                         0
+!xft.rgba:                              rgb
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            2

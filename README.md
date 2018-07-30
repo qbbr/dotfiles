@@ -38,6 +38,8 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
 
 ### Requirements
 
+ * [powerline](https://github.com/powerline/powerline)
+ * [powerline-fonts](https://github.com/powerline/fonts)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
