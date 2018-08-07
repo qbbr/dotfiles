@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# "Законы Мёрфи" from https://slovar.cc/
+#
+# use: ./slovar-merfi      - get article by random
+# use: ./slovar-merfi <id> - get article by id
+# depends: curl, xmllint, shuf, .bash_colors
+# autor: @qbbr
+
+. ~/.bash_colors
+
+_min_id=2505388
+_max_id=2505606
+id=${1:-$(shuf -i${_min_id}-${_max_id} -n1)}
+body=$(curl -s https://slovar.cc/ses/merfi/${id}.html)
+text=$(echo ${body} | xmllint --html --xpath '//dd[@itemprop="articleBody"]/p/text()' - 2> /dev/null)
+title=$(echo ${body} | xmllint --html --xpath '//dt[@class="word-title"]/text()' - 2> /dev/null)
+
+echo -e ${_c_yellow}${title}: ${_c_white}${text}
