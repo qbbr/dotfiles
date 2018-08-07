@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# use: ./yesno-wtf                - for default by random ({"answer": "maybe"} every 10.000 time.)
+# use: ./yesno-wtf <yes|no|maybe> - for force answer
+# depends: curl, jq, mpv
+# autor: @qbbr
+
+url="https://yesno.wtf/api"
+force_param=${1}
+
+_tmp_json_file="/tmp/yesno-wtf.json"
+_tmp_gif_file="/tmp/yesno-wtf.gif"
+
+# cleanup
+rm ${_tmp_json_file}
+rm ${_tmp_gif_file}
+
+if [[ -n "$force_param" ]]; then
+	url="${url}?force=${force_param}"
+fi
+
+curl -s "${url}" > ${_tmp_json_file}
+
+answer=$(cat ${_tmp_json_file} | jq -r ".answer")
+gif=$(cat ${_tmp_json_file} | jq -r ".image")
+
+curl -s "${gif}" > ${_tmp_gif_file}
+
+echo "Answer: ${answer}"
+echo "Playing: ${gif}"
+echo ""
+
+mpv -loop --fs ${_tmp_gif_file} > /dev/null
