@@ -31,24 +31,27 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * `start/stop/restart/status <daemon_name>` - for managing daemons `/etc/init.d/<daemon_name>`
  * `extract <archive_path>` - for extract any archive
  * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
- * `update_xtitle` - update X title after cd ([xttitle](https://packages.debian.org/stretch/xttitle) required)
- * `f` - fork terminal (+bash session)
+ * `update_xtitle` - update X title after cd
+ * `f` - fork terminal with session
+ * `apt-history` - install/upgrade/remove/rollback
+ * `tailf-monolog` for [monolog](https://github.com/Seldaek/monolog)
 
-## Simple notes
+## Requirements
 
-### Requirements
-
- * [powerline](https://github.com/powerline/powerline)
- * [powerline-fonts](https://github.com/powerline/fonts)
+ * [powerline (optional)](https://github.com/powerline/powerline)
+ * [powerline-fonts (optional)](https://github.com/powerline/fonts)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
+ * [xttitle](https://packages.debian.org/stretch/xttitle()
+
+## Simple notes
 
 ### Installation
 
 ```bash
-$ sudo apt install bash-completion tree #pandoc
-$ sudo ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
+apt install bash-completion tree #pandoc
+ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
 ```
 
 ### Usage
