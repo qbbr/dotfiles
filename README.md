@@ -24,7 +24,7 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * `Ctrl + Shift + v` - paste from CLIPBOARD
  * `Shift + Home` - scroll to top
  * `Shift + End` - scroll to bottom
- * `Ctrl + slash` - bash history
+ * `Ctrl + /` - bash history
 
 ## Bash functions
 
@@ -34,7 +34,7 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * `update_xtitle` - update X title after cd
  * `f` - fork terminal with session
  * `apt-history` - install/upgrade/remove/rollback
- * `tailf-monolog` for [monolog](https://github.com/Seldaek/monolog)
+ * `tailf-monolog` - tail -f for [monolog](https://github.com/Seldaek/monolog)
 
 ## Requirements
 
