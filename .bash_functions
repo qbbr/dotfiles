@@ -104,3 +104,40 @@ nprint() {
 		echo "[E] filename is not determined!"
 	fi
 }
+
+function apt-history() {
+	case "$1" in
+	  install)
+			cat /var/log/dpkg.log | grep 'install '
+			;;
+	  upgrade|remove)
+			cat /var/log/dpkg.log | grep $1
+			;;
+	  rollback)
+			cat /var/log/dpkg.log | grep upgrade | \
+				grep "$2" -A10000000 | \
+				grep "$3" -B10000000 | \
+				awk '{print $4"="$5}'
+			;;
+	  *)
+			cat /var/log/dpkg.log
+			;;
+	esac
+}
+
+tailf-monolog() {
+	if [ -z "$1" ] ; then
+		echo "Please specify a monolog file for monitoring"
+		return
+	fi
+
+	tail -f $1 | awk '
+		{matched=0}
+		/INFO:/    {matched=1; print "\033[0;37m" $0 "\033[0m"} # WHITE
+		/NOTICE:/  {matched=1; print "\033[0;36m" $0 "\033[0m"} # CYAN
+		/WARNING:/ {matched=1; print "\033[0;34m" $0 "\033[0m"} # BLUE
+		/ERROR:/   {matched=1; print "\033[0;31m" $0 "\033[0m"} # RED
+		/ALERT:/   {matched=1; print "\033[0;35m" $0 "\033[0m"} # PURPLE
+		matched==0			  {print "\033[0;33m" $0 "\033[0m"} # YELLOW
+	'
+}
