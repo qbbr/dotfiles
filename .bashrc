@@ -50,6 +50,24 @@ else
 		POWERLINE_BASH_CONTINUATION=1
 		POWERLINE_BASH_SELECT=1
 		. /usr/local/lib/python3.5/dist-packages/powerline/bindings/bash/powerline.sh
+	else
+		GIT_PS1_SHOWDIRTYSTATE=true
+		GIT_PS1_SHOWUNTRACKEDFILES=true
+
+		__get_ps1_user () {
+			local user_color
+
+			if [ "$USER" == "root" ]; then
+				user_color="\e[31m"
+			else
+				user_color="\e[36m"
+			fi
+
+			echo -e "$user_color$USER\e[0m"
+		}
+
+		PS1='┌─[$(__get_ps1_user)\[\e[32m\]@\[\e[0m\]\[\e[33m\]\H\[\e[0m\]]\[\e[34m\](\t)\[\e[0m\][\[\e[33m\]\w\[\e[0m\]]$(declare -F __git_ps1 &>/dev/null && __git_ps1 " \[\e[35m\]{%s}\[\e[0m\]")\n└─~ '
+		unset user_color __get_ps1_user
 	fi
 
 	# colour coreutils
