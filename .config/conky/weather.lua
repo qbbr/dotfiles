@@ -22,7 +22,7 @@ wind_units = (cf == 'metric' and 'kph' or 'mph')
 
 -- Unicode weather symbols to use
 icons = {
-  ["01"] = "☀️",
+  ["01"] = "☀",
   ["02"] = "🌤",
   ["03"] = "🌥",
   ["04"] = "☁",
@@ -91,7 +91,7 @@ end
 
 temp = response.main.temp
 conditions = response.weather[1].description
-icon2 = response.weather[1].id
+--icon2 = response.weather[1].id
 icon = response.weather[1].icon:sub(1, 2)
 humidity = response.main.humidity
 wind = response.wind.speed
@@ -100,13 +100,13 @@ sunrise = os.date("%H:%M %p", response.sys.sunrise)
 sunset = os.date("%H:%M %p", response.sys.sunset)
 
 conky_text = [[
-${color2}${font Symbola:size=48}%s ${voffset -10}${font :size=20}${color1}%s${font}${voffset -5}%s${color2}
+${color2}  ${font Symbola:size=48}%s ${voffset -10}${font :size=20}${color1}%s${font}${voffset -5}%s${color2}
 ${alignc}${voffset 28} %s
 
 ${alignc}Humidity: ${color1}%s%%${color2}
 ${alignc}Wind: ${color1}%s%s %s${color2}
 
-${alignc}${font Symbola:size=20}─⏲─${font}
+${alignc}${font Symbola:size=20}─⯊─${font}
 ${alignc}${color1}%s${color2} | ${color1}%s${color2}
 ]]
 io.write((conky_text):format(icons[icon],
