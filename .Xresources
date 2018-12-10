@@ -53,55 +53,56 @@ xterm*shading:                         40
 
 ! colors
 ! =========================================================
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
+! @see https://github.com/solarized/xresources/blob/master/Xresources.dark
+#define S_base03         #002b36
+#define S_base02         #073642
+#define S_base01         #586e75
+#define S_base00         #657b83
+#define S_base0          #839496
+#define S_base1          #93a1a1
+#define S_base2          #eee8d5
+#define S_base3          #fdf6e3
 
-*background:            S_base03
-*foreground:            S_base0
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+*background:             S_base03
+*foreground:             S_base0
+*fadeColor:              S_base03
+*cursorColor:            S_base1
+*pointerColorBackground: S_base01
+*pointerColorForeground: S_base1
 
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+#define S_yellow         #b58900
+#define S_orange         #cb4b16
+#define S_red            #dc322f
+#define S_magenta        #d33682
+#define S_violet         #6c71c4
+#define S_blue           #268bd2
+#define S_cyan           #2aa198
+#define S_green          #859900
 
 !! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+*color0:                 S_base02
+*color8:                 S_base03
 !! red dark/light
-*color1:                S_red
-*color9:                S_orange
+*color1:                 S_red
+*color9:                 S_orange
 !! green dark/light
-*color2:                S_green
-*color10:               S_green
+*color2:                 S_green
+*color10:                S_green
 !! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
+*color3:                 S_yellow
+*color11:                S_base00
 !! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
+*color4:                 S_blue
+*color12:                S_base0
 !! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
+*color5:                 S_magenta
+*color13:                S_violet
 !! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
+*color6:                 S_cyan
+*color14:                S_base1
 !! white dark/light
-*color7:                S_base2
-*color15:               S_base3
+*color7:                 S_base2
+*color15:                S_base3
 
 ! xpdf
 ! =========================================================
@@ -117,15 +118,15 @@ xpdf*textEncoding:                     utf-8
 ! xcalc
 ! =========================================================
 xcalc*geometry:                        200x275
-xcalc.ti.bevel.background:             #729FCF
+xcalc.ti.bevel.background:             S_base03
 xcalc.ti.bevel.screen.DEG.foreground:  white
 xcalc.ti.bevel.screen.GRAD.foreground: white
 xcalc.ti.bevel.screen.RAD.foreground:  white
-xcalc.ti.bevel.screen.INV.foreground:  Red
+xcalc.ti.bevel.screen.INV.foreground:  S_red
 xcalc.ti.bevel.screen.LCD.foreground:  white
 xcalc.ti.bevel.screen.LCD.shadowWidth: 0
 xcalc.ti.bevel.screen.M.foreground:    white
-xcalc.ti.bevel.screen.P.foreground:    Yellow
+xcalc.ti.bevel.screen.P.foreground:    S_yellow
 xcalc.ti.Command.foreground:           White
 xcalc.ti.Command.background:           #888888
 xcalc.ti.button5.background:           #bf4646
@@ -136,24 +137,24 @@ xcalc.ti.button20.label:               /
 xcalc.ti.button25.background:          #555555
 xcalc.ti.button30.background:          #555555
 xcalc.ti.button35.background:          #555555
-xcalc.ti.button40.background:          #67b25f
-xcalc.ti.button22.background:          #516083
-xcalc.ti.button23.background:          #516083
-xcalc.ti.button24.background:          #516083
-xcalc.ti.button27.background:          #516083
-xcalc.ti.button28.background:          #516083
-xcalc.ti.button29.background:          #516083
-xcalc.ti.button32.background:          #516083
-xcalc.ti.button33.background:          #516083
-xcalc.ti.button34.background:          #516083
-xcalc.ti.button37.background:          #516083
-xcalc.ti.button38.background:          #516083
-xcalc.ti.button39.background:          #516083
+xcalc.ti.button40.background:          S_green
+xcalc.ti.button22.background:          S_violet
+xcalc.ti.button23.background:          S_violet
+xcalc.ti.button24.background:          S_violet
+xcalc.ti.button27.background:          S_violet
+xcalc.ti.button28.background:          S_violet
+xcalc.ti.button29.background:          S_violet
+xcalc.ti.button32.background:          S_violet
+xcalc.ti.button33.background:          S_violet
+xcalc.ti.button34.background:          S_violet
+xcalc.ti.button37.background:          S_violet
+xcalc.ti.button38.background:          S_violet
+xcalc.ti.button39.background:          S_violet
 
 ! xmessage
 ! =========================================================
-xmessage*message.background:           #101010
-xmessage.form.okay.background:         #224488
-xmessage.form.okay.foreground:         #FFFFFF
+!xmessage*message.background:           #101010
+xmessage.form.okay.background:         S_base03
+xmessage.form.okay.foreground:         S_base2
 xmessage.defaultButton:                okay
 xmessage.form.message.Scroll:          WhenNeeded
