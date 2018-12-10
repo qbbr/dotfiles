@@ -4,7 +4,7 @@
 
 IF="Master"
 IF_HP="Headphone"
-CARD=0
+CARD=1
 SLEEP_SECS="1"
 
 FONT="-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*"

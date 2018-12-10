@@ -43,7 +43,7 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
- * [xttitle](https://packages.debian.org/stretch/xttitle()
+ * [xttitle](https://packages.debian.org/stretch/xttitle)
 
 ## Simple notes
 
