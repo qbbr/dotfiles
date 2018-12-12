@@ -3,3 +3,4 @@
 conky -c ~/.config/conky/conky.conf &
 conky -c ~/.config/conky/conky2.conf &
 conky -c ~/.config/conky/conky_cal_weather.conf &
+conky -c ~/.config/conky/conky_currency.conf &
