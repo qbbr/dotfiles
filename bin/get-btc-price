@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+URL="https://api.coindesk.com/v1/bpi/currentprice.json"
+
+OUTPUT=`curl -s ${URL}`
+
+if [[ $OUTPUT =~ \"rate\":\"([0-9.,]+)\" ]]; then
+   echo ${BASH_REMATCH[1]}
+fi
