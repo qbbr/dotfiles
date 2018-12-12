@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+URL="https://api.exchangeratesapi.io/latest?base="
+BASE=$1
+NEED="RUB"
+
+OUTPUT=`curl -s ${URL}${BASE}`
+
+if [[ $OUTPUT =~ \"RUB\":([0-9.]+) ]]; then
+   echo "scale=2;${BASH_REMATCH[1]}/1" | bc -l
+fi
