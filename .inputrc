@@ -9,6 +9,9 @@ set completion-ignore-case on
 # options when hitting TAB
 set menu-complete-display-prefix on
 
+# a character denoting a file’s type is appended to the filename when listing possible completions
+set visible-stats on
+
 ###########################################################
 # Keymaps for when we're in command mode (e.g., after hitting ESC)
 set keymap vi-command
