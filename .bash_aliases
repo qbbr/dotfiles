@@ -45,3 +45,5 @@ export LESS=" -R "
 alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
 alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
+
+alias web-server-dir="xdg-open http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
