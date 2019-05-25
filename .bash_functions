@@ -12,6 +12,8 @@ if [[ -n "$IPs" ]]; then
 	echo -e "${_c_bold}IPs:${_c_reset}  ${_c_light_red}${IPs}${_c_reset}"
 fi
 
+unset IPs
+
 echo
 
 # apt install xttitle
