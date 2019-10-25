@@ -11,8 +11,8 @@ export EDITOR=vim
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/.notes/"      # default "$HOME/.notes/"
-#NOTES_PRINT_CMD="pandoc -t plain" # default "cat"
+#NOTES_DIR="/path/to/.notes/" # default "$HOME/.notes/"
+#NOTES_PRINT_CMD="mdv"        # default "cat"
 
 ##
 # Midnight Commander
@@ -34,6 +34,11 @@ export EDITOR=vim
 #export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 ##
+# Sencha Cmd
+##
+#export PATH="${HOME}/bin/Sencha/Cmd:$PATH"
+
+##
 # RVM
 ##
 #export PATH="$PATH:$HOME/.rvm/bin"
@@ -49,6 +54,7 @@ export EDITOR=vim
 #export PATH="$PATH:$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS"
 # https://wiki.archlinux.org/index.php/java#Better_font_rendering
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+#export _JAVA_OPTIONS="-Xms1024m -Xmx1024m"
 
 ##
 # Git
@@ -59,3 +65,8 @@ export EDITOR=vim
 # GCC
 ##
 #export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
+
+##
+# MDV (https://github.com/axiros/terminal_markdown_viewer)
+##
+export MDV_THEME=819.1289

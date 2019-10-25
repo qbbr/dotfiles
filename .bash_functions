@@ -84,7 +84,7 @@ extract() {
 }
 
 # simple notes
-# sudo apt install tree pandoc
+# depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
 n() {

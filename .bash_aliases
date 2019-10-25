@@ -50,3 +50,5 @@ alias web-server-dir="xdg-open http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
 
 alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
 alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
+alias start-docker='sudo systemctl start docker.socket; sudo systemctl start docker.service'
+alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docker.socket'
