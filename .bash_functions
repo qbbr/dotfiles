@@ -193,3 +193,8 @@ function dataurl() {
 function decode-url() {
 	echo $1 | python3 -c "import sys, urllib.parse as p; print(''); print(p.unquote(sys.stdin.read()));"
 }
+
+function decode-base64 {
+	#echo $1 | python3 -c "import sys, base64; print(base64.b64decode(sys.stdin.read()));";
+	echo $1 | base64 -d $1
+}
