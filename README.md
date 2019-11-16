@@ -59,4 +59,4 @@ ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
  * `n <note_name>` - edit `<note_name>.markdown`
  * `nls` - ls notes dir
  * `nrm <note_name>` - rm `<note_name>.markdown`
- * `nprint <note_name`  cat `<note_name>.markdown`
+ * `nprint <note_name>` - print `<note_name>.markdown`
