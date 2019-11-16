@@ -11,8 +11,15 @@ export EDITOR=vim
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/.notes/" # default "$HOME/.notes/"
-#NOTES_PRINT_CMD="mdv"        # default "cat"
+#NOTES_DIR="/path/to/.notes/"      # default "$HOME/.notes/"
+#NOTES_PRINT_CMD="pandoc -t plain" # default "cat"
+# https://github.com/axiros/terminal_markdown_viewer
+#NOTES_PRINT_CMD="mdv"             # pip install mdv
+
+##
+# MDV (https://github.com/axiros/terminal_markdown_viewer)
+##
+#export MDV_THEME=819.1289
 
 ##
 # Midnight Commander
@@ -65,8 +72,3 @@ export EDITOR=vim
 # GCC
 ##
 #export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
-
-##
-# MDV (https://github.com/axiros/terminal_markdown_viewer)
-##
-export MDV_THEME=819.1289
