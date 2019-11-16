@@ -36,6 +36,7 @@ alias df="df -Th"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 
 alias python="python3"
+alias pip="pip3"
 
 # apt install source-highlight
 #export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
