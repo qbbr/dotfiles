@@ -44,6 +44,7 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * [tree](https://packages.debian.org/jessie/tree)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
  * [xttitle](https://packages.debian.org/stretch/xttitle)
+ * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
 
 ## Simple notes
 
