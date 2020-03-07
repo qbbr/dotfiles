@@ -56,4 +56,6 @@ alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volu
 alias start-docker='sudo systemctl start docker.socket; sudo systemctl start docker.service'
 alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docker.socket'
 
-alias mpv-youtube="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
+alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
+alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
