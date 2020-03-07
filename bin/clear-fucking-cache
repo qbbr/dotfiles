@@ -34,3 +34,9 @@ rm -f $MY_HOME_DIR/.sqlite_history
 rm -f $MY_HOME_DIR/.psql_history
 # less history
 rm -f $MY_HOME_DIR/.lesshst
+# transmission
+rm -f $MY_HOME_DIR/.cache/transmission/favicons/*
+# front-end cache
+composer clearcache
+yarn cache clean
+npm cache clean --force
