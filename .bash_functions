@@ -198,3 +198,17 @@ function decode-base64 {
 	#echo $1 | python3 -c "import sys, base64; print(base64.b64decode(sys.stdin.read()));";
 	echo $1 | base64 -d $1
 }
+
+function youtube-dl-sst() {
+	# depends: youtube-dl, ffmpeg
+	# args:
+	# * 1 - url
+	# * 2 - start time [hh:mm:ss]
+	# * 3 - duration (not end time!) [hh:mm:ss]
+	# * 4 - format (default: best. mb buggy, then use manual youtube-dl -F <url>)
+	local format=${4:-best}
+	local url=$(youtube-dl --get-url --format $format "$1")
+	local filename=$(youtube-dl --get-filename --format $format "$1")
+	echo $format
+	ffmpeg -ss $2 -i "$url" -t $3 -c copy "$filename" && echo "[Done]. File: $PWD/$filename"
+}
