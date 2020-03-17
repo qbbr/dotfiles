@@ -49,7 +49,13 @@ alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
 alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 
-alias web-server-dir="xdg-open http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
+alias web-server-dir-php="xdg-open http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
+alias web-server-dir-python="xdg-open http://127.0.0.1:8666/; python -m http.server 8666"
+alias web-server-dir-python2="xdg-open http://127.0.0.1:8666/; python2 -m SimpleHTTPServer 8666"
+#alias web-server-dir-ruby="xdg-open http://127.0.0.1:8666/; ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
+alias web-server-dir-ruby="xdg-open http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
+alias web-server-dir-busybox="xdg-open http://127.0.0.1:8666/; busybox httpd -f -p 8666"
+alias web-server-dir="web-server-dir-php" # default web-server
 
 alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
 alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
