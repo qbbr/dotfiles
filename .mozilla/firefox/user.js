@@ -87,3 +87,5 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.predictor.enabled", false);
 user_pref("browser.casting.enabled", false);
+
+user_pref("general.smoothScroll", false);
