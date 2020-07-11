@@ -1,5 +1,5 @@
 [global]
-	font = "Terminus 8"
+	font = "Terminus 10"
 	allow_markup = yes
 	format = "<b>%a</b>\n<b>%s %p</b>\n%b"
 	sort = yes
@@ -26,10 +26,8 @@
 	icon_position = left
 	max_icon_size = 32
 	history_length = 20
-
-[frame]
-	width = 2
-	color = "#B58900"
+	frame_width = 2
+	frame_color = "#268bd2"
 
 [shortcuts]
 	close = ctrl+space
@@ -38,8 +36,8 @@
 	context = ctrl+shift+period
 
 [urgency_low]
-	background = "#657b83"
-	foreground = "#eee8d5"
+	background = "#586e75"
+	foreground = "#93a1a1"
 	timeout = 10
 
 [urgency_normal]
@@ -49,7 +47,7 @@
 
 [urgency_critical]
 	background = "#dc322f"
-	foreground = "#eee8d5"
+	foreground = "#fdf6e3"
 	timeout = 0
 
 [ttytter]
