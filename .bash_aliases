@@ -11,6 +11,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias e="editor"
+
 alias putclip="xclip"
 alias getclip="xclip -o"
 
