@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+GW="$(greatwords)"
+
+if [[ ! -z "${GW}" ]]; then
+	notify-send -t 60000 -a "<(^_^)>" " greatwords" "\n${GW}" &
+fi

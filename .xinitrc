@@ -28,6 +28,9 @@ sh ~/.fehbg &
 # open terminal
 uxterm &
 
+# hello msg
+greatwords-notify-send &
+
 # start dwm + conky + dzenbar with logging (see dwm.log)
 dzenbar &
 startconky &
