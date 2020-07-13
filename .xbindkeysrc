@@ -1,0 +1,14 @@
+"backlight-brightness-control acpi_video0 +"
+	XF86MonBrightnessUp
+
+"backlight-brightness-control acpi_video0 -"
+	XF86MonBrightnessDown
+
+"volumechanger -i 5"
+	XF86AudioRaiseVolume
+
+"volumechanger -d 5"
+	XF86AudioLowerVolume
+
+"volumechanger -t"
+	XF86AudioMute
