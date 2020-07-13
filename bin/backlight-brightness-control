@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+# ./backlight-brightness-control
+#
+# usage:
+#   ./script <interface> <cmd> <?value>
+#
+# example:
+#   ./script acpi_video0 get
+#   ./script acpi_video0 set 5
+#   ./script acpi_video0 +
+#   ./script acpi_video0 -
+#
+# author: @qbbr
+
+INTERFACE=${1}
+SYSFS_PATH="/sys/class/backlight/${INTERFACE}"
+
+if [[ ! -d "${SYSFS_PATH}" ]]; then
+	echo "Interface ${INTERFACE} not found."
+	exit 1
+fi
+
+shift
+
+getValue() {
+	cat "${SYSFS_PATH}/brightness"
+}
+
+setValue() {
+	NEW_VALUE=${1}
+	MIN_VALUE=0
+	MAX_VALUE=$(cat "${SYSFS_PATH}/max_brightness")
+
+	if [[ -z "${NEW_VALUE}" ]]; then
+		echo "Set value is empty"
+		exit 1
+	fi
+
+	if [[ "${NEW_VALUE}" -lt "${MIN_VALUE}"  ]] || [[ "${NEW_VALUE}" -gt "${MAX_VALUE}" ]]; then
+		echo "Set value is not valid (min: ${MIN_VALUE}, max: ${MAX_VALUE})"
+		exit 1
+	else
+		echo "Set value ${NEW_VALUE}"
+		echo "${NEW_VALUE}" > "${SYSFS_PATH}/brightness"
+		exit 0
+	fi
+}
+
+if [[ "${1}" = "get" ]]; then
+	echo "Brightness: $(getValue)"
+	exit 0
+elif [[ "${1}" = "set" ]]; then
+	shift
+	setValue ${1}
+elif [[ "${1}" = "+" ]]; then
+	VALUE=$(getValue)
+	setValue $((++VALUE))
+elif [[ "${1}" = "-" ]]; then
+	VALUE=$(getValue)
+	setValue $((--VALUE))
+else
+	echo "Nothing to do"
+	exit 1
+fi
