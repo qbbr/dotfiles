@@ -6,8 +6,8 @@ CARD="1"
 SCONTROL="Master"
 SCONTROL_HEADPHONE="Headphone"
 DZEN_FONT="terminus-12"
-DZEN_BG="#B58900"
-DZEN_FG="#FDF6E3"
+DZEN_BG="#073642"
+DZEN_FG="#EEE8D5"
 DZEN_WIDTH=272
 PIPE_FILE="/tmp/volumecontrolpipe"
 # calculate center
