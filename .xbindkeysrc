@@ -1,3 +1,5 @@
+# vim:ft=conf
+
 "backlight-brightness-control acpi_video0 +"
 	XF86MonBrightnessUp
 
@@ -12,3 +14,6 @@
 
 "volume-control -t"
 	XF86AudioMute
+
+#"amixer set Headphone toggle && amixer set Front toggle"
+#	Control + KP_Add

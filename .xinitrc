@@ -25,6 +25,9 @@ wmname LG3D &
 # set background image
 sh ~/.fehbg &
 
+# grabbing keys
+xbindkeys &
+
 # open terminal
 uxterm &
 
