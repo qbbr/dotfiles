@@ -199,6 +199,11 @@ function decode-base64 {
 	echo $1 | base64 -d $1
 }
 
+function decode-imap-folder-name {
+	# for i in *; do echo -n "$i == "; decode-imap-folder-name $i; done
+	echo $1 | tr '&' '+' | tr ',' '/' | iconv -f UTF-7 -t UTF-8
+}
+
 function youtube-dl-sst() {
 	# depends: youtube-dl, ffmpeg
 	# args:
