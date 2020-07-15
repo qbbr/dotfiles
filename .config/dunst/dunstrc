@@ -20,7 +20,7 @@
 	padding = 5
 	horizontal_padding = 5
 	separator_color = frame
-	startup_notification = true
+	startup_notification = false
 	dmenu = /usr/local/bin/dmenu -fn "Terminus:size=12" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
 	browser = /usr/bin/firefox -new-tab
 	icon_position = left
