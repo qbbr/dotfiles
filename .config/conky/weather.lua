@@ -16,6 +16,9 @@ cf = "metric"
 -- get an open weather map api key: http://openweathermap.org/appid
 apikey = "542ffd081e67f4512b705f89d2a611b2"
 
+-- path to cache file
+cachefile = "/tmp/weather.json"
+
 -- measure is °C if metric and °F if imperial
 measure = '°' .. (cf == 'metric' and 'C' or 'F')
 wind_units = (cf == 'metric' and 'kph' or 'mph')
@@ -33,7 +36,7 @@ icons = {
   ["50"] = "🌫",
 }
 
-currenttime = os.date("!%Y%m%d%H%M%S")
+currenttime = os.time()
 
 file_exists = function (name)
     f=io.open(name,"r")
@@ -45,17 +48,18 @@ file_exists = function (name)
     end
 end
 
-if file_exists("weather.json") then
-    cache = io.open("weather.json","r")
+if file_exists(cachefile) then
+    cache = io.open(cachefile, "r")
     data = json.decode(cache:read())
     cache:close()
+
     timepassed = os.difftime(currenttime, data.timestamp)
 else
     timepassed = 6000
 end
 
 makecache = function (s)
-    cache = io.open("weather.json", "w+")
+    cache = io.open(cachefile, "w+")
     s.timestamp = currenttime
     save = json.encode(s)
     cache:write(save)
