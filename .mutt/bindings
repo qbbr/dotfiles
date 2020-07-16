@@ -1,0 +1,38 @@
+# vim:ft=muttrc
+
+bind  pager   $        imap-fetch-mail
+bind  pager   <up>     previous-line
+bind  pager   <down>   next-line
+bind  pager   k        previous-line
+bind  pager   j        next-line
+bind  pager   K        previous-undeleted
+bind  pager   J        next-undeleted
+bind  pager   g        noop
+bind  pager   gg       top
+bind  pager   G        bottom
+bind  pager   /        search
+
+bind  index   g        noop
+bind  index   gg       first-entry
+bind  index   G        last-entry
+bind  index   W        clear-flag
+bind  index   w        set-flag
+bind  index   K        previous-unread
+bind  index   J        next-unread
+bind  index   N        search-opposite
+
+bind  editor       <Tab>  complete-query
+bind  editor       ^T     complete
+
+bind  index,pager  \#     noop
+bind  index,pager  \&     noop
+bind  browser      V      view-file
+
+# sidebar
+bind  index        \CP    sidebar-prev
+bind  index        \CN    sidebar-next
+bind  index        \CO    sidebar-open
+bind  pager        \CP    sidebar-prev
+bind  pager        \CN    sidebar-next
+bind  pager        \CO    sidebar-open
+bind  index,pager  B      sidebar-toggle-visible

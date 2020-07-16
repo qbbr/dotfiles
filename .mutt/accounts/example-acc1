@@ -1,0 +1,19 @@
+# vim:ft=muttrc
+
+set from      = "example-acc1@example.com"
+set realname  = "example-acc1 fullname"
+set sendmail  = "/usr/bin/msmtp -a example-acc1"
+set spoolfile = "+example-acc1/INBOX"
+set postponed = "+example-acc1/Drafts"
+set record    = "+example-acc1/Sent"
+set trash     = "+example-acc1/Trash"
+
+color status brightblue black
+
+macro index D \
+    "<save-message>+example-acc1/Trash<enter>" \
+    "move message to the trash"
+
+macro index S \
+    "<save-message>+example-acc1/Spam<enter>"  \
+    "mark message as spam"

@@ -43,6 +43,7 @@ alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__$wx$h.png' -e 'mv $f /media/strg1/screenshots/'"
 
 alias mutt="neomutt"
+alias lynx="lynx -accept_all_cookies"
 
 alias python="python3"
 alias pip="pip3"
