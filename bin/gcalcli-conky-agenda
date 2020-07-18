@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gcalcli --conky --lineart=ascii agenda --color-date=white --color-owner=blue | gcalcli-conky-color-fixer

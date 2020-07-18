@@ -22,8 +22,9 @@ numlockx on &
 # fix java bug
 wmname LG3D &
 
-# set background image
-sh ~/.fehbg &
+# set background
+#sh ~/.fehbg &
+xsetroot -solid '#0D3642'
 
 # grabbing keys
 xbindkeys &

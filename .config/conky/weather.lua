@@ -1,5 +1,7 @@
 #!/usr/bin/env lua
 
+-- deps: fonts-symbola
+
 -- load the http socket module
 http = require("socket.http")
 -- load the json module
@@ -104,14 +106,14 @@ sunrise = os.date("%H:%M %p", response.sys.sunrise)
 sunset = os.date("%H:%M %p", response.sys.sunset)
 
 conky_text = [[
-${color2}  ${font Symbola:size=48}%s ${voffset -10}${font :size=20}${color1}%s${font}${voffset -5}%s${color2}
-${alignc}${voffset 28} %s
+ ${color4}${font Symbola:size=48} %s ${voffset -10}${font :size=20}${color}%s${font}${voffset -5}%s${color7}
+${alignc}${voffset 32} %s
 
-${alignc}Humidity: ${color1}%s%%${color2}
-${alignc}Wind: ${color1}%s%s %s${color2}
+${alignc}Humidity: ${color}%s%%${color7}
+${alignc}Wind: ${color}%s%s %s${color9}
 
 ${alignc}${font Symbola:size=20}─⯊─${font}
-${alignc}${color1}%s${color2} | ${color1}%s${color2}
+${alignc}${color7}%s${color} | ${color8}%s
 ]]
 io.write((conky_text):format(icons[icon],
                              math.round(temp),

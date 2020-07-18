@@ -1,0 +1,11 @@
+#!/bin/sh
+
+sed \
+-e 's/color black/color0/g' \
+-e 's/color red/color1/g' \
+-e 's/color green/color2/g' \
+-e 's/color yellow/color3/g' \
+-e 's/color blue/color4/g' \
+-e 's/color magenta/color5/g' \
+-e 's/color cyan/color6/g' \
+-e 's/color white/color7/g' < /dev/stdin
