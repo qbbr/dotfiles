@@ -61,3 +61,9 @@ ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
  * `nls` - ls notes dir
  * `nrm <note_name>` - rm `<note_name>.markdown`
  * `nprint <note_name>` - print `<note_name>.markdown`
+
+### Screenshots
+
+[dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar) + [conky](.config/conky):
+
+[![qbbr-dwm-conky](https://i.imgur.com/uT41KdHl.png)](https://i.imgur.com/uT41KdH.png)
