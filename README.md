@@ -64,6 +64,20 @@ ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
 
 ### Screenshots
 
-[dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar) + [conky](.config/conky):
+[dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar)
 
-[![qbbr-dwm-conky](https://i.imgur.com/uT41KdHl.png)](https://i.imgur.com/uT41KdH.png)
+[conky](.config/conky):
+
+[![qbbr-conky](https://i.imgur.com/p3H3sz0l.png)](https://i.imgur.com/p3H3sz0.png)]
+
+firefox-esr:
+
+[![qbbr-firerfox-esr](https://i.imgur.com/1vnahXxl.png)](https://i.imgur.com/1vnahXx.png)]
+
+[vim](https://github.com/qbbr/dotvim) + [mc](.config/mc) + xterm:
+
+[![qbbr-vim-mc-xterm](https://i.imgur.com/3dddM1hl.png)](https://i.imgur.com/3dddM1h.png)]
+
+[mutt](.muttrc):
+
+[![qbbr-mutt](https://i.imgur.com/1vEF78Hl.png)](https://i.imgur.com/1vEF78H.png)]
