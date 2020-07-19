@@ -2,8 +2,7 @@
 
 # ./offlineimap-notify-send
 #
-# deps:
-#   perl, notify-send
+# depends: perl, notify-send
 #
 # cronjob:
 #   * * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) /home/qbbr/bin/offlineimap-notify-send
