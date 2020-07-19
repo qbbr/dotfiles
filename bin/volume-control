@@ -1,15 +1,114 @@
 #!/usr/bin/env bash
 
-# depends: dzen2, dbar
+# ./volume-control
+#
+# see --help for usage
+#
+# example:
+#   ./script --card 1 --toggle
+#   ./script -t
+#   ./script -i 5
+#   ./script -d 5
+#
+# depends: amixer
+# optional depends: dzen2, dbar (for --dzen)
+# author: @qbbr
 
-CARD="1"
-SCONTROL="Master"
-SCONTROL_HEADPHONE="Headphone"
+# for --dzen only
 DZEN_FONT="terminus-12"
 DZEN_BG="#073642"
 DZEN_FG="#EEE8D5"
 DZEN_WIDTH=272
-PIPE_FILE="/tmp/volumecontrolpipe"
+
+usage() {
+	echo "usage: ${0##*/} [option] [argument]"
+	echo
+	echo "Options:"
+	echo "	-c, --card      - Set card, optional [default=1]"
+	echo "	-t, --toggle    - Toggle mute on/off"
+	echo "	-i, --increment - Increment by argument in percent"
+	echo "	-d, --decrement - Decrement by argument in percent"
+	echo "	--dzen          - Show dbar in dzen2"
+	echo "	-h, --help      - Display this help"
+	exit 0
+}
+
+fail() {
+	echo "$1"
+	exit 1
+}
+
+POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+	key="$1"
+
+	case $key in
+		-c|--card)
+			CARD="$2"
+			shift # past argument
+			shift # past value
+		;;
+		-t|--toggle)
+			CMD="toggle"
+			shift # past argument
+			;;
+		-i|--increment)
+			CMD="${2}%+"
+			shift
+			shift
+			;;
+		-d|--decrement)
+			CMD="${2}%-"
+			shift
+			shift
+			;;
+		--dzen)
+			SHOW_DZEN2=1
+			shift
+			;;
+		-h|--help)
+			usage
+			;;
+		*) # unknown option
+			POSITIONAL+=("$1") # save it in an array for later
+			shift # past argument
+			;;
+	esac
+done
+
+set -- "${POSITIONAL[@]}" # restore positional parameter
+
+if [[ -z "${CMD}" ]] || [[ "${CMD}" == "%+" ]] || [[ "${CMD}" == "%-" ]]; then
+	fail "Nothing to do, see --help"
+fi
+
+CARD_ARG=""
+
+if [[ -n "${CARD}" ]]; then
+	CARD_ARG="-c ${CARD}"
+fi
+
+SCONTROL="Master"
+SCONTROL_HEADPHONE="Headphone"
+
+callAmixer() {
+	amixer ${CARD_ARG} $@
+}
+
+# use Headphone if it is on and Master is switch off
+[[ "${CMD}" != "toggle" ]] \
+&& [[ -n "$(echo $(callAmixer get ${SCONTROL}) | grep '\[off\]')" ]] \
+&& [[ -n "$(echo $(callAmixer get ${SCONTROL_HEADPHONE}) | grep '\[on\]')" ]] \
+&& SCONTROL="${SCONTROL_HEADPHONE}"
+
+OUTPUT="$(echo $(callAmixer set ${SCONTROL} ${CMD}) | tail -n 1)"
+
+if [[ -z "${SHOW_DZEN2}" ]]; then
+	exit 0
+fi
+
+PIPE_FILE="/tmp/pipe-${0##*/}"
 # calculate center
 SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
 SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
@@ -17,46 +116,6 @@ SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
 let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
 let "YPOS = SCREEN_HEIGHT / 2"
 
-err() {
-	echo "$1"
-	exit 1
-}
-
-usage() {
-	echo "usage: ${0} [option] [argument]"
-	echo
-	echo "Options:"
-	echo "	-i, --increase - increase volume by 'argument'"
-	echo "	-d, --decrease - decrease volume by 'argument'"
-	echo "	-t, --toggle   - toggle mute on / off"
-	echo "	-h, --help     - display this help"
-	exit 0
-}
-
-case "${1}" in
-	'-i'|'--increase')
-		[[ -z "${2}" ]] && err "No argument specified for increase"
-		CMD="${2}%+"
-		;;
-	'-d'|'--decrease')
-		[[ -z "${2}" ]] && err "No argument specified for decrease"
-		CMD="${2}%-"
-		;;
-	'-t'|'--toggle')
-		CMD="toggle"
-		;;
-	''|'-h'|'--help')
-		usage
-		;;
-	*)
-		err "Unrecognized option '${1}', see '--help'"
-		;;
-esac
-
-# check headphone
-[[ ! -z "$(amixer -c ${CARD} get ${SCONTROL_HEADPHONE} | grep '\[on\]')" && "${CMD}" != "toggle" ]] && SCONTROL="${SCONTROL_HEADPHONE}"
-
-OUTPUT="$(amixer -c ${CARD} set ${SCONTROL} ${CMD} | tail -n 1)"
 MUTE="$(echo ${OUTPUT} | cut -d '[' -f 4)"
 
 if [[ "$MUTE" = "off]" ]]; then

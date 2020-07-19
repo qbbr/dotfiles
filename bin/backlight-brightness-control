@@ -19,6 +19,12 @@
 #
 # author: @qbbr
 
+# for --dzen only
+DZEN_FONT="terminus-12"
+DZEN_BG="#073642"
+DZEN_FG="#EEE8D5"
+DZEN_WIDTH=272
+
 usage() {
 	echo "usage: ${0##*/} [option] [argument]"
 	echo
@@ -31,17 +37,8 @@ usage() {
 	echo "	-b, --set-min   - Set min value"
 	echo "	-i, --increment - Increment brightness value (+1)"
 	echo "	-d, --decrement - Decrement brightness value (-1)"
+	echo "	--dzen          - Show dbar in dzen2"
 	echo "	-h, --help      - Display this help"
-	exit 0
-}
-
-fail() {
-	echo "$1"
-	exit 1
-}
-
-success() {
-	echo "$1"
 	exit 0
 }
 
@@ -66,8 +63,8 @@ while [[ $# -gt 0 ]]; do
 			;;
 		-s|--set)
 			SET_VALUE="$2"
-			shift # past argument
-			shift # past value
+			shift
+			shift
 			;;
 		-t|--set-max)
 			SET_MAX_VALUE=1
@@ -79,20 +76,22 @@ while [[ $# -gt 0 ]]; do
 			;;
 		-i|--increment)
 			INCREMENT=1
-			shift # past argument
-			shift # past value
+			shift
 			;;
 		-d|--decrement)
 			DECREMENT=1
-			shift # past argument
-			shift # past value
+			shift
+			;;
+		--dzen)
+			SHOW_DZEN2=1
+			shift
 			;;
 		-h|--help)
 			usage
 			;;
 		*) # unknown option
 			POSITIONAL+=("$1") # save it in an array for later
-			shift # past argument
+			shift
 			;;
 	esac
 done
@@ -102,9 +101,41 @@ set -- "${POSITIONAL[@]}" # restore positional parameter
 VENDOR="${VENDOR:-acpi_video0}" # set default vendor if n
 SYSFS_PATH="/sys/class/backlight/${VENDOR}"
 
+fail() {
+	echo "$1"
+	exit 1
+}
+
 if [[ ! -d "${SYSFS_PATH}" ]]; then
 	fail "Vendor '${VENDOR}' not found"
 fi
+
+success() {
+	VALUE=$1
+
+	if [[ -z "${SHOW_DZEN2}" ]]; then
+		echo ${VALUE}
+		exit 0
+	fi
+
+	PIPE_FILE="/tmp/pipe-${0##*/}"
+	# calculate center
+	SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
+	SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
+	SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
+	let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
+	let "YPOS = SCREEN_HEIGHT / 2"
+
+	# prevents multiple dzen instance
+	if [[ ! -e "${PIPE_FILE}" ]]; then
+		mkfifo "${PIPE_FILE}"
+		(dzen2 -l 1 -x "${XPOS}" -y "${YPOS}" -w "${DZEN_WIDTH}" -fn "${DZEN_FONT}" -bg "${DZEN_BG}" -fg "${DZEN_FG}" -e 'onstart=uncollapse' < "${PIPE_FILE}"; rm -f "${PIPE_FILE}") &
+	fi
+
+	(echo "Backlight (${VENDOR})" ; echo "${VALUE} $(getMaxValue)" | dbar ; sleep 1) > "${PIPE_FILE}"
+
+	exit 0
+}
 
 getValue() {
 	cat "${SYSFS_PATH}/brightness"
