@@ -5,6 +5,10 @@
 # get by state, priority: UP, UNKNOWN.
 # state UNKNOWN is normal working state!
 #
+# using:
+#   ./get-active-network-interface
+#   ./get-active-network-interface <default_interface>
+#
 # author: @qbbr
 
 getInterfaceByState() {
@@ -17,4 +21,4 @@ if [[ -z "${IFACE}" ]]; then
 	IFACE=$(getInterfaceByState "UNKNOWN")
 fi
 
-echo ${IFACE}
+echo ${IFACE:-$1}
