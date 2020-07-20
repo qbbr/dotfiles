@@ -2,7 +2,10 @@
 
 # ./optipngadv
 #
-# useing: ./script file.png
+# using:
+#   ./script file.png
+#   for i in *; do ./script $i; done
+#
 # depends: optipng, advancecomp
 # author: @qbbr
 
