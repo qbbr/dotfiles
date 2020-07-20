@@ -33,7 +33,7 @@ xbindkeys &
 uxterm &
 
 # hello msg
-greatwords-notify-send &
+on-online-runner && say-greatwords --notify &
 
 # start dwm + conky + dzenbar with logging (see dwm.log)
 dzenbar &
