@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+# ./get-currency
+#
+# using:
+#   ./script      - USD
+#   ./script EUR  - EUR
+#
+# depends: curl, bc, jq
+# author: @qbbr
+
 URL="https://api.exchangeratesapi.io/latest?base="
-BASE=$1
-NEED="RUB"
+BASE=${1:-USD}
 
-OUTPUT=`curl -s ${URL}${BASE}`
-
-if [[ $OUTPUT =~ \"RUB\":([0-9.]+) ]]; then
-   echo "scale=2;${BASH_REMATCH[1]}/1" | bc -l
-fi
+OUTPUT=$(curl -s ${URL}${BASE} | jq ".rates.RUB")
+echo "scale=2;${OUTPUT}/1" | bc -l
