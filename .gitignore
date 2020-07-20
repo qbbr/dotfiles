@@ -2,4 +2,3 @@
 *.swp
 .ncmpcpp/error.log
 .config/conky/weather.json
-.bash_variables
