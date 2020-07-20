@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# ./say-slovar-merfi
+# "Законы Мёрфи" from slovar.cc
+#
+# using:
+#   ./script               - get random article
+#   ./script <id>          - get article by id
+#   ./script --color       - colored output (dont use \w notify)
+#   ./script --color <id>  - colored output by id
+#   ./script --notify      - show via notify-send
+#
+# depends: curl, xmllint, shuf, fold, notify-send, .bash_colors
+# autor: @qbbr
+
+. ~/.bash_colors
+
+MIN_ID=2505388
+MAX_ID=2505606
+
+if [[ "$1" == "--color" ]]; then
+	USE_COLOR=1
+	shift
+elif [[ "$1" == "--notify" ]]; then
+	USE_NOTIFY=1
+	shift
+fi
+
+ID=${1:-$(shuf -i${MIN_ID}-${MAX_ID} -n1)} # 1st arg or rand
+
+BODY=$(curl -s https://slovar.cc/ses/merfi/${ID}.html)
+TEXT=$(echo ${BODY} | xmllint --html --xpath '//dd[@itemprop="articleBody"]/p/text()' - 2> /dev/null)
+TITLE=$(echo ${BODY} | xmllint --html --xpath '//dt[@class="word-title"]/text()' - 2> /dev/null)
+
+if [[ "${USE_COLOR}" == "1" ]]; then
+	TEXT=$(echo -e ${_c_yellow}${TITLE}: ${_c_white}${TEXT}${_c_reset})
+elif [[ "${USE_NOTIFY}" == "1" ]]; then
+	notify-send -t 60000 -a "<(^_^)>" "${TITLE}" "\n${TEXT}"
+	exit 0
+else
+	TEXT="${TITLE}: ${TEXT}"
+fi
+
+echo ${TEXT} | fold -sw 80
