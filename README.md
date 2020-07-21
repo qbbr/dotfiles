@@ -13,7 +13,8 @@
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
 ```bash
-cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
+cp .bash_variables ~
+$EDITOR ~/.bash_variables
 ```
 
 ## Bash binds
