@@ -4,3 +4,4 @@ conky -c ~/.config/conky/conky_top.conf &
 conky -c ~/.config/conky/conky_graph.conf &
 on-online-runner && conky -c ~/.config/conky/conky_weather.conf &
 on-online-runner && conky -c ~/.config/conky/conky_gcalcli.conf &
+on-online-runner && conky -c ~/.config/conky/conky_currency.conf &
