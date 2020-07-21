@@ -18,6 +18,13 @@ define create_symlink
 	fi
 endef
 
+define copy_file
+	if [ ! -f "$(HOME_DIR)/$(1)" ]; then\
+		echo "[+] copy $(PWD)/$(1)";\
+		cp "$(PWD)/$(1)" "$(HOME)/$(1)";\
+	fi
+endef
+
 install: export BIN_DIR="$(HOME_DIR)/bin"
 install:
 	# bin files
@@ -25,8 +32,14 @@ install:
 	ln -sf -t $(BIN_DIR) $(PWD)/bin/*
 	# dot files
 	@for f in $(DOT_FILES_LN); do\
-		echo "file: $$f";\
+		echo "ln file: $$f";\
 		$(call backup_file,$$f);\
 		$(call create_symlink,$$f);\
+	done
+	
+	@for f in $(DOT_FILES_CP); do\
+		echo "cp file: $$f";\
+		$(call backup_file,$$f);\
+		$(call copy_file,$$f);\
 	done
 .PHONY: install
