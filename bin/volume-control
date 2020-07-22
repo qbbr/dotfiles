@@ -116,9 +116,7 @@ SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
 let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
 let "YPOS = SCREEN_HEIGHT / 2"
 
-MUTE="$(echo ${OUTPUT} | cut -d '[' -f 4)"
-
-if [[ "$MUTE" = "off]" ]]; then
+if [[ -n "$(echo ${OUTPUT} | grep '\[off\]')" ]]; then
 	VOL="0"
 else
 	VOL="$(echo ${OUTPUT} | cut -d '[' -f 2 | tr -d '[%]]')"
