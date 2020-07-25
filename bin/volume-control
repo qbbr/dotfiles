@@ -80,7 +80,7 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameter
 
 if [[ -z "${CMD}" ]] || [[ "${CMD}" == "%+" ]] || [[ "${CMD}" == "%-" ]]; then
-	fail "Nothing to do, see --help"
+	fail "nothing to do, see --help"
 fi
 
 SCONTROL="Master"
