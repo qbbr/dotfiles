@@ -107,30 +107,36 @@ extract() {
 # depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
-n() {
+ngetfilepath() {
 	if [[ -n "$*" ]]; then
 		FILE_NAME="$*"
 	else
 		FILE_NAME="default"
 	fi
-	$EDITOR "$NOTES_DIR$FILE_NAME.markdown"
+
+	echo "${NOTES_DIR}${FILE_NAME}.markdown"
+}
+
+n() {
+	$EDITOR $(ngetfilepath $*)
 }
 
 nrm() {
-	rm -i "$NOTES_DIR$1.markdown"
+	rm -i $(ngetfilepath $*)
 }
 
 nls() {
-	tree -CR --noreport $NOTES_DIR | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
+	tree -CR --noreport ${NOTES_DIR} | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
 }
 
 nprint() {
-	if [[ -n "$*" ]]; then
-		FILE_NAME="$*"
-		${NOTES_PRINT_CMD:-cat} "$NOTES_DIR$FILE_NAME.markdown"
-	else
-		echo "[E] filename is not determined!"
-	fi
+	${NOTES_PRINT_CMD:-cat} $(ngetfilepath $*)
+}
+
+alias np='nprint'
+
+ncat() {
+	cat $(ngetfilepath $*)
 }
 
 tailf-monolog() {

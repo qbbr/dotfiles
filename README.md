@@ -71,10 +71,11 @@ make install-simple-notes
 
 ### Usage
 
- * `n <note_name>` - edit `<note_name>.markdown`
+ * `n <note>` - edit `<note>.markdown`
  * `nls` - ls notes dir
- * `nrm <note_name>` - rm `<note_name>.markdown`
- * `nprint <note_name>` - print `<note_name>.markdown`
+ * `nrm <note>` - rm `<note>.markdown`
+ * `nprint <note>` - print `<note>.markdown` via `$NOTES_PRINT_CMD`
+ * `ncat <note>` - cat `<note>.markdown`
 
 ## Screenshots
 
