@@ -18,7 +18,7 @@ xterm*faceName:                        xft:terminus:size=12
 !xft.rgba:                              rgb
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
-xterm*utf8:                            2
+xterm*utf8:                            1
 xterm*selectToClipboard:               false
 xterm*eightBitInput:                   false
 xterm*saveLines:                       5000
@@ -87,7 +87,7 @@ xterm*shading:                         40
 *color9:                 S_orange
 !! green dark/light
 *color2:                 S_green
-*color10:                S_green
+*color10:                S_base01
 !! yellow dark/light
 *color3:                 S_yellow
 *color11:                S_base00
