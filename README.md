@@ -60,6 +60,7 @@ see [.bash_functions](.bash_functions)
  * [offlineimap-notify-send](bin/offlineimap-notify-send)
  * [on-online-runner](bin/on-online-runner)
  * [dmenu-mpc-playlist](bin/dmenu-mpc-playlist)
+ * [hl](bin/hl) - color highlight by regexp pattern from stdin
 
 ## Simple notes
 
