@@ -12,8 +12,10 @@
 	| (_| | (_) | |_|  _| | |  __/\__ \
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
+## Install
+
 ```bash
-cp .bash_variables ~
+make install
 $EDITOR ~/.bash_variables
 ```
 
@@ -31,6 +33,8 @@ for X see [.xbindkeysrc](.xbindkeysrc)
 
 ## Bash functions
 
+see [.bash_functions](.bash_functions)
+
  * `start/stop/restart/status <daemon_name>` - for managing daemons `/etc/init.d/<daemon_name>`
  * `extract <archive_path>` - for extract any archive
  * `n/nls/nrm/nprint` - [simple notes](#simple-notes)
@@ -45,7 +49,7 @@ for X see [.xbindkeysrc](.xbindkeysrc)
  * [powerline-fonts (optional)](https://github.com/powerline/fonts)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
- * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
+ * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes, see [.bash_variables](.bash_variables#L10))
  * [xttitle](https://packages.debian.org/stretch/xttitle)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
 
@@ -62,8 +66,7 @@ for X see [.xbindkeysrc](.xbindkeysrc)
 ### Installation
 
 ```bash
-apt install bash-completion tree #pandoc
-ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
+make install-simple-notes
 ```
 
 ### Usage
@@ -73,7 +76,7 @@ ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
  * `nrm <note_name>` - rm `<note_name>.markdown`
  * `nprint <note_name>` - print `<note_name>.markdown`
 
-# Screenshots
+## Screenshots
 
 \w [dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar)
 

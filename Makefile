@@ -43,3 +43,8 @@ install:
 		$(call copy_file,$$f);\
 	done
 .PHONY: install
+
+install-simple-notes:
+	sudo apt install bash-completion tree pandoc
+	sudo ln -sf $(PWD)/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
+.PHONY: install-simple-notes
