@@ -20,25 +20,25 @@
 # author: @qbbr
 
 # for --dzen only
-DZEN_FONT="terminus-12"
-DZEN_BG="#073642"
-DZEN_FG="#EEE8D5"
-DZEN_WIDTH=272
+readonly DZEN_FONT="terminus-12"
+readonly DZEN_BG="#073642"
+readonly DZEN_FG="#EEE8D5"
+readonly DZEN_WIDTH=272
 
 usage() {
-	echo "usage: ${0##*/} [option] [argument]"
+	echo "Usage: ${0##*/} [option] [argument]"
 	echo
 	echo "Options:"
-	echo "	-v, --vendor    - Set vendor, optional [default=acpi_video0]"
-	echo "	-g, --get       - Get current brightness"
-	echo "	-m, --get-max   - Get max value"
-	echo "	-s, --set       - Set brightness"
-	echo "	-t, --set-max   - Set max value"
-	echo "	-b, --set-min   - Set min value"
-	echo "	-i, --increment - Increment brightness value (+1)"
-	echo "	-d, --decrement - Decrement brightness value (-1)"
-	echo "	--dzen          - Show dbar in dzen2"
-	echo "	-h, --help      - Display this help"
+	echo "	-v, --vendor    - set vendor, optional [default=acpi_video0]"
+	echo "	-g, --get       - get current brightness"
+	echo "	-m, --get-max   - get max value"
+	echo "	-s, --set       - set brightness"
+	echo "	-t, --set-max   - set max value"
+	echo "	-b, --set-min   - set min value"
+	echo "	-i, --increment - increment brightness value (+1)"
+	echo "	-d, --decrement - decrement brightness value (-1)"
+	echo "	--dzen          - show dbar in dzen2"
+	echo "	-h, --help      - display this help and exit"
 	exit 0
 }
 
@@ -47,7 +47,7 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
 	key="$1"
 
-	case $key in
+	case ${key} in
 		-v|--vendor)
 			VENDOR="$2"
 			shift # past argument
@@ -111,18 +111,18 @@ if [[ ! -d "${SYSFS_PATH}" ]]; then
 fi
 
 success() {
-	VALUE=$1
+	local value=$1
 
 	if [[ -z "${SHOW_DZEN2}" ]]; then
-		echo ${VALUE}
+		echo ${value}
 		exit 0
 	fi
 
-	PIPE_FILE="/tmp/pipe-${0##*/}"
+	local PIPE_FILE="/tmp/pipe-${0##*/}"
 	# calculate center
-	SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
-	SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
-	SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
+	local SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
+	local SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
+	local SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
 	let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
 	let "YPOS = SCREEN_HEIGHT / 2"
 
@@ -132,55 +132,55 @@ success() {
 		(dzen2 -l 1 -x "${XPOS}" -y "${YPOS}" -w "${DZEN_WIDTH}" -fn "${DZEN_FONT}" -bg "${DZEN_BG}" -fg "${DZEN_FG}" -e 'onstart=uncollapse' < "${PIPE_FILE}"; rm -f "${PIPE_FILE}") &
 	fi
 
-	(echo "Backlight (${VENDOR})" ; echo "${VALUE} $(getMaxValue)" | dbar ; sleep 1) > "${PIPE_FILE}"
+	(echo "Backlight (${VENDOR})" ; echo "${value} $(get_max_value)" | dbar ; sleep 1) > "${PIPE_FILE}"
 
 	exit 0
 }
 
-getValue() {
+get_value() {
 	cat "${SYSFS_PATH}/brightness"
 }
 
-getMaxValue() {
+get_max_value() {
 	cat "${SYSFS_PATH}/max_brightness"
 }
 
-setValue() {
-	NEW_VALUE=${1}
-	MIN_VALUE=0
-	MAX_VALUE=$(getMaxValue)
+set_value() {
+	local new_value=${1}
+	local min_value=0
+	local max_value=$(get_max_value)
 
-	if [[ "${NEW_VALUE}" -lt "${MIN_VALUE}"  ]] || [[ "${NEW_VALUE}" -gt "${MAX_VALUE}" ]]; then
-		echo "Set value '${NEW_VALUE}' is not valid (min: ${MIN_VALUE}, max: ${MAX_VALUE})"
+	if [[ "${new_value}" -lt "${min_value}"  ]] || [[ "${new_value}" -gt "${max_value}" ]]; then
+		echo "Set value '${new_value}' is not valid (min: ${min_value}, max: ${max_value})"
 		exit 1
 	else
-		echo "${NEW_VALUE}" > "${SYSFS_PATH}/brightness"
+		echo "${new_value}" > "${SYSFS_PATH}/brightness"
 	fi
 }
 
 if [[ -n "${GET_VALUE}" ]]; then
-	success $(getValue)
+	success $(get_value)
 elif [[ -n "${GET_MAX_VALUE}" ]]; then
-	success $(getMaxValue)
+	success $(get_max_value)
 elif [[ -n "${SET_VALUE}" ]]; then
-	setValue ${SET_VALUE}
+	set_value ${SET_VALUE}
 	success ${SET_VALUE}
 elif [[ -n "${SET_MAX_VALUE}" ]]; then
-	MAX_VALUE=$(getMaxValue)
-	setValue ${MAX_VALUE}
-	success ${MAX_VALUE}
+	max_value=$(get_max_value)
+	set_value ${max_value}
+	success ${max_value}
 elif [[ -n "${SET_MIN_VALUE}" ]]; then
-	MIN_VALUE=0
-	setValue ${MIN_VALUE}
-	success ${MIN_VALUE}
+	min_value=0
+	set_value ${min_value}
+	success ${min_value}
 elif [[ -n "${INCREMENT}" ]]; then
-	VALUE=$(getValue)
-	setValue $((++VALUE))
-	success ${VALUE}
+	value=$(get_value)
+	set_value $((++value))
+	success ${value}
 elif [[ -n "${DECREMENT}" ]]; then
-	VALUE=$(getValue)
-	setValue $((--VALUE))
-	success ${VALUE}
+	value=$(get_value)
+	set_value $((--value))
+	success ${value}
 else
-	fail "Nothing to do, see --help"
+	fail "nothing to do, see --help"
 fi

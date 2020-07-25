@@ -15,21 +15,21 @@
 # author: @qbbr
 
 # for --dzen only
-DZEN_FONT="terminus-12"
-DZEN_BG="#073642"
-DZEN_FG="#EEE8D5"
-DZEN_WIDTH=272
+readonly DZEN_FONT="terminus-12"
+readonly DZEN_BG="#073642"
+readonly DZEN_FG="#EEE8D5"
+readonly DZEN_WIDTH=272
 
 usage() {
-	echo "usage: ${0##*/} [option] [argument]"
+	echo "Usage: ${0##*/} [option] [argument]"
 	echo
 	echo "Options:"
-	echo "	-c, --card      - Set card, optional [default=1]"
-	echo "	-t, --toggle    - Toggle mute on/off"
-	echo "	-i, --increment - Increment by argument in percent"
-	echo "	-d, --decrement - Decrement by argument in percent"
-	echo "	--dzen          - Show dbar in dzen2"
-	echo "	-h, --help      - Display this help"
+	echo "	-c, --card      - set card, optional [default=1]"
+	echo "	-t, --toggle    - toggle mute on/off"
+	echo "	-i, --increment - increment by argument in percent"
+	echo "	-d, --decrement - decrement by argument in percent"
+	echo "	--dzen          - show dbar in dzen2"
+	echo "	-h, --help      - display this help and exit"
 	exit 0
 }
 
@@ -43,9 +43,9 @@ POSITIONAL=()
 while [[ $# -gt 0 ]]; do
 	key="$1"
 
-	case $key in
+	case ${key} in
 		-c|--card)
-			CARD="$2"
+			CARD_ARG="-c $2"
 			shift # past argument
 			shift # past value
 		;;
@@ -83,26 +83,20 @@ if [[ -z "${CMD}" ]] || [[ "${CMD}" == "%+" ]] || [[ "${CMD}" == "%-" ]]; then
 	fail "Nothing to do, see --help"
 fi
 
-CARD_ARG=""
-
-if [[ -n "${CARD}" ]]; then
-	CARD_ARG="-c ${CARD}"
-fi
-
 SCONTROL="Master"
 SCONTROL_HEADPHONE="Headphone"
 
-callAmixer() {
+call_amixer() {
 	amixer ${CARD_ARG} $@
 }
 
 # use Headphone if it is on and Master is switch off
 [[ "${CMD}" != "toggle" ]] \
-&& [[ -n "$(echo $(callAmixer get ${SCONTROL}) | grep '\[off\]')" ]] \
-&& [[ -n "$(echo $(callAmixer get ${SCONTROL_HEADPHONE}) | grep '\[on\]')" ]] \
+&& [[ -n "$(echo $(call_amixer get ${SCONTROL}) | grep '\[off\]')" ]] \
+&& [[ -n "$(echo $(call_amixer get ${SCONTROL_HEADPHONE}) | grep '\[on\]')" ]] \
 && SCONTROL="${SCONTROL_HEADPHONE}"
 
-OUTPUT="$(echo $(callAmixer set ${SCONTROL} ${CMD}) | tail -n 1)"
+output="$(echo $(call_amixer set ${SCONTROL} ${CMD}) | tail -n 1)"
 
 if [[ -z "${SHOW_DZEN2}" ]]; then
 	exit 0
@@ -116,10 +110,10 @@ SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
 let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
 let "YPOS = SCREEN_HEIGHT / 2"
 
-if [[ -n "$(echo ${OUTPUT} | grep '\[off\]')" ]]; then
-	VOL="0"
+if [[ -n "$(echo ${output} | grep '\[off\]')" ]]; then
+	vol="0"
 else
-	VOL="$(echo ${OUTPUT} | cut -d '[' -f 2 | tr -d '[%]]')"
+	vol="$(echo ${output} | cut -d '[' -f 2 | tr -d '[%]]')"
 fi
 
 # prevents multiple dzen instance
@@ -128,4 +122,4 @@ if [[ ! -e "${PIPE_FILE}" ]]; then
 	(dzen2 -l 1 -x "${XPOS}" -y "${YPOS}" -w "${DZEN_WIDTH}" -fn "${DZEN_FONT}" -bg "${DZEN_BG}" -fg "${DZEN_FG}" -e 'onstart=uncollapse' < "${PIPE_FILE}"; rm -f "${PIPE_FILE}") &
 fi
 
-(echo "Volume (${SCONTROL})" ; echo "${VOL}" | dbar ; sleep 1) > "${PIPE_FILE}"
+(echo "Volume (${SCONTROL})" ; echo "${vol}" | dbar ; sleep 1) > "${PIPE_FILE}"
