@@ -1,5 +1,6 @@
-# Sokolov Innokenty <r2.kenny@gmail.com>
+# vim: ft=dircolors
 # based on https://github.com/trapd00r/LS_COLORS
+# modifed by @qbbr
 
 RESET 0 # reset to "normal" color
 DIR 01;34 # directory
@@ -22,10 +23,14 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 EXEC 01;32
 
 # pictures, icons
-.bmp                  38;5;62
-.BMP                  38;5;62
-.cdr                  38;5;59
-.CDR                  38;5;59
+.bmp                  38;5;68
+.BMP                  38;5;68
+.TIFF                 38;5;68
+.tiff                 38;5;68
+.tif                  38;5;68
+.cdr                  38;5;71
+.CDR                  38;5;71
+.psd                  38;5;71
 .gif                  38;5;72
 .GIF                  38;5;72
 .ico                  38;5;73
@@ -34,12 +39,14 @@ EXEC 01;32
 .JPEG                 38;5;66
 .jpg                  38;5;66
 .JPG                  38;5;66
+.webp                 38;5;64
 .png                  38;5;65
 .PNG                  38;5;65
-.svg                  38;5;24
-.SVG                  38;5;24
-.xpm                  38;5;36
-.XPM                  38;5;36
+.xpm                  38;5;69
+.XPM                  38;5;69
+.svg                  38;5;67
+.SVG                  38;5;67
+.ai                   38;5;67
 
 # partition images
 .iso                  38;5;168
@@ -54,10 +61,12 @@ EXEC 01;32
 .SPARSEIMAGE          38;5;168
 .img                  38;5;168
 .IMG                  38;5;168
+.vmdk                 38;5;168
+.vcd                  38;5;168
 
 # video
 .avi                  38;5;114
-#.AVI                  38;5;114
+.AVI                  38;5;114
 .flv                  38;5;131
 .FLV                  38;5;131
 .mkv                  38;5;172
@@ -94,15 +103,18 @@ EXEC 01;32
 
 # fonts
 .afm                  38;5;58
-.pfb                  38;5;58
-.pfm                  38;5;58
-.ttf                  48;5;1
-.pcf                  38;5;65
-.psf                  38;5;64
+.ttf                  38;5;58
+.otf                  38;5;58
+.woff                 38;5;58
+.woff2                38;5;58
+.pfa                  38;5;64
+.pfb                  38;5;64
+.pfm                  38;5;64
+.xbm                  38;5;64
 
 # backups, undo files, tempfiles
 .swp                  38;5;241
-.bak                  38;5;41;1
+.bak                  38;5;241;1
 .bin                  38;5;249
 .swo                  38;5;236
 .swp                  38;5;241
@@ -118,34 +130,64 @@ EXEC 01;32
 .typelib              38;5;60
 
 # (compressed) archives
+.zip                  38;5;40
+.bz2                  38;5;40
+.rar                  38;5;40
+.tar                  38;5;40
+.xz                   38;5;40
 .7z                   38;5;40
-.bz2                  38;5;44
-.jad                  38;5;50
-.jar                  38;5;51
+.7z.001               38;5;41
+.7z.002               38;5;41
+.7z.003               38;5;41
+.7z.004               38;5;41
+.7z.005               38;5;41
+.7z.006               38;5;41
+.7z.007               38;5;41
+.7z.008               38;5;41
+.7z.009               38;5;41
+.gz                   38;5;42
+.tar.gz               38;5;42
+.tgz                  38;5;42
 .part                 38;5;240;1
-.rar                  38;5;106;1
-.tar                  38;5;118
-.tar.gz               38;5;28
-.tgz                  38;5;35;1
-.xz                   38;5;118
-.zip                  38;5;41
-.apk                  38;5;42
-.deb                  38;5;161
 
-# open document formats
+# packages
+.apk                  38;5;45
+.deb                  38;5;45
+.rpm                  38;5;45
+.jad                  38;5;45
+.jar                  38;5;45
+.dmg                  38;5;45
+.cab                  38;5;45
+
+# words
 .odt                  38;5;111
-.ods                  38;5;112
-.odp                  38;5;166
-.odb                  38;5;161
-
-# documents, text
-.pdf                  38;5;203
+.odp                  38;5;111
+.odb                  38;5;111
+.rtf                  38;5;111
+.doc                  38;5;111
+.docx                 38;5;111
+# spreadsheets
+.xla                  38;5;103
+.ods                  38;5;103
+.xls                  38;5;103
+.xlsx                 38;5;103
+.csv                  38;5;105
+.tsv                  38;5;105
+# text bin
+.pdf                  38;5;141
 .djvu                 38;5;141
+.epub                 38;5;141
+.mobi                 38;5;141
+.chm                  38;5;141
+# text
 .markdown             38;5;184
 .md                   38;5;184
+.rst                  38;5;184
+.tex                  38;5;184
+.textile              38;5;184
 .txt                  38;5;192
-.textile              38;5;106
-.csv                  38;5;181
+.nfo                  38;5;192
+.info                 38;5;192
 
 # /etc/hosts.{deny,allow}
 .allow                38;5;112
@@ -241,5 +283,3 @@ TERM xterm-256color
 TERM xterm-88color
 TERM xterm-color
 TERM xterm-debian
-
-# vim: ft=dircolors:
