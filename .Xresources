@@ -87,7 +87,7 @@ xterm*shading:                         40
 *color9:                 S_orange
 !! green dark/light
 *color2:                 S_green
-*color10:                S_base01
+*color10:                S_green
 !! yellow dark/light
 *color3:                 S_yellow
 *color11:                S_base00
