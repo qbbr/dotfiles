@@ -10,6 +10,7 @@
 #   echo -e "line1: SUCCESS cmd\nline2: FAIL test" | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
 #   ./PROGRAM | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
 #   cat /path/to/log | hl -bg r -l ERROR
+#   tail -f /path/to.log | hl -bg r -i error
 #
 # author: @qbbr
 
@@ -92,6 +93,7 @@ pattern="$*"
 if [[ -n "${fg}" ]]; then
 	fg=$(tput setaf $(color_name_to_number ${fg}))
 fi
+
 if [[ -n "${bg}" ]]; then
 	bg=$(tput setab $(color_name_to_number ${bg}))
 fi
