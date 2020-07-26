@@ -229,8 +229,12 @@ EXEC 01;32
 .htaccess             38;5;240
 
 # config
-.cfg                  1
-.conf                 1
+*cfg                  1
+*conf                 1
+*config               1
+*rc                   1
+*authorized_keys      1
+*known_hosts          1
 .yml                  38;5;208
 .ini                  38;5;143
 
