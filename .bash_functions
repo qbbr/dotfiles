@@ -1,31 +1,35 @@
 #!/usr/bin/env bash
 
-# hello msg
-echo -e "${_c_bold}PID:${_c_reset}  ${_c_yellow}$$${_c_reset}"
-echo -e "${_c_bold}DATE:${_c_reset} ${_c_cyan}$(date)${_c_reset}"
-echo -e "${_c_bold}HOME:${_c_reset} ${_c_green}${HOME}${_c_reset}"
-echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -norm)${_c_reset}"
-IPs=$(hostname --all-ip-addresses)
+hello_msg() {
+	# hello msg
+	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 3)$$$(tput sgr0)"
+	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
+	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 2)${HOME}$(tput sgr0)"
+	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
+	local ips=$(hostname --all-ip-addresses)
 
-if [[ -n "$IPs" ]]; then
-	IPs=$(echo -e ${IPs} | sed "s/ /$(echo -e ${_c_reset}), $(echo -e ${_c_light_red})/g") # separator color fix
-	echo -e "${_c_bold}IPs:${_c_reset}  ${_c_light_red}${IPs}${_c_reset}"
-fi
+	if [[ -n "${ips}" ]]; then
+		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 9))/g") # separator color fix
+		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 9)${ips}$(tput sgr0)"
+	fi
 
-unset IPs
+	if [[ "${SSH_CLIENT}" ]]; then
+		echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
+	fi
 
-if [[ "$SSH_CLIENT" ]]; then
-	echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
-fi
-
-echo
-
-# apt install xttitle
-update_xttitle() {
-	xttitle "$$ [${USER}@${HOSTNAME}] $PWD"
+	echo
 }
 
-if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
+if [[ -n "${SHOW_HELLO_MSG}" ]]; then
+	hello_msg
+fi
+
+# depsnds: xttitle
+update_xttitle() {
+	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" > /dev/null
+}
+
+if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
 	update_xttitle
 
 	cd() {
@@ -108,13 +112,13 @@ extract() {
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
 ngetfilepath() {
+	local file_name="default"
+
 	if [[ -n "$*" ]]; then
-		FILE_NAME="$*"
-	else
-		FILE_NAME="default"
+		file_name="$*"
 	fi
 
-	echo "${NOTES_DIR}${FILE_NAME}.markdown"
+	echo "${NOTES_DIR}${file_name}.markdown"
 }
 
 n() {
@@ -157,7 +161,7 @@ tailf-monolog() {
 }
 
 function getcertnames() {
-	if [ -z "${1}" ]; then
+	if [[ -z "${1}" ]]; then
 		echo "ERROR: No domain specified.";
 		return 1;
 	fi;
