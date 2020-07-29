@@ -228,6 +228,9 @@ EXEC 01;32
 .xml                  38;5;170
 .htaccess             38;5;240
 
+# make
+*Makefile             38;5;113;1
+
 # config
 *cfg                  1
 *conf                 1
