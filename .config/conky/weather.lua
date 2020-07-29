@@ -107,7 +107,7 @@ sunset = os.date("%H:%M %p", response.sys.sunset)
 
 conky_text = [[
 ${color4}${font Symbola:size=48}%s${font}  ${voffset -30}${font :size=20}${color}%s${font}${voffset -10}%s${color7}
-${voffset 20}
+${voffset 30}
 ${alignc} %s
 
 ${alignc}Humidity: ${color}%s%%${color7}
