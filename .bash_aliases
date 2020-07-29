@@ -57,12 +57,14 @@ alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
 alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 
+# static web servers
 alias web-server-dir-php="x-www-browser http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
-alias web-server-dir-python="x-www-browser http://127.0.0.1:8666/; python -m http.server 8666"
 alias web-server-dir-python2="x-www-browser http://127.0.0.1:8666/; python2 -m SimpleHTTPServer 8666"
+alias web-server-dir-python="x-www-browser http://127.0.0.1:8666/; python -m http.server 8666"
 #alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
 alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
 alias web-server-dir-busybox="x-www-browser http://127.0.0.1:8666/; busybox httpd -f -p 8666"
+alias web-server-dir-webfs="x-www-browser http://127.0.0.1:8666/; webfsd -F -p 8666"
 alias web-server-dir="web-server-dir-php" # default web-server
 
 alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
