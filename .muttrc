@@ -96,6 +96,10 @@ set query_command     = "abook --mutt-query '%s'"
 set sidebar_visible
 set sidebar_format    = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
+set sidebar_short_path
+set sidebar_delim_chars="/"
+set sidebar_folder_indent
+set sidebar_indent_string="  "
 
 # includes
 source ~/.mutt/color

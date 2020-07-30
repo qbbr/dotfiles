@@ -25,14 +25,6 @@ mono  indicator     reverse
 mono  error         bold
 
 #color sidebar_divider white black
-set sidebar_short_path
-# Shorten mailbox names
-set sidebar_delim_chars="/"
-# Delete everything up to the last / character
-set sidebar_folder_indent
-# Indent folders whose names we've shortened
-set sidebar_indent_string="  "
-# Indent with two spaces
 
 color quoted     yellow   black
 color quoted1    green    black
