@@ -131,6 +131,7 @@ user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("signon.rememberSignons", false);
 
 user_pref("general.smoothScroll", false);
+user_pref("toolkit.cosmeticAnimations.enabled", false);
 
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("security.OCSP.enabled", 1);
