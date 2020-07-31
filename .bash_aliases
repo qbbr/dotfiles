@@ -65,3 +65,9 @@ alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docke
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
+
+# cygwin aliases
+if [[ "$(uname -s)" == "CYGWIN"* ]]; then
+	alias composer="composer.bat"
+	alias ncu-win="ncu --loglevel verbose --packageFile package.json"
+fi
