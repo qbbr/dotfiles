@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# ./offlineimap-notify-send
+#
+# depends: perl, notify-send
+#
+# cronjob:
+#   * * * * * XDG_RUNTIME_DIR=/run/user/$(id -u) /home/qbbr/bin/offlineimap-notify-send
+#
+# author: @qbbr
+
+MAIL_DIR="${HOME}/Mail"
+PREV_MSG="/tmp/offlineimap-prev-msg"
+NEWMAIL_ICON="/usr/share/icons/Numix/32/actions/mail-message-new.svg"
+
+clean() {
+	# replace <>, its tag for dunst
+	sed 's/</(/g' | sed 's/>/)/g'
+}
+
+getFrom() {
+	grep -o '^From: \(.*\)$' ${1} | sed 's/^From: //g' | clean
+}
+
+getSubject() {
+	grep -o '^Subject: \(.*\)$' ${1} | sed 's/^Subject: //g' | perl -pe 'use utf8;use Encode;binmode(STDOUT,":utf8");$_=Encode::decode("MIME-Header",$_);' | clean
+}
+
+checkAccDir() {
+	local ACC=${1}
+	local NEW_DIR="${MAIL_DIR}/${acc}/INBOX/new"
+	local PREV_MSG_FILE="${PREV_MSG}-${acc}"
+
+	if [[ ! -f ${PREV_MSG_FILE} ]]; then
+		touch "${PREV_MSG_FILE}"
+	fi
+
+	#echo "Checking: ${acc} ..."
+	for file in ${NEW_DIR}/*; do
+		if [[ ! -f ${file} ]] ; then
+			continue
+		fi
+
+		filename=${file##*/}
+
+		if ! grep -Fxq "${filename}" "${PREV_MSG_FILE}"; then
+			echo "${filename}" >> "${PREV_MSG_FILE}"
+			from=$(getFrom ${file})
+			subject=$(getSubject ${file})
+
+			notify-send -i "${NEWMAIL_ICON}" -a "to acc '${ACC}'" "from '${from}'" "${subject}"  &
+		fi
+	done
+}
+
+# multi acc check
+for i in ${MAIL_DIR}/*; do
+	acc="${i##*/}"
+	# skip nn _ dir, its mutt symlinks
+	if [[ "${acc}" != "_" ]]; then
+		checkAccDir ${acc}
+	fi
+done

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# ./get-active-network-interface
+#
+# get by state, priority: UP, UNKNOWN.
+# state UNKNOWN is normal working state!
+#
+# using:
+#   ./get-active-network-interface
+#   ./get-active-network-interface <default_interface>
+#
+# author: @qbbr
+
+getInterfaceByState() {
+	ip addr | awk "/state $1/ {print \$2}" | grep -v 'lo' | head -n 1 | sed 's/://'
+}
+
+IFACE=$(getInterfaceByState "UP")
+
+if [[ -z "${IFACE}" ]]; then
+	IFACE=$(getInterfaceByState "UNKNOWN")
+fi
+
+echo ${IFACE:-$1}

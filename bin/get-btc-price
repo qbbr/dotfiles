@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
+# ./get-btc-price
+#
+# see: https://www.coindesk.com/API
+# depends: curl, jq
+# author: @qbbr
+
 URL="https://api.coindesk.com/v1/bpi/currentprice.json"
+OUTPUT="$(curl -s ${URL} | jq '.bpi.USD.rate_float')"
 
-OUTPUT=`curl -s ${URL}`
-
-if [[ $OUTPUT =~ \"rate\":\"([0-9.,]+)\" ]]; then
-   echo ${BASH_REMATCH[1]}
+if [[ -n "${OUTPUT}" ]]; then
+   echo "${OUTPUT}"
 fi

@@ -1,0 +1,19 @@
+#text/html; firefox %s; copiousoutput
+#text/html; w3m -I %{charset} -cols 90 -dump '%s'; copiousoutput; nametemplate=%s.html
+text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+text/*; more
+
+image/*; feh %s; copiousoutput
+video/*; mpv %s; copiousoutput
+audio/*; mpv %s; copiousoutput
+#text/*; vim %s; copiousoutput
+application/pdf; mupdf %s; copiousoutput
+application/msword; libreoffice %s; copiousoutput
+application/excel; libreoffice %s; copiousoutput
+application/vnd.ms-excel; libreoffice %s; copiousoutput
+application/octet-stream ; echo %s "can be anything..."; copiousoutput
+
+#application/x-sh; cat %s; copiousoutput
+#application/x-script; cat %s; copiousoutput
+#application/x-shellscript; cat %s; copiousoutput
+#application/x-tcl; cat %s; copiousoutput

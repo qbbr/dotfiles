@@ -18,7 +18,7 @@ xterm*faceName:                        xft:terminus:size=12
 !xft.rgba:                              rgb
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
-xterm*utf8:                            2
+xterm*utf8:                            1
 xterm*selectToClipboard:               false
 xterm*eightBitInput:                   false
 xterm*saveLines:                       5000

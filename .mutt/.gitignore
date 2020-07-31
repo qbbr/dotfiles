@@ -1,0 +1,4 @@
+accounts/*
+!accounts/example-acc*
+mailboxes
+hooks

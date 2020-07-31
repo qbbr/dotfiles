@@ -1,0 +1,15 @@
+# vim:ft=muttrc
+
+mailboxes \
+  "+example-acc1" \
+  "+example-acc1/INBOX" \
+  "+example-acc1/Drafts" \
+  "+example-acc1/Sent" \
+  "+example-acc1/Spam" \
+  "+example-acc1/Trash" \
+  "+example-acc2" \
+  "+example-acc2/INBOX" \
+  "+example-acc2/Drafts" \
+  "+example-acc2/Sent" \
+  "+example-acc2/Spam" \
+  "+example-acc2/Trash"

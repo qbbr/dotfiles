@@ -1,0 +1,8 @@
+# vim:ft=muttrc
+
+# accounts
+folder-hook example-acc1/* source ~/.mutt/accounts/example-acc1
+folder-hook example-acc2/* source ~/.mutt/accounts/example-acc2
+
+# default account
+source ~/.mutt/accounts/example-acc1

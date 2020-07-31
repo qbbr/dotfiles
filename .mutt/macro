@@ -1,0 +1,8 @@
+# vim:ft=muttrc
+
+macro pager       \cb  <pipe-entry>'urlview'<enter> "Follow links with urlview"
+macro index,pager <F5> ":source ~/.muttrc\n" "Reload the muttrc"
+
+# sync abook and alias
+macro index A   "!$HOME/bin/abook-autoexport\n:source ~/.mutt/alias\n" "Start abook"
+macro index \Ca "|$HOME/bin/abook-autoexport --add-email-quiet\n:source ~/.mutt/alias\n" "Create new alias from the actual message"

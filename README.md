@@ -12,11 +12,14 @@
 	| (_| | (_) | |_|  _| | |  __/\__ \
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
+## Install
+
 ```bash
-cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
+make install
+$EDITOR ~/.bash_variables
 ```
 
-## Binds
+## Bash binds
 
  * `Selected text + Shift + MouseBtn1` - open url/path in browser
  * `Selected text + Shift + MouseBtn2` - open url/path in phpstorm
@@ -26,7 +29,11 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * `Shift + End` - scroll to bottom
  * `Ctrl + /` - bash history
 
+for X see [.xbindkeysrc](.xbindkeysrc)
+
 ## Bash functions
+
+see [.bash_functions](.bash_functions)
 
  * `start/stop/restart/status <daemon_name>` - for managing daemons `/etc/init.d/<daemon_name>`
  * `extract <archive_path>` - for extract any archive
@@ -42,22 +49,51 @@ cp .bash_variables.dist .bash_variables && $EDITOR .bash_variables
  * [powerline-fonts (optional)](https://github.com/powerline/fonts)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
- * [pandoc](https://packages.debian.org/jessie/pandoc) (optional, see [.bash_variables.dist](.bash_variables.dist#L10))
+ * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes, see [.bash_variables](.bash_variables#L10))
  * [xttitle](https://packages.debian.org/stretch/xttitle)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
+
+## Scripts
+
+ * [backlight-brightness-control](bin/backlight-brightness-control)
+ * [volume-control](bin/volume-control)
+ * [offlineimap-notify-send](bin/offlineimap-notify-send)
+ * [on-online-runner](bin/on-online-runner)
+ * [dmenu-mpc-playlist](bin/dmenu-mpc-playlist)
+ * [hl](bin/hl) - color highlight by regexp pattern from stdin
 
 ## Simple notes
 
 ### Installation
 
 ```bash
-apt install bash-completion tree #pandoc
-ln -sf $PWD/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
+make install-simple-notes
 ```
 
 ### Usage
 
- * `n <note_name>` - edit `<note_name>.markdown`
+ * `n <note>` - edit `<note>.markdown`
  * `nls` - ls notes dir
- * `nrm <note_name>` - rm `<note_name>.markdown`
- * `nprint <note_name>` - print `<note_name>.markdown`
+ * `nrm <note>` - rm `<note>.markdown`
+ * `nprint <note>` - print `<note>.markdown` via `$NOTES_PRINT_CMD`
+ * `ncat <note>` - cat `<note>.markdown`
+
+## Screenshots
+
+\w [dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar)
+
+[conky](.config/conky):
+
+[![qbbr-conky](https://i.imgur.com/p3H3sz0l.png)](https://i.imgur.com/p3H3sz0.png)
+
+firefox-esr:
+
+[![qbbr-firerfox-esr](https://i.imgur.com/1vnahXxl.png)](https://i.imgur.com/1vnahXx.png)
+
+[vim](https://github.com/qbbr/dotvim) + [mc](.config/mc) + xterm:
+
+[![qbbr-vim-mc-xterm](https://i.imgur.com/3dddM1hl.png)](https://i.imgur.com/3dddM1h.png)
+
+[mutt](.muttrc):
+
+[![qbbr-mutt](https://i.imgur.com/1vEF78Hl.png)](https://i.imgur.com/1vEF78H.png)

@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+# ./hl
+#
+# color highlight by regexp pattern from stdin
+#
+# see --help for usage
+#
+# example:
+#   echo -e "line1: SUCCESS cmd\nline2: FAIL test" | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
+#   ./PROGRAM | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
+#   cat /path/to/log | hl -bg r -l ERROR
+#   tail -f /path/to.log | hl -bg r -i error
+#
+# author: @qbbr
+
+fg=""
+bg=""
+bold=""
+line=""
+i=""
+reset=$(tput sgr0)
+
+usage() {
+	echo "Usage: ${0##*/} [option] [argument] pattern"
+	echo
+	echo "Options:"
+	echo "	-bg                - set background color"
+	echo "	-fg                - set foreground color"
+	echo "	-b, --bold         - set bold text"
+	echo "	-l, --line         - highlight all line"
+	echo "	-i, --ignore-case  - ignore case distinctions"
+	echo "	-h, --help         - display this help and exit"
+	exit 0
+}
+
+color_name_to_number () {
+	case $1 in
+		bla*)  echo 0;; # black
+		r*)    echo 1;; # red
+		g*)    echo 2;; # green
+		y*)    echo 3;; # yellow
+		b*)    echo 4;; # blue
+		m*)    echo 5;; # magenta
+		c*)    echo 6;; # cyan
+		w*)    echo 7;; # white
+		*)     echo 0;;
+	esac
+}
+
+POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+	key="$1"
+
+	case ${key} in
+		-fg)
+			fg="$2"
+			shift # past argument
+			shift # past value
+		;;
+		-bg)
+			bg="$2"
+			shift
+			shift
+			;;
+		-b|--bold)
+			bold="$(tput bold)"
+			shift # past argument
+			;;
+		-l|--line)
+			line=".*"
+			shift
+			;;
+		-i|--ignore-case)
+			i="i"
+			shift
+			;;
+		-h|--help)
+			usage
+			;;
+		*) # unknown option
+			POSITIONAL+=("$1") # save it in an array for later
+			shift
+			;;
+	esac
+done
+
+set -- "${POSITIONAL[@]}" # restore positional parameter
+
+pattern="$*"
+
+if [[ -n "${fg}" ]]; then
+	fg=$(tput setaf $(color_name_to_number ${fg}))
+fi
+
+if [[ -n "${bg}" ]]; then
+	bg=$(tput setab $(color_name_to_number ${bg}))
+fi
+
+if [[ -z "${fg}${bg}" ]]; then
+	bg=$(tput smso)
+fi
+
+sed "s/${line}${pattern}${line}/${bold}${fg}${bg}&${reset}/g${i}"

@@ -13,6 +13,4 @@ _simplenotes()
 	return 0;
 }
 
-complete -F _simplenotes n
-complete -F _simplenotes nrm
-complete -F _simplenotes nprint
+complete -F _simplenotes n nrm nprint np ncat

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# ./on-online-runner
+#
+# For delayed start of apps/commands, which definitely needs access to the Internet
+#
+# usage:
+#   on-online-runner && <cmd_here>
+#
+# author: @qbbr
+
+PING_DESTINATION="1.1.1.1"
+DELAY=1
+
+while true; do
+	$(ping -c 1 ${PING_DESTINATION} &> /dev/null)
+
+	if [[ "$?" == "0" ]]; then
+		break
+	fi
+
+	sleep ${DELAY}
+done

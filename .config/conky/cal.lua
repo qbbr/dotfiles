@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
 
-conky_color = "${color1}%2d${color3}"
+conky_color = "${color2}%2d${color}"
 
 t = os.date("*t", os.time())
 year, month, currentday = t.year, t.month, t.day
@@ -33,7 +33,7 @@ title_start = (20 - (string.len(month_name) + 5)) / 2
 title = string.rep(" ", math.floor(title_start + 0.5)) .. -- add padding to center the title
         (" %s %s\n Mo Tu We Th Fr Sa Su\n"):format(month_name, year)
 
-io.write("${color2}" .. title .. "${color}")
+io.write("${color4}" .. title .. "${color}")
 
 function seq(a, b)
     if a > b then
@@ -45,7 +45,7 @@ end
 
 days = days_in_month[month]
 
-io.write("${color3}")
+io.write("${color}")
 io.write(
     string.format(
         string.rep("   ", daystart-2) ..

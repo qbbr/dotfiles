@@ -1,0 +1,19 @@
+# vim:ft=conf
+
+"backlight-brightness-control --dzen --increment"
+	XF86MonBrightnessUp
+
+"backlight-brightness-control --dzen --decrement"
+	XF86MonBrightnessDown
+
+"volume-control --dzen --increment 5"
+	XF86AudioRaiseVolume
+
+"volume-control --dzen --decrement 5"
+	XF86AudioLowerVolume
+
+"volume-control --dzen --toggle"
+	XF86AudioMute
+
+#"amixer set Headphone toggle && amixer set Front toggle"
+#	Control + KP_Add

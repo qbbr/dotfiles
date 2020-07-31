@@ -1,0 +1,55 @@
+# vim:ft=muttrc
+
+# basic
+color normal        default         default
+color error         red             default
+color tilde         black           default
+color message       cyan            default
+color markers       red             white
+color attachment    white           default
+color search        brightmagenta   default
+color status        brightyellow    black
+color indicator     brightblack     blue
+color tree          yellow          default
+
+color index_author yellow default '.*'
+#color index_date cyan default
+color index_subject blue default '.*'
+
+color hdrdefault black  cyan
+
+# basic monocolor
+mono  bold          bold
+mono  underline     underline
+mono  indicator     reverse
+mono  error         bold
+
+#color sidebar_divider white black
+
+color quoted     yellow   black
+color quoted1    green    black
+color quoted2    magenta  black
+color quoted3    red      black
+color quoted4    blue     black
+color quoted5    red      black
+color quoted6    red      black
+color quoted7    red      black
+
+color signature  blue     black
+
+# items in the reader
+#color hdrdefault white black
+color header     yellow   black   "^from:"
+color header     default  black   "^to:"
+color header     yellow   black   "^cc:"
+color header     cyan     black   "^date:"
+color header     blue     black   "^subject:"
+
+color index      white    red      ~F  # Flagged
+color index      yellow   default  ~T  # Tagged
+color index      green    default  ~N  # New
+#color index      green    default  ~O  # Old
+color index      red      default  ~D  # Deleted
+
+color body brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+

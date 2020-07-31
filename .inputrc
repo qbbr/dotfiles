@@ -1,6 +1,5 @@
 # Use Vi, not Emacs, style editing
 set editing-mode vi
-
 # Show all completions as soon as I press tab, even if there's more than one
 set show-all-if-ambiguous on
 # Ignore case
@@ -8,14 +7,10 @@ set completion-ignore-case on
 # on menu-complete, first display the common prefix, then cycle through the
 # options when hitting TAB
 set menu-complete-display-prefix on
-
 # a character denoting a file’s type is appended to the filename when listing possible completions
 set visible-stats on
-
-###########################################################
 # Keymaps for when we're in command mode (e.g., after hitting ESC)
 set keymap vi-command
-
 # Insert the arguments from the last command
 "p": "i !!*\r"
 
@@ -47,3 +42,5 @@ TAB: menu-complete
 # Needed because binding 'p' in command mode above wipes its insert mode
 # function, too. This fixes that, and will insert 'p' when you type 'p'.
 "p": self-insert
+
+"\C-_": yank-last-arg

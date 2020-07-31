@@ -8,6 +8,9 @@ fi
 # set default editor
 export EDITOR=vim
 
+# run hello_msg() on bash start
+SHOW_HELLO_MSG=1
+
 ##
 # simple notes configuration
 ##

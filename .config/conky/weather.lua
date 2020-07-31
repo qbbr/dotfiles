@@ -1,5 +1,7 @@
 #!/usr/bin/env lua
 
+-- deps: fonts-symbola
+
 -- load the http socket module
 http = require("socket.http")
 -- load the json module
@@ -15,6 +17,9 @@ cf = "metric"
 
 -- get an open weather map api key: http://openweathermap.org/appid
 apikey = "542ffd081e67f4512b705f89d2a611b2"
+
+-- path to cache file
+cachefile = "/tmp/weather.json"
 
 -- measure is °C if metric and °F if imperial
 measure = '°' .. (cf == 'metric' and 'C' or 'F')
@@ -33,7 +38,7 @@ icons = {
   ["50"] = "🌫",
 }
 
-currenttime = os.date("!%Y%m%d%H%M%S")
+currenttime = os.time()
 
 file_exists = function (name)
     f=io.open(name,"r")
@@ -45,17 +50,18 @@ file_exists = function (name)
     end
 end
 
-if file_exists("weather.json") then
-    cache = io.open("weather.json","r")
+if file_exists(cachefile) then
+    cache = io.open(cachefile, "r")
     data = json.decode(cache:read())
     cache:close()
+
     timepassed = os.difftime(currenttime, data.timestamp)
 else
     timepassed = 6000
 end
 
 makecache = function (s)
-    cache = io.open("weather.json", "w+")
+    cache = io.open(cachefile, "w+")
     s.timestamp = currenttime
     save = json.encode(s)
     cache:write(save)
@@ -100,14 +106,16 @@ sunrise = os.date("%H:%M %p", response.sys.sunrise)
 sunset = os.date("%H:%M %p", response.sys.sunset)
 
 conky_text = [[
-${color2}  ${font Symbola:size=48}%s ${voffset -10}${font :size=20}${color1}%s${font}${voffset -5}%s${color2}
-${alignc}${voffset 28} %s
+${color4}${font Symbola:size=48}%s${font}  ${voffset -30}${font :size=20}${color}%s${font}${voffset -10}%s${color7}
+${voffset 30}
+${alignc} %s
 
-${alignc}Humidity: ${color1}%s%%${color2}
-${alignc}Wind: ${color1}%s%s %s${color2}
+${alignc}Humidity: ${color}%s%%${color7}
+${alignc}Wind: ${color}%s%s %s${color9}
 
 ${alignc}${font Symbola:size=20}─⯊─${font}
-${alignc}${color1}%s${color2} | ${color1}%s${color2}
+${alignc}${color7}%s${color} | ${color8}%s
+${voffset -25}
 ]]
 io.write((conky_text):format(icons[icon],
                              math.round(temp),

@@ -1,31 +1,35 @@
 #!/usr/bin/env bash
 
-# hello msg
-echo -e "${_c_bold}PID:${_c_reset}  ${_c_yellow}$$${_c_reset}"
-echo -e "${_c_bold}DATE:${_c_reset} ${_c_cyan}$(date)${_c_reset}"
-echo -e "${_c_bold}HOME:${_c_reset} ${_c_green}${HOME}${_c_reset}"
-echo -e "${_c_bold}SYS:${_c_reset}  ${_c_blue}$(uname -norm)${_c_reset}"
-IPs=$(hostname --all-ip-addresses)
+hello_msg() {
+	# hello msg
+	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 3)$$$(tput sgr0)"
+	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
+	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 2)${HOME}$(tput sgr0)"
+	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
+	local ips=$(hostname --all-ip-addresses)
 
-if [[ -n "$IPs" ]]; then
-	IPs=$(echo -e ${IPs} | sed "s/ /$(echo -e ${_c_reset}), $(echo -e ${_c_light_red})/g") # separator color fix
-	echo -e "${_c_bold}IPs:${_c_reset}  ${_c_light_red}${IPs}${_c_reset}"
-fi
+	if [[ -n "${ips}" ]]; then
+		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 9))/g") # separator color fix
+		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 9)${ips}$(tput sgr0)"
+	fi
 
-unset IPs
+	if [[ "${SSH_CLIENT}" ]]; then
+		echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
+	fi
 
-if [[ "$SSH_CLIENT" ]]; then
-	echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
-fi
-
-echo
-
-# apt install xttitle
-update_xttitle() {
-	xttitle "$$ [${USER}@${HOSTNAME}] $PWD"
+	echo
 }
 
-if [[ "$TERM" == "xterm" || "$TERM" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
+if [[ -n "${SHOW_HELLO_MSG}" ]]; then
+	hello_msg
+fi
+
+# depsnds: xttitle
+update_xttitle() {
+	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" > /dev/null
+}
+
+if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
 	update_xttitle
 
 	cd() {
@@ -52,6 +56,26 @@ restart() {
 
 status() {
 	sudo /etc/init.d/$1 status
+}
+
+apt-history() {
+	case "$1" in
+		install)
+			cat /var/log/dpkg.log | grep 'install '
+			;;
+		upgrade|remove)
+			cat /var/log/dpkg.log | grep $1
+			;;
+		rollback)
+			cat /var/log/dpkg.log | grep upgrade | \
+				grep "$2" -A10000000 | \
+				grep "$3" -B10000000 | \
+				awk '{print $4"="$5}'
+			;;
+		*)
+			cat /var/log/dpkg.log
+			;;
+	esac
 }
 
 extract() {
@@ -87,50 +111,36 @@ extract() {
 # depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
-n() {
+ngetfilepath() {
+	local file_name="default"
+
 	if [[ -n "$*" ]]; then
-		FILE_NAME="$*"
-	else
-		FILE_NAME="default"
+		file_name="$*"
 	fi
-	$EDITOR "$NOTES_DIR$FILE_NAME.markdown"
+
+	echo "${NOTES_DIR}${file_name}.markdown"
+}
+
+n() {
+	$EDITOR $(ngetfilepath $*)
 }
 
 nrm() {
-	rm -i "$NOTES_DIR$1.markdown"
+	rm -i $(ngetfilepath $*)
 }
 
 nls() {
-	tree -CR --noreport $NOTES_DIR | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
+	tree -CR --noreport ${NOTES_DIR} | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
 }
 
 nprint() {
-	if [[ -n "$*" ]]; then
-		FILE_NAME="$*"
-		${NOTES_PRINT_CMD:-cat} "$NOTES_DIR$FILE_NAME.markdown"
-	else
-		echo "[E] filename is not determined!"
-	fi
+	${NOTES_PRINT_CMD:-cat} $(ngetfilepath $*)
 }
 
-apt-history() {
-	case "$1" in
-		install)
-			cat /var/log/dpkg.log | grep 'install '
-			;;
-		upgrade|remove)
-			cat /var/log/dpkg.log | grep $1
-			;;
-		rollback)
-			cat /var/log/dpkg.log | grep upgrade | \
-				grep "$2" -A10000000 | \
-				grep "$3" -B10000000 | \
-				awk '{print $4"="$5}'
-			;;
-		*)
-			cat /var/log/dpkg.log
-			;;
-	esac
+alias np='nprint'
+
+ncat() {
+	cat $(ngetfilepath $*)
 }
 
 tailf-monolog() {
@@ -151,7 +161,7 @@ tailf-monolog() {
 }
 
 function getcertnames() {
-	if [ -z "${1}" ]; then
+	if [[ -z "${1}" ]]; then
 		echo "ERROR: No domain specified.";
 		return 1;
 	fi;
@@ -197,6 +207,11 @@ function decode-url() {
 function decode-base64 {
 	#echo $1 | python3 -c "import sys, base64; print(base64.b64decode(sys.stdin.read()));";
 	echo $1 | base64 -d $1
+}
+
+function decode-imap-folder-name {
+	# for i in *; do echo -n "$i == "; decode-imap-folder-name $i; done
+	echo $1 | tr '&' '+' | tr ',' '/' | iconv -f UTF-7 -t UTF-8
 }
 
 function youtube-dl-sst() {

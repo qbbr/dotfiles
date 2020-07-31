@@ -13,22 +13,35 @@ xset -b
 #xset +fp ~/.fonts/
 #xset fp rehash
 
+# pulseaudio
+#pulseaudio --start &
+
 # notification daemon
-dunst &
+# https://github.com/dunst-project/dunst
+#dunst &
 
 # enable numlock
-numlockx on &
+#numlockx on &
 
 # fix java bug
-wmname LG3D &
+# https://tools.suckless.org/x/wmname/
+#wmname LG3D &
 
-# set background image
-sh ~/.fehbg &
+# set background
+#sh ~/.fehbg &
+xsetroot -solid '#0D3642'
+
+# grabbing keys
+#xbindkeys &
 
 # open terminal
-uxterm &
+#uxterm &
 
-# start dwm + conky + dzenbar with logging (see dwm.log)
+# hello msg
+#on-online-runner && say-greatwords --notify &
+
+# start dwm + conky + dzenbar with logging (see dwm.log, default at $HOME)
 dzenbar &
 startconky &
+#DWM_LOG_PATH="$HOME/dwm.log" startdwm
 startdwm

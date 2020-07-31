@@ -1,33 +1,36 @@
 #!/usr/bin/env bash
 
-# use: ./yesno-wtf                - for default by random ({"answer": "maybe"} every 10.000 time.)
-# use: ./yesno-wtf <yes|no|maybe> - for force answer
+# ./yesno-wtf
+#
+# using:
+#   ./script
+#   ./script <yes|no|maybe> # for force answer
+#
 # depends: curl, jq, mpv
 # autor: @qbbr
 
-url="https://yesno.wtf/api"
-force_param=${1}
-
-_tmp_json_file="/tmp/yesno-wtf.json"
-_tmp_gif_file="/tmp/yesno-wtf.gif"
+URL="https://yesno.wtf/api"
+FORCE_PARAM="${1}"
+JSON_FILE="/tmp/yesno-wtf.json"
+GIF_FILE="/tmp/yesno-wtf.gif"
 
 # cleanup
-rm ${_tmp_json_file}
-rm ${_tmp_gif_file}
+rm -f ${JSON_FILE}
+rm -f ${GIF_FILE}
 
-if [[ -n "$force_param" ]]; then
-	url="${url}?force=${force_param}"
+if [[ -n "${FORCE_PARAM}" ]]; then
+	URL="${url}?force=${FORCE_PARAM}"
 fi
 
-curl -s "${url}" > ${_tmp_json_file}
+curl -s "${URL}" > ${JSON_FILE}
 
-answer=$(cat ${_tmp_json_file} | jq -r ".answer")
-gif=$(cat ${_tmp_json_file} | jq -r ".image")
+answer=$(cat ${JSON_FILE} | jq -r ".answer")
+gif=$(cat ${JSON_FILE} | jq -r ".image")
 
-curl -s "${gif}" > ${_tmp_gif_file}
+curl -s "${gif}" > ${GIF_FILE}
 
 echo "Answer: ${answer}"
-echo "Playing: ${gif}"
+echo "Playing: ${GIF_FILE}"
 echo ""
 
-mpv -loop --fs ${_tmp_gif_file} > /dev/null
+mpv -loop ${GIF_FILE} > /dev/null

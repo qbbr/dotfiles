@@ -1,0 +1,5 @@
+# vim:ft=muttrc
+
+ignore *                                 # ignore all headers
+unignore from: to: cc: date: subject:    # show only these
+hdr_order from: to: cc: date: subject:   # and in this order

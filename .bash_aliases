@@ -11,6 +11,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+alias e="editor"
+
 alias putclip="xclip"
 alias getclip="xclip -o"
 
@@ -32,10 +34,16 @@ alias rm="rm -i"
 alias crontab="crontab -i"
 alias pong="ping -c 3 www.google.com"
 
+alias mount="mount | column -t"
+alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
+
 alias tree="tree -Csuh"
-alias df="df -Th"
+alias df="df -Th --total"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__$wx$h.png' -e 'mv $f /media/strg1/screenshots/'"
+
+alias mutt="neomutt"
+alias lynx="lynx -accept_all_cookies"
 
 alias python="python3"
 alias pip="pip3"
@@ -49,12 +57,14 @@ alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
 alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 
-alias web-server-dir-php="xdg-open http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
-alias web-server-dir-python="xdg-open http://127.0.0.1:8666/; python -m http.server 8666"
-alias web-server-dir-python2="xdg-open http://127.0.0.1:8666/; python2 -m SimpleHTTPServer 8666"
-#alias web-server-dir-ruby="xdg-open http://127.0.0.1:8666/; ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
-alias web-server-dir-ruby="xdg-open http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
-alias web-server-dir-busybox="xdg-open http://127.0.0.1:8666/; busybox httpd -f -p 8666"
+# static web servers
+alias web-server-dir-php="x-www-browser http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
+alias web-server-dir-python2="x-www-browser http://127.0.0.1:8666/; python2 -m SimpleHTTPServer 8666"
+alias web-server-dir-python="x-www-browser http://127.0.0.1:8666/; python -m http.server 8666"
+#alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
+alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
+alias web-server-dir-busybox="x-www-browser http://127.0.0.1:8666/; busybox httpd -f -p 8666"
+alias web-server-dir-webfs="x-www-browser http://127.0.0.1:8666/; webfsd -F -p 8666"
 alias web-server-dir="web-server-dir-php" # default web-server
 
 alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
@@ -65,6 +75,7 @@ alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docke
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
+alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
 
 # cygwin aliases
 if [[ "$(uname -s)" == "CYGWIN"* ]]; then
