@@ -5,21 +5,16 @@
 #
 # using:
 #   ./script           - get random quote
-#   ./script --color   - colored output (dont use \w notify)
 #   ./script --notify  - show via notify-send
 #
-# depends: wget, fold, notify-send, .bash_colors
+# depends: wget, fold, notify-send
 # author: @qbbr
 
-TEXT=$(wget -qO - http://api.forismatic.com/api/1.0/ --post-data="method=getQuote&format=text&lang=ru" 2> /dev/null)
+text="$(wget -qO - http://api.forismatic.com/api/1.0/ --post-data="method=getQuote&format=text&lang=ru" 2> /dev/null)"
 
-if [[ "$1" == "--color" ]]; then
-	. ~/.bash_colors
-	TEXT=$(echo ${TEXT} | sed "s/(/\\\n\\${_c_yellow}/" | sed "s/)/\\${_c_reset}/")
-	TEXT=$(echo -e ${_c_white}${TEXT})
-elif [[ "$1" == "--notify" ]]; then
-	notify-send -t 60000 -a "<(^_^)>" " forismatic" "\n${TEXT}"
-	exit 0
+if [[ "$1" == "--notify" ]]; then
+	notify-send -t 60000 -a "<(^_^)>" " forismatic" "\n${text}"
+else
+	echo "${text}" | fold -sw 80
 fi
 
-echo ${TEXT} | fold -sw 80

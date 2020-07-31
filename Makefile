@@ -1,6 +1,6 @@
 .DEFAULT_GOAL    := black@hole
 HOME_DIR         := $(HOME)
-DOT_FILES_LN     := .bash_aliases .bash_colors .bash_functions .bashrc .curlrc .dircolors .gitconfig .ideavimrc .inputrc .mutt .muttrc .profile .psqlrc .rtorrent.rc .urlview .wgetrc .xbindkeysrc .Xresources
+DOT_FILES_LN     := .bash_aliases .bash_functions .bashrc .curlrc .dircolors .gitconfig .ideavimrc .inputrc .mutt .muttrc .profile .psqlrc .rtorrent.rc .urlview .wgetrc .xbindkeysrc .Xresources
 DOT_FILES_CP     := .xinitrc .bash_variables
 
 define backup_file
