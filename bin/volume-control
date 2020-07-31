@@ -107,8 +107,8 @@ PIPE_FILE="/tmp/pipe-${0##*/}"
 SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
 SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
 SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
-let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
-let "YPOS = SCREEN_HEIGHT / 2"
+((XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2))
+((YPOS = SCREEN_HEIGHT / 2))
 
 if [[ -n "$(echo ${output} | grep '\[off\]')" ]]; then
 	vol="0"

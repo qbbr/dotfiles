@@ -123,8 +123,8 @@ success() {
 	local SCREEN_SIZE=$(xdpyinfo | grep dimensions | cut -d ' ' -f 7)
 	local SCREEN_WIDTH=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 1)
 	local SCREEN_HEIGHT=$(echo ${SCREEN_SIZE} | cut -d 'x' -f 2)
-	let "XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2"
-	let "YPOS = SCREEN_HEIGHT / 2"
+	((XPOS = SCREEN_WIDTH / 2 - DZEN_WIDTH / 2))
+	((YPOS = SCREEN_HEIGHT / 2))
 
 	# prevents multiple dzen instance
 	if [[ ! -e "${PIPE_FILE}" ]]; then
