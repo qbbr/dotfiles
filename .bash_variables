@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# ~/.bash_colors
-if [ -f ~/.bash_colors ]; then
-	. ~/.bash_colors
-fi
-
 # set default editor
 export EDITOR=vim
 

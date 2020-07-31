@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# @deprecated; use tput
+# author: @qbbr
+
 ##
 # Modifiers
 ##
