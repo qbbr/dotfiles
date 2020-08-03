@@ -30,8 +30,10 @@ SHOW_HELLO_MSG=1
 #export PATH="$PATH:`yarn global bin`"
 
 ##
-# NPM globally for $USER
+# NPM globally for $USER (without sudo)
 ##
+# mkdir "${HOME}/.npm-packages"
+# npm config set prefix "${HOME}/.npm-packages"
 #NPM_PACKAGES="${HOME}/.npm-packages"
 #export PATH="$PATH:$NPM_PACKAGES/bin"
 # Preserve MANPATH if you already defined it somewhere in your config.
