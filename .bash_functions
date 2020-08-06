@@ -26,7 +26,7 @@ fi
 
 # depsnds: xttitle
 update_xttitle() {
-	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" > /dev/null
+	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 }
 
 if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
