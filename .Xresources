@@ -10,6 +10,7 @@
 xterm*termName:                        xterm-256color
 xterm*geometry:                        80x25
 xterm*faceName:                        xft:terminus:size=12
+!xterm*faceNameDoublesize:              xft:FontAwesome:size=12
 !xft.autohint:                          0
 !xft.lcdfilter:                         lcddefault
 !xft.hintstyle:                         hintslight
@@ -18,11 +19,13 @@ xterm*faceName:                        xft:terminus:size=12
 !xft.rgba:                              rgb
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
-xterm*utf8:                            1
+xterm*utf8:                            true
 xterm*selectToClipboard:               false
 xterm*eightBitInput:                   false
 xterm*saveLines:                       5000
 xterm*fullscreen:                      never
+xterm*visualBell:                      false
+xterm*bellIsUrgent:                    true
 xterm*scrollTtyKeypress:               true
 xterm*scrollTtyOutput:                 false
 xterm*scrollBar:                       false
