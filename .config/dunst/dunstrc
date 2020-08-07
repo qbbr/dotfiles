@@ -1,6 +1,6 @@
 [global]
 	font = "Terminus 10"
-	markup = yes
+	markup = no
 	format = "<b>%a</b>\n<b>%s %p</b>\n%b"
 	sort = yes
 	indicate_hidden = true
@@ -37,13 +37,13 @@
 	context = ctrl+shift+period
 
 [urgency_low]
-	background = "#586e75"
-	foreground = "#93a1a1"
+	background = "#002b36"
+	foreground = "#657b83"
 	timeout = 10
 
 [urgency_normal]
 	background = "#073642"
-	foreground = "#eee8d5"
+	foreground = "#93a1a1"
 	timeout = 30
 
 [urgency_critical]
@@ -59,3 +59,12 @@
 	summary = newsbeuter
 	background = "#aaaaaa"
 	urgency = low
+
+[xmonad]
+	appname = xmonad
+	urgency = low
+	timeout = 5
+	background = "#002b36"
+	foreground = "#657b83"
+
+# vim:ft=dosini
