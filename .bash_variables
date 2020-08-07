@@ -9,10 +9,11 @@ SHOW_HELLO_MSG=1
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/.notes/"      # default "$HOME/.notes/"
-#NOTES_PRINT_CMD="pandoc -t plain" # default "cat"
-# https://github.com/axiros/terminal_markdown_viewer
-#NOTES_PRINT_CMD="mdv"             # pip install mdv
+#NOTES_DIR="/path/to/notes/"      # default "$HOME/.notes/"
+# default nprint() cmd is "pandoc -t plain"
+#NOTES_PRINT_CMD="mdless"         # gem install mdless
+#NOTES_PRINT_CMD="mdv"            # pip install mdv
+#NOTES_PRINT_CMD="glow"           # go get github.com/charmbracelet/glow
 
 ##
 # MDV (https://github.com/axiros/terminal_markdown_viewer)
@@ -62,6 +63,11 @@ SHOW_HELLO_MSG=1
 # https://wiki.archlinux.org/index.php/java#Better_font_rendering
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 #export _JAVA_OPTIONS="-Xms1024m -Xmx1024m"
+
+##
+# Haskell / Cabal
+##
+#export PATH="$HOME/.cabal/bin:$PATH"
 
 ##
 # Git

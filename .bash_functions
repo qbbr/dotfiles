@@ -134,7 +134,7 @@ nls() {
 }
 
 nprint() {
-	${NOTES_PRINT_CMD:-cat} $(ngetfilepath $*)
+	${NOTES_PRINT_CMD:-pandoc -t plain} $(ngetfilepath $*)
 }
 
 alias np='nprint'
