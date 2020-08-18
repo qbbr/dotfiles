@@ -52,7 +52,7 @@ while [[ $# -gt 0 ]]; do
 			VENDOR="$2"
 			shift # past argument
 			shift # past value
-		;;
+			;;
 		-g|--get)
 			GET_VALUE=1
 			shift # past argument
