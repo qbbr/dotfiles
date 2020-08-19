@@ -45,3 +45,7 @@ dzenbar &
 startconky &
 #DWM_LOG_PATH="$HOME/dwm.log" startdwm
 startdwm
+
+# xmonad + xmobar + trayer
+#trayer --edge top --align right --height 18 --padding 0 --widthtype request --tint 0x002b36 --distancefrom right --distance 1 --expand true &
+#xmonad
