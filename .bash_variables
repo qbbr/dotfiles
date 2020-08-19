@@ -26,6 +26,13 @@ SHOW_HELLO_MSG=1
 #export MC_SKIN="$HOME/.config/mc/solarized.ini"
 
 ##
+# NVM
+##
+#export NVM_DIR="$HOME/.nvm"
+#[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"                   # load nvm
+#[[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion" # load nvm bash_completion
+
+##
 # Yarn
 ##
 #export PATH="$PATH:`yarn global bin`"
