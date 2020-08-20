@@ -30,8 +30,8 @@ icons = {
 currenttime = os.time()
 
 file_exists = function (name)
-    f=io.open(name,"r")
-    if f~=nil then
+    f = io.open(name,"r")
+    if f ~= nil then
         f:close()
         return true
     else
@@ -56,7 +56,7 @@ makecache = function (s)
     cache:close()
 end
 
-if timepassed < 3600 then
+if timepassed < 1800 then
     response = data
 else
     weather = http.request(("%s?id=%s&units=%s&appid=%s"):format(url, cityid, units, appid))
@@ -83,16 +83,18 @@ degrees_to_direction = function (d)
     return directions[val % 16]
 end
 
+dt = os.date("%H:%M", response.dt)
 temp = response.main.temp
 conditions = response.weather[1].description
 icon = response.weather[1].icon:sub(1, 2)
 humidity = response.main.humidity
 wind = response.wind.speed
 deg = degrees_to_direction(response.wind.deg)
-sunrise = os.date("%H:%M %p", response.sys.sunrise)
-sunset = os.date("%H:%M %p", response.sys.sunset)
+sunrise = os.date("%H:%M", response.sys.sunrise)
+sunset = os.date("%H:%M", response.sys.sunset)
 
 conky_text = [[
+${alignc}${color9} %s
 ${color4}${font Symbola:size=48}%s${font}  ${voffset -30}${font :size=20}${color}%s${font}${voffset -10}%s${color7}
 ${voffset 30}
 ${alignc} %s
@@ -104,7 +106,8 @@ ${alignc}${font Symbola:size=20}─⯊─${font}
 ${alignc}${color7}%s${color} | ${color8}%s
 ${voffset -25}
 ]]
-io.write((conky_text):format(icons[icon],
+io.write((conky_text):format(dt,
+                             icons[icon],
                              math.round(temp),
                              measure,
                              conditions,
