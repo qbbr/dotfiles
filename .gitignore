@@ -1,4 +1,4 @@
 *.pyc
 *.swp
 .ncmpcpp/error.log
-.config/conky/weather.json
+.config/conky/weather_vars.lua

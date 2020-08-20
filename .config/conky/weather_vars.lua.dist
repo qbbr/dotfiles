@@ -1,0 +1,13 @@
+#!/usr/bin/env lua
+
+-- https://openweathermap.org/current
+url = "https://api.openweathermap.org/data/2.5/weather"
+-- get city id on http://openweathermap.org/find
+cityid = ""
+-- get api key on http://openweathermap.org/appid
+appid = ""
+-- metric or imperial
+units = "metric"
+-- path to cache file
+cachefile = "/tmp/weather.json"
+

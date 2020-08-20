@@ -2,40 +2,28 @@
 
 -- deps: fonts-symbola
 
+require "weather_vars"
+
 -- load the http socket module
 http = require("socket.http")
 -- load the json module
 json = require("json")
 
-api_url = "http://api.openweathermap.org/data/2.5/weather?"
-
--- http://openweathermap.org/find
-cityid = "2023469"
-
--- metric or imperial
-cf = "metric"
-
--- get an open weather map api key: http://openweathermap.org/appid
-apikey = "542ffd081e67f4512b705f89d2a611b2"
-
--- path to cache file
-cachefile = "/tmp/weather.json"
-
 -- measure is °C if metric and °F if imperial
-measure = '°' .. (cf == 'metric' and 'C' or 'F')
-wind_units = (cf == 'metric' and 'kph' or 'mph')
+measure = '°' .. (units == 'metric' and 'C' or 'F')
+wind_units = (units == 'metric' and 'kph' or 'mph')
 
--- Unicode weather symbols to use
+-- unicode weather symbols to use
 icons = {
-  ["01"] = "☀",
-  ["02"] = "🌤",
-  ["03"] = "🌥",
-  ["04"] = "☁",
-  ["09"] = "🌧",
-  ["10"] = "🌦",
-  ["11"] = "🌩",
-  ["13"] = "🌨",
-  ["50"] = "🌫",
+    ["01"] = "☀",
+    ["02"] = "🌤",
+    ["03"] = "🌥",
+    ["04"] = "☁",
+    ["09"] = "🌧",
+    ["10"] = "🌦",
+    ["11"] = "🌩",
+    ["13"] = "🌨",
+    ["50"] = "🌫",
 }
 
 currenttime = os.time()
@@ -54,7 +42,6 @@ if file_exists(cachefile) then
     cache = io.open(cachefile, "r")
     data = json.decode(cache:read())
     cache:close()
-
     timepassed = os.difftime(currenttime, data.timestamp)
 else
     timepassed = 6000
@@ -71,7 +58,7 @@ end
 if timepassed < 3600 then
     response = data
 else
-    weather = http.request(("%sid=%s&units=%s&APPID=%s"):format(api_url, cityid, cf, apikey))
+    weather = http.request(("%s?id=%s&units=%s&appid=%s"):format(url, cityid, units, appid))
     if weather then
         response = json.decode(weather)
         makecache(response)
@@ -97,7 +84,6 @@ end
 
 temp = response.main.temp
 conditions = response.weather[1].description
---icon2 = response.weather[1].id
 icon = response.weather[1].icon:sub(1, 2)
 humidity = response.main.humidity
 wind = response.wind.speed
