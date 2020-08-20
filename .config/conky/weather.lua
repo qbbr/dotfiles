@@ -2,7 +2,8 @@
 
 -- deps: fonts-symbola
 
-require "weather_vars"
+package.path = arg[0]:match("(.-)[^\\/]+$") .. "?.lua;" .. package.path
+require("weather_vars")
 
 -- load the http socket module
 http = require("socket.http")
