@@ -26,13 +26,7 @@ xterm*saveLines:                       5000
 xterm*fullscreen:                      never
 xterm*visualBell:                      false
 xterm*bellIsUrgent:                    true
-xterm*scrollTtyKeypress:               true
-xterm*scrollTtyOutput:                 false
 xterm*scrollBar:                       false
-!xterm*rightScrollBar:                  true
-!xterm*scrollbar.thickness:             8
-!xterm*scrollbar.foreground:            #5c81af
-!xterm*scrollbar.thumb:                 black
 xterm*loginShell:                      true
 xterm*jumpScroll:                      false
 xterm*multiScroll:                     true
@@ -43,20 +37,20 @@ xterm*on4Clicks:                       line
 xterm*on5Clicks:                       none
 xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
 xterm*translations:                    #override \
-                                       Shift <Btn1Up>: exec-formatted("x-www-browser '%t'", PRIMARY)\n\
-                                       Shift <Btn2Up>: exec-formatted("phpstorm-open-path '%t'", PRIMARY)\n\
-                                       Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
-                                       Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
-                                       Shift <Key>Home: scroll-back(5000)\n\
-                                       Shift <Key>End: scroll-forw(5000)\n\
-                                       Ctrl <Key>slash: print-everything()
+                                           Shift <Btn1Up>: exec-formatted("x-www-browser '%t'", PRIMARY)\n\
+                                           Shift <Btn2Up>: exec-formatted("phpstorm-open-path '%t'", PRIMARY)\n\
+                                           Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
+                                           Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
+                                           Shift <Key>Home: scroll-back(5000)\n\
+                                           Shift <Key>End: scroll-forw(5000)\n\
+                                           Ctrl <Key>slash: print-everything()
 xterm*metaSendsEscape:                 true
 xterm*transparent:                     false
 xterm*shading:                         40
 
 ! colors
 ! =========================================================
-! @see https://github.com/solarized/xresources/blob/master/Xresources.dark
+! @see https://github.com/altercation/solarized/blob/master/xresources/solarized
 #define S_base03         #002b36
 #define S_base02         #073642
 #define S_base01         #586e75
@@ -68,6 +62,7 @@ xterm*shading:                         40
 
 *background:             S_base03
 *foreground:             S_base0
+!*fading:                 40
 *fadeColor:              S_base03
 *cursorColor:            S_base1
 *pointerColorBackground: S_base01
@@ -82,29 +77,22 @@ xterm*shading:                         40
 #define S_cyan           #2aa198
 #define S_green          #859900
 
-!! black dark/light
 *color0:                 S_base02
-*color8:                 S_base03
-!! red dark/light
 *color1:                 S_red
-*color9:                 S_orange
-!! green dark/light
 *color2:                 S_green
-*color10:                S_green
-!! yellow dark/light
 *color3:                 S_yellow
-*color11:                S_base00
-!! blue dark/light
 *color4:                 S_blue
-*color12:                S_base0
-!! magenta dark/light
 *color5:                 S_magenta
-*color13:                S_violet
-!! cyan dark/light
 *color6:                 S_cyan
-*color14:                S_base1
-!! white dark/light
 *color7:                 S_base2
+*color9:                 S_orange
+*color8:                 S_base03
+*color10:                S_green
+!*color10:                S_base01
+*color11:                S_base00
+*color12:                S_base0
+*color13:                S_violet
+*color14:                S_base1
 *color15:                S_base3
 
 ! xpdf
