@@ -16,8 +16,6 @@ hello_msg() {
 	if [[ "${SSH_CLIENT}" ]]; then
 		echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
 	fi
-
-	echo
 }
 
 if [[ -n "${SHOW_HELLO_MSG}" ]]; then

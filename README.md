@@ -45,8 +45,6 @@ see [.bash_functions](.bash_functions)
 
 ## Requirements
 
- * [powerline (optional)](https://github.com/powerline/powerline)
- * [powerline-fonts (optional)](https://github.com/powerline/fonts)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [tree](https://packages.debian.org/jessie/tree)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes, see [.bash_variables](.bash_variables#L10))

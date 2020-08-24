@@ -38,65 +38,97 @@ shopt -s histappend
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-if [ "$TERM" = "linux" ]; then
+if [[ "$TERM" = "linux" ]]; then
 	PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
 else
-	if [ -x "$(command -v powerline-daemon)" ]; then
-		powerline-daemon -q
-		POWERLINE_BASH_CONTINUATION=1
-		POWERLINE_BASH_SELECT=1
-		. /usr/local/lib/python3.5/dist-packages/powerline/bindings/bash/powerline.sh
-	else
-		GIT_PS1_SHOWDIRTYSTATE=true
-		GIT_PS1_SHOWUNTRACKEDFILES=true
+	GIT_PS1_SHOWDIRTYSTATE=true
+	GIT_PS1_SHOWUNTRACKEDFILES=true
+	VIRTUAL_ENV_DISABLE_PROMPT=1
 
-		__get_ps1_user () {
-			local user_color
+	set_prompt() {
+		local last_command=$?
+		local reset='\[\e[00m\]'
+		local black='\[\e[0;30m\]'
+		local red='\[\e[0;31m\]'
+		local green='\[\e[0;32m\]'
+		local yellow='\[\e[0;33m\]'
+		local blue='\[\e[0;34m\]'
+		local magenta='\[\e[0;35m\]'
+		local cyan='\[\e[0;36m\]'
+		local white='\[\e[0;37m\]'
+		local bblack='\[\e[1;30m\]'
+		local bred='\[\e[1;31m\]'
+		local bgreen='\[\e[1;32m\]'
+		local byellow='\[\e[1;33m\]'
+		local bblue='\[\e[1;34m\]'
+		local bmagenta='\[\e[1;35m\]'
+		local bcyan='\[\e[1;36m\]'
+		local bwhite='\[\e[1;37m\]'
+		#local crossIcon='\342\234\227'
+		#local checkmarkIcon='\342\234\223'
 
-			if [ "$USER" == "root" ]; then
-				user_color="\e[31m"
-			else
-				user_color="\e[36m"
-			fi
+		# line one
+		PS1="\n┌─["
+		# user@host
+		if [[ $EUID == 0 ]]; then
+			PS1+="$red\\u$green@$blue\\h$reset"
+		else
+			PS1+="$yellow\\u$green@$blue\\h$reset"
+		fi
+		# datetime
+		PS1+="]($cyan\t$reset)"
+		# work dir
+		PS1+="[$bblue\\w$reset] "
+		# git
+		if [[ -n "$(command -v __git_ps1)" ]]; then
+			PS1+=$(__git_ps1 "$magenta{%s}$reset")
+		fi
+		# line two
+		PS1+="\n└─"
+		# exit code
+		if [[ $last_command != 0 ]]; then
+			PS1+="[$red\$?$reset]─"
+		fi
+		# venv
+		if [[ -n "$VIRTUAL_ENV" ]]; then
+			PS1+="($white${VIRTUAL_ENV##*/}$reset)─"
+		fi
+		# $ for user, # for root
+		PS1+="\\\$ "
+	}
+	PROMPT_COMMAND='set_prompt'
 
-			if [ "$SSH_CLIENT" ]; then
-				echo -en "\e[1;92mSSH\e[0m]["
-			fi
-
-			echo -en "$user_color$USER\e[0m"
-		}
-
-		PS1='┌─[$(__get_ps1_user)\[\e[32m\]@\[\e[0m\]\[\e[33m\]\H\[\e[0m\]]\[\e[34m\](\t)\[\e[0m\][\[\e[33m\]\w\[\e[0m\]]$(declare -F __git_ps1 &>/dev/null && __git_ps1 " \[\e[35m\]{%s}\[\e[0m\]")\n└─~ '
-	fi
+	# old
+	#PS1='┌─[$(__get_ps1_user)\[\e[32m\]@\[\e[0m\]\[\e[33m\]\H\[\e[0m\]]\[\e[34m\](\t)\[\e[0m\][\[\e[33m\]\w\[\e[0m\]]$(venv)$(declare -F __git_ps1 &>/dev/null && __git_ps1 " \[\e[35m\]{%s}\[\e[0m\]")\n└─\$ '
 
 	# colour coreutils
 	eval $(dircolors -b $HOME/.dircolors)
 fi
 
 # ~/.bash_variables
-if [ -f ~/.bash_variables ]; then
+if [[ -f ~/.bash_variables ]]; then
 	. ~/.bash_variables
 fi
 
 # ~/.bash_functions
-if [ -f ~/.bash_functions ]; then
+if [[ -f ~/.bash_functions ]]; then
 	. ~/.bash_functions
 fi
 
 # ~/.bash_aliases
-if [ -f ~/.bash_aliases ]; then
+if [[ -f ~/.bash_aliases ]]; then
 	. ~/.bash_aliases
 fi
 
 # enable programmable completion features
 if ! shopt -oq posix; then
-	if [ -f /usr/share/bash-completion/bash_completion ]; then
+	if [[ -f /usr/share/bash-completion/bash_completion ]]; then
 		. /usr/share/bash-completion/bash_completion
-	elif [ -f /etc/bash_completion ]; then
+	elif [[ -f /etc/bash_completion ]]; then
 		. /etc/bash_completion
 	fi
 fi
