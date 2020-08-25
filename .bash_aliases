@@ -4,6 +4,8 @@ alias q="exit"
 alias qq="exit"
 alias c="clear"
 alias cc="clear"
+alias h="history"
+alias hh="history"
 
 alias ..="cd .."
 alias ...="cd ../.."
