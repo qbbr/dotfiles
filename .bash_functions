@@ -105,6 +105,14 @@ extract() {
 	fi
 }
 
+# swap 2 files
+swap() {
+	local tmp_file="tmp_file.$$"
+	mv "$1" "${tmp_file}"
+	mv "$2" "$1"
+	mv "${tmp_file}" "$2"
+}
+
 # simple notes
 # depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
