@@ -26,19 +26,24 @@ SHOW_HELLO_MSG=1
 #export MC_SKIN="$HOME/.config/mc/solarized.ini"
 
 ##
-# NVM
+# PHP / Composer
+##
+#export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+##
+# JS / NVM
 ##
 #export NVM_DIR="$HOME/.nvm"
 #[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"                   # load nvm
 #[[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion" # load nvm bash_completion
 
 ##
-# Yarn
+# JS / Yarn
 ##
 #export PATH="$PATH:`yarn global bin`"
 
 ##
-# NPM globally for $USER (without sudo)
+# JS / NPM globally for $USER (without sudo)
 ##
 # mkdir "${HOME}/.npm-packages"
 # npm config set prefix "${HOME}/.npm-packages"
@@ -49,12 +54,12 @@ SHOW_HELLO_MSG=1
 #export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 ##
-# Sencha Cmd
+# JS / Sencha Cmd
 ##
 #export PATH="${HOME}/bin/Sencha/Cmd:$PATH"
 
 ##
-# RVM
+# Ruby / RVM
 ##
 #export PATH="$PATH:$HOME/.rvm/bin"
 # load RVM into a shell session *as a function*
@@ -85,3 +90,14 @@ SHOW_HELLO_MSG=1
 # GCC
 ##
 #export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
+
+##
+# LESS colors (man)
+##
+export LESS_TERMCAP_mb=$(tput setaf 2) # green
+export LESS_TERMCAP_md=$(tput setaf 4) # blue
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_se=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput setaf 3) # yellow
+export LESS_TERMCAP_ue=$(tput sgr0)
+export LESS_TERMCAP_us=$(tput setaf 7) # white
