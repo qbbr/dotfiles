@@ -9,11 +9,12 @@ SHOW_HELLO_MSG=1
 ##
 # simple notes configuration
 ##
-#NOTES_DIR="/path/to/notes/"      # default "$HOME/.notes/"
+#NOTES_DIR="/path/to/notes/"                    # default "$HOME/.notes/"
 # default nprint() cmd is "pandoc -t plain"
-#NOTES_PRINT_CMD="mdless"         # gem install mdless
-#NOTES_PRINT_CMD="mdv"            # pip install mdv
-#NOTES_PRINT_CMD="glow"           # go get github.com/charmbracelet/glow
+#NOTES_PRINT_CMD="pygmentize -l md -f terminal" # pip install pygments
+#NOTES_PRINT_CMD="mdv"                          # pip install mdv
+#NOTES_PRINT_CMD="mdless"                       # gem install mdless
+#NOTES_PRINT_CMD="glow"                         # go get github.com/charmbracelet/glow
 
 ##
 # MDV (https://github.com/axiros/terminal_markdown_viewer)
