@@ -95,3 +95,11 @@ firefox-esr:
 [mutt](.muttrc):
 
 [![qbbr-mutt](https://i.imgur.com/1vEF78Hl.png)](https://i.imgur.com/1vEF78H.png)
+
+[xmonad](https://github.com/qbbr/xmonad-cfg):
+
+[![qbbr-xmonad-xterm](https://i.imgur.com/JvDkJ5el.png)](https://i.imgur.com/JvDkJ5e.png)
+
+android termux:
+
+[![qbbr-android-termux](https://i.imgur.com/oR2tBa3l.jpg)](https://i.imgur.com/oR2tBa3.jpg)
