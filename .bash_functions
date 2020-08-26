@@ -6,13 +6,9 @@ hello_msg() {
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 2)${HOME}$(tput sgr0)"
 	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
-	hostname --all-ip-addresses &> /dev/null
-	local ips=''
-	if [[ "$?" == "0" ]]; then
-		ips="$(hostname --all-ip-addresses)"
-	else
-		ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
-	fi
+	# '--all-ip-addresses' unrecognized option in darwin/termux
+	#local ips="$(hostname --all-ip-addresses)"
+	ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
 
 	if [[ -n "${ips}" ]]; then
 		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 9))/g") # separator color fix
