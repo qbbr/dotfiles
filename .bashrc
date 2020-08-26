@@ -99,7 +99,7 @@ else
 	}
 
 	if [[ -n "${PROMPT_COMMAND}" ]]; then
-		PROMPT_COMMAND="${PROMPT_COMMAND}; set_prompt"
+		PROMPT_COMMAND="set_prompt; ${PROMPT_COMMAND}"
 	else
 		PROMPT_COMMAND="set_prompt"
 	fi

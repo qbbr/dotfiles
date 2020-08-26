@@ -13,7 +13,7 @@ hello_msg() {
 		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 9)${ips}$(tput sgr0)"
 	fi
 
-	if [[ "${SSH_CLIENT}" ]]; then
+	if [[ -n "${SSH_CLIENT}" ]]; then
 		echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
 	fi
 }
