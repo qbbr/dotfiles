@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 hello_msg() {
-	# hello msg
+	# depends: debianutils
 	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 3)$$$(tput sgr0)"
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 2)${HOME}$(tput sgr0)"
