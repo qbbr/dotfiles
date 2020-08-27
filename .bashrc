@@ -89,6 +89,10 @@ else
 		if [[ $last_command != 0 ]]; then
 			PS1+="[$red\$?$reset]─"
 		fi
+		# chroot
+		if [[ -n "${debian_chroot}" ]]; then
+			PS1+="$white($green${debian_chroot}$white)$reset-"
+		fi
 		# venv
 		if [[ -n "$VIRTUAL_ENV" ]]; then
 			PS1+="($white${VIRTUAL_ENV##*/}$reset)─"
