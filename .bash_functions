@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 hello_msg() {
-	# depends: debianutils
-	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 3)$$$(tput sgr0)"
+	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 5)$$$(tput sgr0)"
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
-	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 2)${HOME}$(tput sgr0)"
+	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 3)${HOME}$(tput sgr0)"
 	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
 	# '--all-ip-addresses' unrecognized option in darwin/termux
 	#local ips="$(hostname --all-ip-addresses)"
@@ -38,8 +37,73 @@ if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xtt
 	}
 fi
 
+# fork current term \w env vars
 f() {
 	setsid uxterm &> /dev/null
+}
+
+# colorful ls \w AWK
+l() {
+	ls -lA --color=always --group-directories-first $* | \
+		awk \
+			-v black=$(tput setaf 0) \
+			-v red=$(tput setaf 1) \
+			-v green=$(tput setaf 2) \
+			-v yellow=$(tput setaf 3) \
+			-v blue=$(tput setaf 4) \
+			-v magenta=$(tput setaf 5) \
+			-v cyan=$(tput setaf 6) \
+			-v white=$(tput setaf 7) \
+			-v reset=$(tput sgr0) \
+			-v user=$USER \
+		'
+		# for trim first space
+		function ltrim(s) {
+			sub(/^ /, "", s);
+			return s;
+		}
+		# colorize owner
+		function get_owner_color(owner) {
+			if (owner == "root") {
+				return red;
+			} else if (owner == user) {
+				return yellow;
+			} else {
+				return "";
+			}
+		}
+		BEGIN {
+			FPAT = "([[:space:]]*[^[:space:]]+)";
+			OFS = "";
+		}
+		{
+			if (NR > 1) { # skip 1st line \w total
+				# permissions
+				k = 0; for (i = 0; i <= 8; ++i) { # "-rw-r--r--" -> "644"
+					k += ((substr($1, i+2, 1) ~ /[rwx]/) * 2 ^ (8 - i));
+				}
+				if (k) printf("%0o ", k); # mode
+				#$1 = magenta$1reset;     # default
+				# link count
+				$2 = blue$2reset;
+				# owner (wrap "[]")
+				# user
+				$3 = ltrim($3);
+				$3 = " ["get_owner_color($3)$3reset;
+				# group
+				$4 = ltrim($4);
+				$4 = " "get_owner_color($4)$4reset"]";
+				# size
+				$5 = green$5reset;
+				# datetime (wrap "()")
+				$6 = ltrim($6);
+				$6 = " ("cyan$6reset; # month
+				$7 = cyan$7reset;     # day
+				$8 = cyan$8reset")";  # time
+				print
+			}
+		}
+		'
 }
 
 start() {

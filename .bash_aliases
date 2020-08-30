@@ -18,9 +18,10 @@ alias e="editor"
 alias putclip="xclip"
 alias getclip="xclip -o"
 
-alias l="ls -lAF --color --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
+# replaced by l() fn
+#alias l="ls -lAF --color=always --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
 alias ll="l"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 
@@ -41,6 +42,9 @@ alias tree="tree -Csuh"
 alias df="df -Th --total"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__$wx$h.png' -e 'mv $f /media/strg1/screenshots/'"
+
+# save pwd on exit (F10 only)
+alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
 alias mutt="neomutt"
 alias lynx="lynx -accept_all_cookies"
