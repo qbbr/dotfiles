@@ -69,12 +69,20 @@ SHOW_HELLO_MSG=1
 ##
 # Java / Android Studio
 ##
-#export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+# apt install openjdk-11-jdk
+#export JAVA_HOME="/usr/lib/jvm/default-java/"
 #export ANDROID_HOME="$HOME/Android/Sdk"
+# Command line tools only
+# https://developer.android.com/studio/index.html#downloads
+#export ANDROID_CMDLINE_TOOLS="$ANDROID_HOME/cmdline-tools"
+#export PATH="$PATH:$ANDROID_CMDLINE_TOOLS/tools/bin"
+# sdkmanager "platform-tools"
+# sdkmanager "platforms;android-30"
 #export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 #export PATH="$PATH:$ANDROID_HOME:$ANDROID_PLATFORM_TOOLS"
 # https://wiki.archlinux.org/index.php/java#Better_font_rendering
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+# mem fix
 #export _JAVA_OPTIONS="-Xms1024m -Xmx1024m"
 
 ##
