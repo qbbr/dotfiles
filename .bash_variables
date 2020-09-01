@@ -1,10 +1,33 @@
 #!/usr/bin/env bash
 
+##
+# bash(1) vars
+##
+# for setting history length see HISTSIZE and HISTFILESIZE
+HISTSIZE=5000
+HISTFILESIZE=5000
+# ignore cmds
+HISTIGNORE="l:ls:ps:psg:history"
+# don't put duplicate lines or lines starting with space in the history
+HISTCONTROL=ignoreboth
+# share history across all terminals
+PROMPT_COMMAND="history -a"
+# colorful `history` output
+HISTTIMEFORMAT="$(tput setaf 6)%d.%m %H:%M:%S $(tput setaf 7)\$$(tput sgr0) "
+# colorful `time` output
+TIMEFORMAT=$'\nreal: \e[0;36m%3lR\e[0;0m\nuser: \e[0;33m%3lU\e[0;0m\nsys:  \e[0;34m%3lS\e[0;0m\ncpu:  \e[0;35m%P%%\e[0;0m\n'
 # set default editor
-export EDITOR=vim
-
+EDITOR=vim
 # run hello_msg() on bash start
 SHOW_HELLO_MSG=1
+# use colorful prompt on "linux" $TERM
+FORCE_COLOR_PS1=1
+# set default editor
+EDITOR=vim
+# run hello_msg() on bash start
+SHOW_HELLO_MSG=1
+# use colorful prompt on "linux" $TERM
+FORCE_COLOR_PS1=1
 
 ##
 # simple notes configuration
@@ -24,7 +47,9 @@ SHOW_HELLO_MSG=1
 ##
 # Midnight Commander
 ##
-#export MC_SKIN="$HOME/.config/mc/solarized.ini"
+#if [[ "${TERM}" != "linux" ]]; then
+#    export MC_SKIN="$HOME/.config/mc/solarized.ini"
+#fi
 
 ##
 # PHP / Composer

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 hello_msg() {
+	if [[ "${TERM}" == "linux" ]]; then
+		echo
+	fi
 	echo -e "$(tput bold)PID:$(tput sgr0)  $(tput setaf 5)$$$(tput sgr0)"
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 3)${HOME}$(tput sgr0)"
@@ -10,12 +13,12 @@ hello_msg() {
 	ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
 
 	if [[ -n "${ips}" ]]; then
-		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 9))/g") # separator color fix
-		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 9)${ips}$(tput sgr0)"
+		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 1))/g") # separator color fix
+		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 1)${ips}$(tput sgr0)"
 	fi
 
 	if [[ -n "${SSH_CLIENT}" ]]; then
-		echo -e "${_c_bold}SSH:${_c_reset}  ${_c_bold_light_green}${SSH_CLIENT}${_c_reset}"
+		echo -e "$(tput bold)SSH:$(tput sgr0)  $(tput setaf 2)${SSH_CLIENT}$(tput sgr0)"
 	fi
 }
 

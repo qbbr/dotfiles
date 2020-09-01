@@ -17,19 +17,11 @@ shopt -s globstar
 shopt -s no_empty_cmd_completion
 # append to the history file, don't overwrite it
 shopt -s histappend
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=5000
-HISTFILESIZE=5000
-# ignore cmds
-HISTIGNORE="l:ls:ps:psg:history"
-# don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
-# share history across all terminals
-PROMPT_COMMAND="history -a"
-# colorful `history` output
-HISTTIMEFORMAT="$(tput setaf 6)%d.%m %H:%M:%S $(tput setaf 7)\$$(tput sgr0) "
-# colorful `time` output
-TIMEFORMAT=$'\nreal: \e[0;36m%3lR\e[0;0m\nuser: \e[0;33m%3lU\e[0;0m\nsys:  \e[0;34m%3lS\e[0;0m\ncpu:  \e[0;35m%P%%\e[0;0m\n'
+
+# ~/.bash_variables
+if [[ -f ~/.bash_variables ]]; then
+	. ~/.bash_variables
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -39,7 +31,7 @@ if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
 	debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-if [[ "$TERM" = "linux" ]]; then
+if [[ -z "${FORCE_COLOR_PS1}" ]] && [[ "${TERM}" == "linux" ]]; then
 	PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
 else
 	GIT_PS1_SHOWDIRTYSTATE=true
@@ -108,16 +100,8 @@ else
 		PROMPT_COMMAND="set_prompt"
 	fi
 
-	# old
-	#PS1='┌─[$(__get_ps1_user)\[\e[32m\]@\[\e[0m\]\[\e[33m\]\H\[\e[0m\]]\[\e[34m\](\t)\[\e[0m\][\[\e[33m\]\w\[\e[0m\]]$(venv)$(declare -F __git_ps1 &>/dev/null && __git_ps1 " \[\e[35m\]{%s}\[\e[0m\]")\n└─\$ '
-
 	# colour coreutils
 	eval $(dircolors -b $HOME/.dircolors)
-fi
-
-# ~/.bash_variables
-if [[ -f ~/.bash_variables ]]; then
-	. ~/.bash_variables
 fi
 
 # ~/.bash_functions
