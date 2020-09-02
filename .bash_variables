@@ -52,6 +52,25 @@ FORCE_COLOR_PS1=1
 #fi
 
 ##
+# Perl / Perlbrew
+##
+#export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
+#export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB"
+#export PATH="$PATH:$HOME/perl5/bin"
+# curl -L https://install.perlbrew.pl | bash
+# perlbrew init
+# perlbrew available
+# perlbrew install 5.30.3
+# perlbrew switch 5.30.3
+# perlbrew use
+## cpan
+# perlbrew install-cpanm
+# cpanm <module>
+# perlbrew list-modules
+#export PATH="$PATH:$HOME/perl5/perlbrew/bin"
+#source "${HOME}/perl5/perlbrew/etc/bashrc"
+
+##
 # PHP / Composer
 ##
 #export PATH="$PATH:$HOME/.config/composer/vendor/bin"
