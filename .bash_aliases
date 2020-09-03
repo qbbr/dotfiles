@@ -71,6 +71,7 @@ alias web-server-dir-python="x-www-browser http://127.0.0.1:8666/; python3 -m ht
 alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
 alias web-server-dir-busybox="x-www-browser http://127.0.0.1:8666/; busybox -v httpd -f -p 8666"
 alias web-server-dir-webfs="x-www-browser http://127.0.0.1:8666/; webfsd -d -F -p 8666 -f index.html"
+alias web-server-dir-perl-mojolicious="x-www-browser http://127.0.0.1:8666/; perl -MMojolicious::Lite -MCwd -e 'app->static->paths->[0]=getcwd; app->start' daemon -l http://127.0.0.1:8666"
 alias web-server-dir="web-server-dir-php" # default web-server
 
 alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
