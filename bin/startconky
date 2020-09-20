@@ -5,3 +5,4 @@ conky -c ~/.config/conky/conky_graph.conf &
 on-online-runner && conky -c ~/.config/conky/conky_weather.conf &
 on-online-runner && conky -c ~/.config/conky/conky_gcalcli.conf &
 on-online-runner && conky -c ~/.config/conky/conky_currency.conf &
+on-online-runner && conky -c ~/.config/conky/conky_world_population.conf &

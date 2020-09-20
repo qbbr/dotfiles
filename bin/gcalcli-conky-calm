@@ -1,3 +1,8 @@
 #!/bin/sh
 
-gcalcli --conky --lineart=ascii calm --monday --width=14 --color-date=white --color-owner=blue --color-now-marker=green | gcalcli-conky-color-fixer | sed '$d'
+gcalcli --conky --lineart=ascii calm --monday --width=14 --color-date=white --color-border=black --color-owner=blue --color-now-marker=green \
+	| sed -E 's/(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря) ([0-9]{4})/${color3}&${color}/g' \
+	| sed -E 's/(Понедельник|Вторник|Среда|Четверг|Пятница|Суббота|Воскресенье)/${color6}&${color}/g' \
+	| sed -e 's/color black/color8/g' \
+	| gcalcli-conky-color-fixer \
+	| sed '$d'
