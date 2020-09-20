@@ -15,10 +15,10 @@
 //   {
 //     "current_population": "7,812,692,121",
 //     "births_today": "362,046",
-//     "death_today": "151,996",
+//     "deaths_today": "151,996",
 //     "absolute_growth": "210,050",
 //     "births_year": "100,533,178",
-//     "death_year": "42,206,237",
+//     "deaths_year": "42,206,237",
 //     "absolute_growth_year": "58,326,941"
 //   }
 //
@@ -58,11 +58,11 @@ page.open('https://www.worldometers.info/world-population/', function(status) {
                 data['current_population'] = $('.rts-counter[rel="current_population"]').text();
                 // today
                 data['births_today'] = $('.rts-counter[rel="births_today"]').text();
-                data['death_today'] = $('.rts-counter[rel="dth1s_today"]').text();
+                data['deaths_today'] = $('.rts-counter[rel="dth1s_today"]').text();
                 data['absolute_growth'] = $('.rts-counter[rel="absolute_growth"]').text();
                 // year
                 data['births_year'] = $('.rts-counter[rel="births_this_year"]').text();
-                data['death_year'] = $('.rts-counter[rel="dth1s_this_year"]').text();
+                data['deaths_year'] = $('.rts-counter[rel="dth1s_this_year"]').text();
                 data['absolute_growth_year'] = $('.rts-counter[rel="absolute_growth_year"]').text();
 
                 console.log(JSON.stringify(data));
