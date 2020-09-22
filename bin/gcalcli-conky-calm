@@ -1,8 +1,30 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
+hilite_current_day_of_week() {
+	local color=''
+	local current_dow=$(date +'%u')
+	((current_dow--))
+	local dow_list=(Понедельник Вторник Среда Четверг Пятница Суббота Воскресенье)
+
+	while read data; do
+		for index in "${!dow_list[@]}"; do
+			if [[ "${index}" == "${current_dow}" ]]; then
+				color='color3'
+			else
+				color='color6'
+			fi
+
+			data="$(echo "${data}" | sed -e "s/${dow_list[${index}]}/\${${color}}&\${color}/g")"
+		done
+
+		echo "${data}"
+	done
+}
+
+	#| sed -E 's/(Понедельник|Вторник|Среда|Четверг|Пятница|Суббота|Воскресенье)/${color6}&${color}/g' \
 gcalcli --conky --lineart=ascii calm --monday --width=14 --color-date=white --color-border=black --color-owner=blue --color-now-marker=green \
+	| hilite_current_day_of_week \
 	| sed -E 's/(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря) ([0-9]{4})/${color3}&${color}/g' \
-	| sed -E 's/(Понедельник|Вторник|Среда|Четверг|Пятница|Суббота|Воскресенье)/${color6}&${color}/g' \
 	| sed -e 's/color black/color8/g' \
-	| gcalcli-conky-color-fixer \
-	| sed '$d'
+	| gcalcli-conky-color-fixer
+	#| sed '$d'
