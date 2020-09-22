@@ -10,7 +10,9 @@ hello_msg() {
 	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
 	# '--all-ip-addresses' unrecognized option in darwin/termux
 	#local ips="$(hostname --all-ip-addresses)"
-	ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
+	if command -v ip > /dev/null; then
+		ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
+	fi
 
 	if [[ -n "${ips}" ]]; then
 		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 1))/g") # separator color fix

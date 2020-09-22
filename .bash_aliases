@@ -44,7 +44,7 @@ alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__$wx$h.png' -e 'mv $f /media/strg1/screenshots/'"
 
 # save pwd on exit (F10 only)
-alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
+#alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
 alias mutt="neomutt"
 alias lynx="lynx -accept_all_cookies"
@@ -55,7 +55,7 @@ alias pip="pip3"
 # apt install source-highlight
 #export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 # apt install highlight
-export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --style solarized-dark"
+#export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --style solarized-dark"
 export LESS=" -R "
 #alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
