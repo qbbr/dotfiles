@@ -94,16 +94,16 @@ sunrise = os.date("%H:%M", response.sys.sunrise)
 sunset = os.date("%H:%M", response.sys.sunset)
 
 conky_text = [[
-${alignc}${color9} %s
-${color4}${font Symbola:size=48}%s${font}  ${voffset -30}${font :size=20}${color}%s${font}${voffset -10}%s${color7}
+${alignc}${color9}%s
+${color4}${font Symbola:size=48}%s${font}  ${voffset -30}${font :size=20}${color7}%s${font}${voffset -10}%s${color}
 ${voffset 30}
-${alignc} %s
+${alignc}${color6}%s${color}
 
-${alignc}Humidity: ${color}%s%%${color7}
-${alignc}Wind: ${color}%s%s %s${color9}
+${alignc}${color8}Humidity: ${color7}%s%%${color}
+${alignc}${color8}Wind: ${color7}%s%s${color} ${color8}%s${color}
 
-${alignc}${font Symbola:size=20}─⯊─${font}
-${alignc}${color7}%s${color} | ${color8}%s
+${alignc}${color7}${font Symbola:size=20}─⯊─${font}${color}
+${alignc}${color7}%s${color7} | ${color8}%s
 ${voffset -25}
 ]]
 io.write((conky_text):format(dt,

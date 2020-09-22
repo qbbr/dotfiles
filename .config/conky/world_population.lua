@@ -22,8 +22,8 @@ ${alignc}${font terminus:size=18}${color4}%s${color}${font}
 
 ${color9}${goto 50}today${goto 105}this year${color}
 ${color9}births${color2}${goto 50}%s${goto 105}%s
-${color9}deaths${color1}${goto 50}%s${goto 105}%s
-${color9}growth${color7}${goto 50}%s${goto 105}%s
+${color9}deaths${color7}${goto 50}%s${goto 105}%s
+${color9}growth${color6}${goto 50}%s${goto 105}%s
 ]]
 
 if data then
