@@ -55,6 +55,8 @@ page.open('https://www.worldometers.info/world-population/', function(status) {
                 }
 
                 var data = {};
+                data['timestamp'] = Math.floor(+new Date() / 1000);
+                // total
                 data['current_population'] = $('.rts-counter[rel="current_population"]').text();
                 // today
                 data['births_today'] = $('.rts-counter[rel="births_today"]').text();

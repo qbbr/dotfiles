@@ -11,7 +11,11 @@ handle:close()
 json = require("json")
 data = json.decode(result)
 
+timestamp = os.date("%H:%M", data['timestamp'])
+
 conky_text = [[
+${alignc}${color9} %s
+
 ${alignc}${color7}Current World Population${color}
 
 ${alignc}${font terminus:size=18}${color4}%s${color}${font}
@@ -23,7 +27,8 @@ ${color9}growth${color7}${goto 50}%s${goto 105}%s
 ]]
 
 if data then
-    io.write((conky_text):format(data["current_population"],
+    io.write((conky_text):format(timestamp,
+                                 data["current_population"],
                                  data["births_today"],
                                  data["births_year"],
                                  data["deaths_today"],
