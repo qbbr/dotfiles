@@ -54,6 +54,7 @@ FORCE_COLOR_PS1=1
 ##
 # Perl / Perlbrew
 ##
+# https://perlbrew.pl/
 #export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
 #export PERL5LIB="$HOME/perl5/lib/perl5:$PERL5LIB"
 #export PATH="$PATH:$HOME/perl5/bin"
@@ -73,6 +74,7 @@ FORCE_COLOR_PS1=1
 ##
 # PHP / Composer
 ##
+# https://getcomposer.org/download/
 #export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 ##
@@ -85,7 +87,8 @@ FORCE_COLOR_PS1=1
 ##
 # JS / Yarn
 ##
-#export PATH="$PATH:`yarn global bin`"
+# `yarn global bin`
+#export PATH="$PATH:${HOME}/.yarn/bin"
 
 ##
 # JS / NPM globally for $USER (without sudo)
