@@ -111,6 +111,76 @@ l() {
 		'
 }
 
+# colorful ps \w AWK
+p() {
+	ps aux | \
+		awk \
+			-v bbold=$(tput smso) \
+			-v bold=$(tput bold) \
+			-v black=$(tput setaf 0) \
+			-v red=$(tput setaf 1) \
+			-v green=$(tput setaf 2) \
+			-v yellow=$(tput setaf 3) \
+			-v blue=$(tput setaf 4) \
+			-v magenta=$(tput setaf 5) \
+			-v cyan=$(tput setaf 6) \
+			-v white=$(tput setaf 7) \
+			-v reset=$(tput sgr0) \
+			-v violet=$(tput setaf 13) \
+			-v user=$USER \
+		'
+		# for trim first space
+		function ltrim(s) {
+			sub(/^ /, "", s);
+			return s;
+		}
+		# colorize owner
+		function get_owner_color(owner) {
+			if (owner == "root") {
+				return red;
+			} else if (owner == user) {
+				return yellow;
+			} else {
+				return "";
+			}
+		}
+		BEGIN {
+			FPAT = "([[:space:]]*[^[:space:]]+)";
+			OFS = "";
+		}
+		{
+			if (NR > 1) { # skip 1st line \w header
+				# USER
+				$1 = get_owner_color($1)$1reset;
+				# PID
+				$2 = magenta$2reset;
+				# CPU
+				$3 = green$3reset;
+				# MEM
+				$4 = violet$4reset;
+				# VSZ
+				#$5
+				# RSS
+				#$6
+				# TTY
+				#$7
+				# STAT
+				$8 = bold$8reset;
+				# START
+				$9 = blue$9reset;
+				# TIME
+				$10 = cyan$10reset;
+				# COMMAND
+				$11 = white$11reset;
+				print;
+			} else {
+				$0 = bbold$0reset;
+				print;
+			}
+		}
+		'
+}
+
 start() {
 	sudo /etc/init.d/$1 start
 }
