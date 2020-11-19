@@ -80,6 +80,7 @@ FORCE_COLOR_PS1=1
 ##
 # JS / NVM
 ##
+# https://github.com/nvm-sh/nvm
 #export NVM_DIR="$HOME/.nvm"
 #[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"                   # load nvm
 #[[ -s "${NVM_DIR}/bash_completion" ]] && source "${NVM_DIR}/bash_completion" # load nvm bash_completion
