@@ -113,7 +113,13 @@ l() {
 
 # colorful ps \w AWK
 p() {
-	ps aux | \
+	if [[ -n "$*" ]]; then
+		args=$*
+	else
+		args="aux"
+	fi
+
+	ps $args | \
 		awk \
 			-v bbold=$(tput smso) \
 			-v bold=$(tput bold) \
@@ -179,6 +185,11 @@ p() {
 			}
 		}
 		'
+}
+
+# colorful memory usage
+function pm() {
+	p -eo user,pid,%cpu,size,vsz,rss,tty,stat,start,time,command --sort -rss | head -n 10
 }
 
 start() {
