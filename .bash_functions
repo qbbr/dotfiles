@@ -192,6 +192,46 @@ function pm() {
 	p -eo user,pid,%cpu,size,vsz,rss,tty,stat,start,time,command --sort -rss | head -n 10
 }
 
+# colorful mount
+function m() {
+	mount | column -t $* | \
+		awk \
+			-v bbold=$(tput smso) \
+			-v bold=$(tput bold) \
+			-v black=$(tput setaf 0) \
+			-v red=$(tput setaf 1) \
+			-v green=$(tput setaf 2) \
+			-v yellow=$(tput setaf 3) \
+			-v blue=$(tput setaf 4) \
+			-v magenta=$(tput setaf 5) \
+			-v cyan=$(tput setaf 6) \
+			-v white=$(tput setaf 7) \
+			-v reset=$(tput sgr0) \
+			-v violet=$(tput setaf 13) \
+			-v user=$USER \
+		'
+		BEGIN {
+			FPAT = "([[:space:]]*[^[:space:]]+)";
+			OFS = "";
+		}
+		{
+			# DEV
+			$1 = blue$1reset;
+			# "on"
+			#$2 = $2;
+			# MOUNT POINT
+			$3 = yellow$3reset;
+			# "type"
+			#$4 = $4;
+			# FS
+			$5 = white$5reset;
+			# ARGS
+			#$6 = white$6reset;
+			print;
+		}
+		'
+}
+
 start() {
 	sudo /etc/init.d/$1 start
 }

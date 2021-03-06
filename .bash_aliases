@@ -35,7 +35,8 @@ alias rm="rm -i"
 alias crontab="crontab -i"
 alias pong="ping -c 3 www.google.com"
 
-alias m="mount | column -t"
+# replaced by m() fn
+#alias m="mount | column -t"
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 
 alias tree="tree -Csuh"
