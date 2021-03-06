@@ -49,7 +49,7 @@ f() {
 
 # colorful ls \w AWK
 l() {
-	ls -lA --color=always --group-directories-first $* | \
+	ls -lAh --color=always --group-directories-first $* | \
 		awk \
 			-v black=$(tput setaf 0) \
 			-v red=$(tput setaf 1) \
