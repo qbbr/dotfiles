@@ -232,22 +232,6 @@ function m() {
 		'
 }
 
-start() {
-	sudo /etc/init.d/$1 start
-}
-
-stop() {
-	sudo /etc/init.d/$1 stop
-}
-
-restart() {
-	sudo /etc/init.d/$1 restart
-}
-
-status() {
-	sudo /etc/init.d/$1 status
-}
-
 apt-history() {
 	case "$1" in
 		install)
