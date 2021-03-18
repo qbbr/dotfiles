@@ -409,3 +409,13 @@ function youtube-dl-sst() {
 	echo $format
 	ffmpeg -ss $2 -i "$url" -t $3 -c copy "$filename" && echo "[Done]. File: $PWD/$filename"
 }
+
+function set-tor-proxy() {
+	export https_proxy="socks5://127.0.0.1:9050"
+	export http_proxy="socks5://127.0.0.1:9050"
+}
+
+function unset-tor-proxy() {
+	unset https_proxy
+	unset http_proxy
+}
