@@ -85,6 +85,8 @@ alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vco
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
 alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
 
+alias set-php-version="sudo update-alternatives --config php"
+
 # cygwin aliases
 if [[ "$(uname -s)" == "CYGWIN"* ]]; then
 	alias composer="composer.bat"
