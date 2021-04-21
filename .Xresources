@@ -1,6 +1,6 @@
 ! =========================================================
 ! file:   ~/.Xresources
-! author: Sokolov Innokenty, <imqbbr@gmail.com>
+! author: @qbbr
 ! =========================================================
 ! xrdb -merge ~/.Xresources
 ! =========================================================
@@ -36,14 +36,18 @@ xterm*on3Clicks:                       regex [^ \n<>]+
 xterm*on4Clicks:                       regex [^\n\$]+
 xterm*on5Clicks:                       line
 xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
-xterm*translations:                    #override \
+xterm*translations:                    #override \n\
                                            Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)\n\
-                                           Shift <Btn2Up>: exec-formatted("phpstorm-open-path '%t'", PRIMARY)\n\
+                                           Shift <Btn2Up>: exec-formatted("idea-open-path '%t'", PRIMARY)\n\
                                            Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
                                            Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
                                            Shift <Key>Home: scroll-back(5000)\n\
                                            Shift <Key>End: scroll-forw(5000)\n\
-                                           Ctrl <Key>slash: print-everything()
+                                           Ctrl <Key>slash: print-everything()\n\
+                                           Ctrl <Key>BackSpace: insert-eight-bit() \n\
+                                           Ctrl <Btn1Down>: ignore()\n\
+                                           Ctrl <Btn2Down>: ignore()\n\
+                                           Ctrl <Btn3Down>: ignore()
 xterm*metaSendsEscape:                 true
 xterm*transparent:                     false
 xterm*shading:                         40

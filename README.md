@@ -14,8 +14,8 @@
 
 ## Bash binds
 
- * `Selected text + Shift + MouseBtn1` - open url/path in browser
- * `Selected text + Shift + MouseBtn2` - open url/path in phpstorm
+ * `Selected text + Shift + MouseBtn1` - open url/path in browser (ff)
+ * `Selected text + Shift + MouseBtn2` - open url/path in idea (intellij)
  * `Ctrl + Shift + c` - copy selected text to CLIPBOARD
  * `Ctrl + Shift + v` - paste from CLIPBOARD
  * `Shift + Home` - scroll to top
@@ -34,11 +34,14 @@ see [.bash_functions](.bash_functions)
  * `f` - fork terminal with session
  * `apt-history` - install/upgrade/remove/rollback
  * `tailf-monolog` - tail -f for [monolog](https://github.com/Seldaek/monolog)
+ * `l` - colorful ls
+ * `p/pm/m/psg <s>` - colorful process usage
 
 ## Requirements
 
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
- * [tree](https://packages.debian.org/jessie/tree)
+ * [gawk](https://www.gnu.org/software/gawk/)
+ * [tree](https://packages.debian.org/jessie/tree) (optional for simple-notes)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes, see [.bash_variables](.bash_variables#L10))
  * [xttitle](https://packages.debian.org/stretch/xttitle)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional for conky)

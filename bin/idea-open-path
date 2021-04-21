@@ -3,10 +3,11 @@
 # grep file path
 # {path/to/file}:{line_number}:
 
+IDEA="idea"
 REGEX="^(.*):(.*):$"
 
 if [[ "$1" =~ $REGEX ]]; then
-    phpstorm --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
+    ${IDEA} --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
 else
-    phpstorm $1 &
+    ${IDEA} $1 &
 fi
