@@ -63,31 +63,35 @@ else
 		PS1="\n┌─["
 		# user@host
 		if [[ $EUID == 0 ]]; then
-			PS1+="$red\\u$green@$blue\\h$reset"
+			PS1+="${red}\\u${green}@${blue}\\h${reset}"
 		else
-			PS1+="$yellow\\u$green@$blue\\h$reset"
+			PS1+="${yellow}\\u${green}@${blue}\\h${reset}"
 		fi
 		# datetime
-		PS1+="]($cyan\\t$reset)"
+		PS1+="](${cyan}\\t${reset})"
 		# work dir
-		PS1+="[$bblue\\w$reset] "
+		PS1+="[${bblue}\\w${reset}] "
 		# git
 		if [[ -n "$(command -v __git_ps1)" ]]; then
-			PS1+=$(__git_ps1 "$magenta{%s}$reset")
+			PS1+=$(__git_ps1 "${magenta}{%s}${reset}")
 		fi
 		# line two
 		PS1+="\n└─"
 		# exit code
 		if [[ $last_command != 0 ]]; then
-			PS1+="[$red\$?$reset]─"
+			PS1+="[${red}\$?${reset}]─"
+		fi
+		# ssh
+		if [[ -n "${SSH_CLIENT}" ]]; then
+			PS1+="(${green}SSH${reset})-"
 		fi
 		# chroot
 		if [[ -n "${debian_chroot}" ]]; then
-			PS1+="$white($green${debian_chroot}$white)$reset-"
+			PS1+="(${white}${debian_chroot}${reset})-"
 		fi
 		# venv
 		if [[ -n "$VIRTUAL_ENV" ]]; then
-			PS1+="($white${VIRTUAL_ENV##*/}$reset)─"
+			PS1+="(${white}${VIRTUAL_ENV##*/}${reset})─"
 			VIRTUAL_ENV_DISABLE_PROMPT=1
 		fi
 		# $ for user, # for root
