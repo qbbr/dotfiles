@@ -4,9 +4,6 @@
 [submodule "src/skb"]
 	path = src/skb
 	url = https://github.com/polachok/skb.git
-[submodule ".vim"]
-	path = .vim
-	urk = https://github.com/qbbr/dotvim.git
 [submodule "src/wmname"]
 	path = src/wmname
 	url = http://git.suckless.org/wmname
