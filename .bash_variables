@@ -30,14 +30,21 @@ SHOW_HELLO_MSG=1
 FORCE_COLOR_PS1=1
 
 ##
-# simple notes configuration
+# print markdown (`md()` fn .bash_functions)
+# if not set $MD_PRINT_CMD used `cat` by default
 ##
-#NOTES_DIR="/path/to/notes/"                    # default "$HOME/.notes/"
-# default nprint() cmd is "pandoc -t plain"
-#NOTES_PRINT_CMD="pygmentize -l md -f terminal" # pip install pygments
-#NOTES_PRINT_CMD="mdv"                          # pip install mdv
-#NOTES_PRINT_CMD="mdless"                       # gem install mdless
-#NOTES_PRINT_CMD="glow"                         # go get github.com/charmbracelet/glow
+#MD_PRINT_CMD="pandoc -t plain"              # apt install pandoc
+#MD_PRINT_CMD="pygmentize -l md -f terminal" # pip install pygments
+#MD_PRINT_CMD="mdv"                          # pip install mdv
+#MD_PRINT_CMD="mdless"                       # gem install mdless
+#MD_PRINT_CMD="glow"                         # go get github.com/charmbracelet/glow
+
+##
+# simple notes configuration
+# if not set $NOTES_PRINT_CMD used `pandoc -t plain` by default
+##
+#NOTES_DIR="/path/to/notes/"                 # default "$HOME/.notes/"
+#NOTES_PRINT_CMD="${MD_PRINT_CMD}"
 
 ##
 # MDV (https://github.com/axiros/terminal_markdown_viewer)

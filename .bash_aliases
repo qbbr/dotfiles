@@ -75,7 +75,8 @@ alias web-server-dir-webfs="x-www-browser http://127.0.0.1:8666/; webfsd -d -F -
 alias web-server-dir-perl-mojolicious="x-www-browser http://127.0.0.1:8666/; perl -MMojolicious::Lite -MCwd -e 'app->static->paths->[0]=getcwd; app->start' daemon -l http://127.0.0.1:8666"
 alias web-server-dir="web-server-dir-php" # default web-server
 
-alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
+# sudo curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+#alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
 alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
 alias start-docker='sudo systemctl start docker.socket; sudo systemctl start docker.service'
 alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docker.socket'

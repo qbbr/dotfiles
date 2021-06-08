@@ -289,6 +289,11 @@ swap() {
 	mv "${tmp_file}" "$2"
 }
 
+# print markdown
+md() {
+	${MD_PRINT_CMD:-cat} $*
+}
+
 # simple notes
 # depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
