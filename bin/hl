@@ -10,7 +10,7 @@
 #   echo -e "line1: SUCCESS cmd\nline2: FAIL test" | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
 #   ./PROGRAM | hl -bg red -fg white FAIL | hl -fg green -b SUCCESS
 #   cat /path/to/log | hl -bg r -l ERROR
-#   tail -f /path/to.log | hl -bg r -i error
+#   tail -f /path/to.log | hl -bg r -m Error
 #
 # author: @qbbr
 
@@ -18,7 +18,7 @@ fg=""
 bg=""
 bold=""
 line=""
-i=""
+i="i"
 reset=$(tput sgr0)
 
 usage() {
@@ -29,7 +29,7 @@ usage() {
 	echo "	-fg                - set foreground color"
 	echo "	-b, --bold         - set bold text"
 	echo "	-l, --line         - highlight all line"
-	echo "	-i, --ignore-case  - ignore case distinctions"
+	echo "	-m, --match-case   - match case distinctions (default: ignore case)"
 	echo "	-h, --help         - display this help and exit"
 	exit 0
 }
@@ -72,8 +72,8 @@ while [[ $# -gt 0 ]]; do
 			line=".*"
 			shift
 			;;
-		-i|--ignore-case)
-			i="i"
+		-m|--match-case)
+			i=""
 			shift
 			;;
 		-h|--help)
