@@ -294,6 +294,17 @@ md() {
 	${MD_PRINT_CMD:-cat} $*
 }
 
+# pretty-print (pip install pygments)
+function pp() {
+	if [[ "$1" == "-l" ]]; then
+		shift
+		# print line numbers
+		pygmentize -f terminal -g $* | perl -e 'for(<>){print sprintf("%3s %s", ++$i,$_);}'
+	else
+		pygmentize -f terminal -g $*
+	fi
+}
+
 # simple notes
 # depends: tree
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
