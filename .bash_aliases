@@ -60,9 +60,9 @@ alias pip="pip3"
 export LESS=" -R "
 #alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
-alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
+#alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 # pip install Pygments
-alias pp="pygmentize -f terminal"
+alias pp="pygmentize -f terminal -g"
 
 # static web servers
 alias web-server-dir-php="x-www-browser http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
