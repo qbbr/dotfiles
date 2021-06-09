@@ -347,15 +347,27 @@ tailf-monolog() {
 		return
 	fi
 
-	tail -f $1 | awk '
+	tail -f $1 | \
+		awk \
+			-v black=$(tput setaf 0) \
+			-v red=$(tput setaf 1) \
+			-v green=$(tput setaf 2) \
+			-v yellow=$(tput setaf 3) \
+			-v blue=$(tput setaf 4) \
+			-v magenta=$(tput setaf 5) \
+			-v cyan=$(tput setaf 6) \
+			-v white=$(tput setaf 7) \
+			-v reset=$(tput sgr0) \
+		'
 		{matched=0}
-		/INFO:/    {matched=1; print "\033[0;37m" $0 "\033[0m"} # white
-		/NOTICE:/  {matched=1; print "\033[0;36m" $0 "\033[0m"} # cyan
-		/WARNING:/ {matched=1; print "\033[0;34m" $0 "\033[0m"} # blue
-		/ERROR:/   {matched=1; print "\033[0;31m" $0 "\033[0m"} # red
-		/ALERT:/   {matched=1; print "\033[0;35m" $0 "\033[0m"} # purple
-		matched==0            {print "\033[0;33m" $0 "\033[0m"} # yellow
-	'
+		/INFO:/    {matched=1; print green$0reset}
+		/DEBUG:/   {matched=1; print $0}
+		/NOTICE:/  {matched=1; print cyan$0reset}
+		/WARNING:/ {matched=1; print blue$0reset}
+		/ERROR:/   {matched=1; print red0reset}
+		/ALERT:/   {matched=1; print purple$0reset}
+		matched==0            {print yellow$0reset}
+		'
 }
 
 function getcertnames() {
