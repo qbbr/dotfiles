@@ -16,7 +16,7 @@ visualizer_type = "spectrum"
 visualizer_look = "▌▌"
 
 # columns
-song_columns_list_format = "(6f)[cyan]{l} (20)[blue]{a} (24)[]{b} (40)[white]{t|f} (6)[green]{gr} (4)[yellow]{yr}"
+song_columns_list_format = "(8f)[cyan]{l} (20)[blue]{a} (24)[]{b} (40)[white]{t|f} (6)[green]{gr} (4)[yellow]{yr}"
 
 # various settings
 playlist_display_mode = "columns"
@@ -33,10 +33,12 @@ volume_color = "default"
 state_line_color = "blue"
 state_flags_color = "green"
 main_window_color = "default"
-main_window_highlight_color = "yellow"
+current_item_prefix = "$(yellow)$r"
+current_item_suffix = "$/r$(end)"
 color1 = "white"
 color2 = "yellow"
 progressbar_color = "blue"
 statusbar_color = "yellow"
-active_column_color = "blue"
+current_item_inactive_column_prefix = "$(blue)$r"
+current_item_inactive_column_suffix = "$/r$(end)"
 visualizer_color = "cyan"
