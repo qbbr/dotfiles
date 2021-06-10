@@ -57,7 +57,7 @@ see [.bash_functions](.bash_functions)
  * [tree](https://packages.debian.org/jessie/tree) (optional for simple-notes)
  * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes)
  * [xttitle](https://packages.debian.org/stretch/xttitle) (optional)
- * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional for conky)
+ * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
  * [pygmentize](https://pygments.org/) (optional)
 
 ## Scripts
