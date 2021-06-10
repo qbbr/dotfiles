@@ -29,16 +29,16 @@ if [[ -n "${SHOW_HELLO_MSG}" ]]; then
 fi
 
 # depsnds: xttitle
-update_xttitle() {
+_update_xttitle() {
 	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 }
 
 if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
-	update_xttitle
+	_update_xttitle
 
 	cd() {
 		builtin cd "$@"
-		update_xttitle
+		_update_xttitle
 	}
 fi
 
@@ -232,26 +232,6 @@ function m() {
 		'
 }
 
-apt-history() {
-	case "$1" in
-		install)
-			cat /var/log/dpkg.log | grep 'install '
-			;;
-		upgrade|remove)
-			cat /var/log/dpkg.log | grep $1
-			;;
-		rollback)
-			cat /var/log/dpkg.log | grep upgrade | \
-				grep "$2" -A10000000 | \
-				grep "$3" -B10000000 | \
-				awk '{print $4"="$5}'
-			;;
-		*)
-			cat /var/log/dpkg.log
-			;;
-	esac
-}
-
 extract() {
 	if [[ -z $1 ]]; then
 		# if no parameters given display usage
@@ -323,12 +303,12 @@ n() {
 	$EDITOR $(ngetfilepath $*)
 }
 
-nrm() {
-	rm -i $(ngetfilepath $*)
-}
-
 nls() {
 	tree -CR --noreport ${NOTES_DIR} | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
+}
+
+nrm() {
+	rm -i $(ngetfilepath $*)
 }
 
 nprint() {
@@ -341,6 +321,27 @@ ncat() {
 	cat $(ngetfilepath $*)
 }
 
+apt-history() {
+	case "$1" in
+		install)
+			cat /var/log/dpkg.log | grep 'install '
+			;;
+		upgrade|remove)
+			cat /var/log/dpkg.log | grep $1
+			;;
+		rollback)
+			cat /var/log/dpkg.log | grep upgrade | \
+				grep "$2" -A10000000 | \
+				grep "$3" -B10000000 | \
+				awk '{print $4"="$5}'
+			;;
+		*)
+			cat /var/log/dpkg.log
+			;;
+	esac
+}
+
+# colorful log
 tailf-monolog() {
 	if [[ -z "$1" ]]; then
 		echo "Please specify a monolog file for monitoring"
@@ -372,7 +373,7 @@ tailf-monolog() {
 		'
 }
 
-function getcertnames() {
+function get-cert-names() {
 	if [[ -z "${1}" ]]; then
 		echo "ERROR: No domain specified.";
 		return 1;
@@ -400,11 +401,11 @@ function getcertnames() {
 	fi;
 }
 
-function lesstree() {
+function less-tree() {
 	tree -aC -I '.git|node_modules|bower_components|vendor|.idea' --dirsfirst "$@" | less -FRNX;
 }
 
-function dataurl() {
+function data-url() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
 		mimeType="${mimeType};charset=utf-8";
@@ -426,19 +427,19 @@ function decode-imap-folder-name {
 	echo $1 | tr '&' '+' | tr ',' '/' | iconv -f UTF-7 -t UTF-8
 }
 
-function youtube-dl-sst() {
-	# depends: youtube-dl, ffmpeg
-	# args:
-	# * 1 - url
-	# * 2 - start time [hh:mm:ss]
-	# * 3 - duration (not end time!) [hh:mm:ss]
-	# * 4 - format (default: best. mb buggy, then use manual youtube-dl -F <url>)
-	local format=${4:-best}
-	local url=$(youtube-dl --get-url --format $format "$1")
-	local filename=$(youtube-dl --get-filename --format $format "$1")
-	echo $format
-	ffmpeg -ss $2 -i "$url" -t $3 -c copy "$filename" && echo "[Done]. File: $PWD/$filename"
-}
+#function youtube-dl-sst() {
+#    # depends: youtube-dl, ffmpeg
+#    # args:
+#    # * 1 - url
+#    # * 2 - start time [hh:mm:ss]
+#    # * 3 - duration (not end time!) [hh:mm:ss]
+#    # * 4 - format (default: best. mb buggy, then use manual youtube-dl -F <url>)
+#    local format=${4:-best}
+#    local url=$(youtube-dl --get-url --format $format "$1")
+#    local filename=$(youtube-dl --get-filename --format $format "$1")
+#    echo $format
+#    ffmpeg -ss $2 -i "$url" -t $3 -c copy "$filename" && echo "[Done]. File: $PWD/$filename"
+#}
 
 function set-tor-proxy() {
 	export https_proxy="socks5://127.0.0.1:9050"

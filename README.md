@@ -26,23 +26,36 @@ for X see [.xbindkeysrc](.xbindkeysrc)
 
 ## Bash functions
 
+see [.bash_variables](.bash_variables)  
 see [.bash_functions](.bash_functions)
 
- * `extract <archive_path>` - for extract any archive
- * `n/nls/nrm/nprint/ncat` - [simple notes](#simple-notes)
- * `update_xtitle` - update X title after cd
+ * `hello_msg`
  * `f` - fork terminal with session
- * `apt-history` - install/upgrade/remove/rollback
- * `tailf-monolog` - tail -f for [monolog](https://github.com/Seldaek/monolog)
  * `l` - colorful ls
- * `p/pm/m/psg <s>` - colorful process usage
+ * `p/pm` - colorful process usage
+ * `m` - colorful mount
+ * `extract` - for extract any archive
+ * `swap` - swap 2 files
+ * `md` - print markdown
+ * `pp` - pretty-print any file (pygmentize)
+ * `n/nls/nrm/nprint/np/ncat` - [simple notes](#simple-notes)
+ * `apt-history` - install/upgrade/remove/rollback
+ * `tailf-monolog` - colorful tail -f for [monolog](https://github.com/Seldaek/monolog)
+ * `get-cert-names`
+ * `less-tree`
+ * `data-url`
+ * `decode-url`
+ * `decode-base64`
+ * `decode-imap-folder-name`
+ * `set-tor-proxy`
+ * `unset-tor-proxy`
 
 ## Requirements
 
  * [bash-completion](https://packages.debian.org/jessie/bash-completion)
  * [gawk](https://www.gnu.org/software/gawk/)
  * [tree](https://packages.debian.org/jessie/tree) (optional for simple-notes)
- * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes, see [.bash_variables](.bash_variables#L10))
+ * [pandoc](https://packages.debian.org/jessie/pandoc) (optional for simple-notes)
  * [xttitle](https://packages.debian.org/stretch/xttitle)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional for conky)
 
