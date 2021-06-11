@@ -232,6 +232,59 @@ function m() {
 		'
 }
 
+# colorful df
+function _df() {
+	if [[ -n "$*" ]]; then
+		args=$*
+	else
+		args="-Th --total"
+	fi
+
+	df $args | \
+		awk \
+			-v bbold=$(tput smso) \
+			-v bold=$(tput bold) \
+			-v black=$(tput setaf 0) \
+			-v red=$(tput setaf 1) \
+			-v green=$(tput setaf 2) \
+			-v yellow=$(tput setaf 3) \
+			-v blue=$(tput setaf 4) \
+			-v magenta=$(tput setaf 5) \
+			-v cyan=$(tput setaf 6) \
+			-v white=$(tput setaf 7) \
+			-v reset=$(tput sgr0) \
+		'
+		BEGIN {
+			FPAT = "([[:space:]]*[^[:space:]]+)";
+			OFS = "";
+		}
+		{
+			if (NR > 1) { # skip 1st line \w header
+				# FS
+				$1 = blue$1reset;
+				# TYPE
+				$2 = white$2reset;
+				# SIZE
+				$3 = magenta$3reset;
+				# USED
+				$4 = cyan$4reset;
+				# AVAILABLE
+				$5 = green$5reset;
+				# USED %
+				$6 = cyan$6reset;
+				# MOUNT POINT
+				$7 = yellow$7reset;
+				print;
+			} else {
+				$0 = bbold$0reset;
+				print;
+			}
+		}
+		'
+}
+alias df="_df"
+
+# extract any archive
 extract() {
 	if [[ -z $1 ]]; then
 		# if no parameters given display usage
