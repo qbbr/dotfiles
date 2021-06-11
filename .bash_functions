@@ -357,7 +357,23 @@ n() {
 }
 
 nls() {
-	tree -CR --noreport ${NOTES_DIR} | awk '{ if ((NR > 1) gsub(/.markdown/,"")); if (NF==1) print $1; else if (NF==2) print $2; else if (NF==3) printf "  %s\n", $3 }'
+	tree -CR --noreport ${NOTES_DIR} | \
+		awk \
+		'
+		{
+			if (NR > 1) { # skip 1st line \w notes dir
+				gsub(/.markdown/, "");
+
+				if (NF == 1) {
+					print $1;
+				} else if (NF == 2) { # 1 lvl
+					printf "⭐%s\n", $2;
+				} else if (NF == 3) { # 2 lvl
+					printf "    ⭐%s\n", $3;
+				}
+			}
+		}
+		'
 }
 
 nrm() {
