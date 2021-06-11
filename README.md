@@ -34,7 +34,8 @@ see [.bash_functions](.bash_functions)
  * `l` - colorful ls
  * `p/pm` - colorful process usage
  * `m` - colorful mount
- * `extract` - for extract any archive
+ * `df` - colorful df
+ * `extract` - extract any archive
  * `swap` - swap 2 files
  * `md` - print markdown
  * `pp` - pretty-print any file (pygmentize)
