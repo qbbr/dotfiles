@@ -18,6 +18,8 @@ HISTTIMEFORMAT="$(tput setaf 6)%d.%m %H:%M:%S $(tput setaf 7)\$$(tput sgr0) "
 TIMEFORMAT=$'\nreal: \e[0;36m%3lR\e[0;0m\nuser: \e[0;33m%3lU\e[0;0m\nsys:  \e[0;34m%3lS\e[0;0m\ncpu:  \e[0;35m%P%%\e[0;0m\n'
 # set default editor
 EDITOR=vim
+# grep highlight matched (non-empty) text color
+GREP_COLOR="01;32" # green
 # run hello_msg() on bash start
 SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM

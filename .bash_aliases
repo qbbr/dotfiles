@@ -25,7 +25,6 @@ alias ls="ls --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 
-export GREP_COLOR="1;33"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
@@ -40,6 +39,7 @@ alias pong="ping -c 3 www.google.com"
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 
 alias tree="tree -Csuh"
+# replaced by _df() fn
 #alias df="df -Th --total"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__$wx$h.png' -e 'mv $f /media/strg1/screenshots/'"
@@ -82,12 +82,12 @@ alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docke
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
-alias youtube-mp3="youtube-dl --extract-audio --audio-format mp3"
+alias youtube-dl-mp3="youtube-dl --extract-audio --audio-format mp3"
 
 alias set-php-version="sudo update-alternatives --config php"
 
 # cygwin aliases
-if [[ "$(uname -s)" == "CYGWIN"* ]]; then
-	alias composer="composer.bat"
-	alias ncu-win="ncu --loglevel verbose --packageFile package.json"
-fi
+#if [[ "$(uname -s)" == "CYGWIN"* ]]; then
+#	alias composer="composer.bat"
+#	alias ncu-win="ncu --loglevel verbose --packageFile package.json"
+#fi
