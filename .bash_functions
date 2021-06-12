@@ -28,7 +28,7 @@ if [[ -n "${SHOW_HELLO_MSG}" ]]; then
 	hello_msg
 fi
 
-# depsnds: xttitle
+# @depends: xttitle
 _update_xttitle() {
 	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 }
@@ -48,6 +48,7 @@ f() {
 }
 
 # colorful ls
+# @depends: gawk
 l() {
 	ls -lAh --color=always --group-directories-first $* | \
 		awk \
@@ -113,6 +114,7 @@ l() {
 alias ll='l'
 
 # colorful ps
+# @depends: gawk
 p() {
 	if [[ -n "$*" ]]; then
 		args=$*
@@ -194,6 +196,7 @@ function pm() {
 }
 
 # colorful mount
+# @depends: gawk
 function m() {
 	mount | column -t $* | \
 		awk \
@@ -234,6 +237,7 @@ function m() {
 }
 
 # colorful df
+# @depends: gawk
 function _df() {
 	if [[ -n "$*" ]]; then
 		args=$*
@@ -328,7 +332,8 @@ md() {
 	${MD_PRINT_CMD:-cat} $*
 }
 
-# pretty-print (pip install pygments)
+# pretty-print
+# @depends: pygments (python), perl
 function pp() {
 	if [[ "$1" == "-l" ]]; then
 		shift
@@ -339,7 +344,8 @@ function pp() {
 	fi
 }
 
-# apt history <install|upgrade|remove|rollback>
+# apt-history <install|upgrade|remove|rollback>
+# @depends: awk
 apt-history() {
 	case "$1" in
 		install)
@@ -361,6 +367,7 @@ apt-history() {
 }
 
 # colorful log
+# @depends: awk
 tailf-monolog() {
 	if [[ -z "$1" ]]; then
 		echo "Please specify a monolog file for monitoring"
@@ -426,6 +433,7 @@ function less-tree() {
 	tree -aC -I '.git|node_modules|bower_components|vendor|.idea' --dirsfirst "$@" | less -FRNX;
 }
 
+# @depends: openssl
 function data-url() {
 	local mimeType=$(file -b --mime-type "$1");
 	if [[ $mimeType == text/* ]]; then
@@ -443,6 +451,7 @@ function decode-base64 {
 	echo $1 | base64 -d $1
 }
 
+# @depends: iconv
 function decode-imap-folder-name {
 	# for i in *; do echo -n "$i == "; decode-imap-folder-name $i; done
 	echo $1 | tr '&' '+' | tr ',' '/' | iconv -f UTF-7 -t UTF-8
@@ -475,7 +484,6 @@ function unset-tor-proxy() {
 
 ##
 # simple notes
-# @depends: tree
 ##
 
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
@@ -494,6 +502,7 @@ n() {
 	$EDITOR $(_ngetfilepath $*)
 }
 
+# @depends: tree, awk
 nls() {
 	tree -CR --noreport ${NOTES_DIR} | \
 		awk \
@@ -518,6 +527,7 @@ nrm() {
 	rm -i $(_ngetfilepath $*)
 }
 
+# @depends: pandoc
 nprint() {
 	${NOTES_PRINT_CMD:-pandoc -t plain} $(_ngetfilepath $*)
 }
