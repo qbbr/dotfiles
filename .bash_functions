@@ -42,12 +42,12 @@ if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xtt
 	}
 fi
 
-# fork current term \w env vars
+# fork
 f() {
 	setsid uxterm &> /dev/null
 }
 
-# colorful ls \w AWK
+# colorful ls
 l() {
 	ls -lAh --color=always --group-directories-first $* | \
 		awk \
@@ -110,8 +110,9 @@ l() {
 		}
 		'
 }
+alias ll='l'
 
-# colorful ps \w AWK
+# colorful ps
 p() {
 	if [[ -n "$*" ]]; then
 		args=$*
@@ -338,58 +339,7 @@ function pp() {
 	fi
 }
 
-# simple notes
-# depends: tree
-NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
-
-ngetfilepath() {
-	local file_name="default"
-
-	if [[ -n "$*" ]]; then
-		file_name="$*"
-	fi
-
-	echo "${NOTES_DIR}${file_name}.markdown"
-}
-
-n() {
-	$EDITOR $(ngetfilepath $*)
-}
-
-nls() {
-	tree -CR --noreport ${NOTES_DIR} | \
-		awk \
-		'
-		{
-			if (NR > 1) { # skip 1st line \w notes dir
-				gsub(/.markdown/, "");
-
-				if (NF == 1) {
-					print $1;
-				} else if (NF == 2) { # 1 lvl
-					printf "⭐%s\n", $2;
-				} else if (NF == 3) { # 2 lvl
-					printf "    ⭐%s\n", $3;
-				}
-			}
-		}
-		'
-}
-
-nrm() {
-	rm -i $(ngetfilepath $*)
-}
-
-nprint() {
-	${NOTES_PRINT_CMD:-pandoc -t plain} $(ngetfilepath $*)
-}
-
-alias np='nprint'
-
-ncat() {
-	cat $(ngetfilepath $*)
-}
-
+# apt history <install|upgrade|remove|rollback>
 apt-history() {
 	case "$1" in
 		install)
@@ -442,6 +392,8 @@ tailf-monolog() {
 		'
 }
 
+# get cert info
+# @depends: openssl
 function get-cert-names() {
 	if [[ -z "${1}" ]]; then
 		echo "ERROR: No domain specified.";
@@ -518,4 +470,60 @@ function set-tor-proxy() {
 function unset-tor-proxy() {
 	unset https_proxy
 	unset http_proxy
+}
+
+
+##
+# simple notes
+# @depends: tree
+##
+
+NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
+
+_ngetfilepath() {
+	local file_name="default"
+
+	if [[ -n "$*" ]]; then
+		file_name="$*"
+	fi
+
+	echo "${NOTES_DIR}${file_name}.markdown"
+}
+
+n() {
+	$EDITOR $(_ngetfilepath $*)
+}
+
+nls() {
+	tree -CR --noreport ${NOTES_DIR} | \
+		awk \
+		'
+		{
+			if (NR > 1) { # skip 1st line \w notes dir
+				gsub(/.markdown/, "");
+
+				if (NF == 1) {
+					print $1;
+				} else if (NF == 2) { # 1 lvl
+					printf "⭐%s\n", $2;
+				} else if (NF == 3) { # 2 lvl
+					printf "    ⭐%s\n", $3;
+				}
+			}
+		}
+		'
+}
+
+nrm() {
+	rm -i $(_ngetfilepath $*)
+}
+
+nprint() {
+	${NOTES_PRINT_CMD:-pandoc -t plain} $(_ngetfilepath $*)
+}
+alias np='nprint'
+alias npp='nprint'
+
+ncat() {
+	cat $(_ngetfilepath $*)
 }

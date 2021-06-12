@@ -20,7 +20,6 @@ alias getclip="xclip -o"
 
 # replaced by l() fn
 #alias l="ls -lAF --color=always --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
-alias ll="l"
 alias ls="ls --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"

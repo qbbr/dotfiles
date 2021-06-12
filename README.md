@@ -30,8 +30,8 @@ see [.bash_variables](.bash_variables)
 see [.bash_functions](.bash_functions)
 
  * `hello_msg`
- * `f` - fork terminal with session
- * `l` - colorful ls
+ * `f` - fork
+ * `l/ll` - colorful ls
  * `p/pm` - colorful process usage
  * `m` - colorful mount
  * `df` - colorful df
@@ -39,7 +39,6 @@ see [.bash_functions](.bash_functions)
  * `swap` - swap 2 files
  * `md` - print markdown
  * `pp` - pretty-print any file (pygmentize)
- * `n/nls/nrm/nprint/np/ncat` - [simple notes](#simple-notes)
  * `apt-history` - install/upgrade/remove/rollback
  * `tailf-monolog` - colorful tail -f for [monolog](https://github.com/Seldaek/monolog)
  * `get-cert-names`
@@ -50,6 +49,7 @@ see [.bash_functions](.bash_functions)
  * `decode-imap-folder-name`
  * `set-tor-proxy`
  * `unset-tor-proxy`
+ * `n/nls/nrm/nprint/np/ncat` - [simple notes](#simple-notes)
 
 ## Requirements
 
