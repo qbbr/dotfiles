@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 ##
-# bash(1) vars
+# bash vars
 ##
 # for setting history length see HISTSIZE and HISTFILESIZE
 HISTSIZE=5000
 HISTFILESIZE=5000
 # ignore cmds
-HISTIGNORE="l:ls:ps:psg:history:h:hh"
+HISTIGNORE="l:ll:ls:ps:p:psg:history:h:hh"
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 # share history across all terminals

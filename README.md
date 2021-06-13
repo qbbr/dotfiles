@@ -75,7 +75,7 @@ see [.bash_functions](.bash_functions)
 ### Installation
 
 ```bash
-make install-simple-notes
+sudo ln -sf $(PWD)/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
 ```
 
 ### Usage

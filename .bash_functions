@@ -111,7 +111,7 @@ l() {
 		}
 		'
 }
-alias ll='l'
+alias ll="l"
 
 # colorful ps
 # @depends: gawk
@@ -531,8 +531,8 @@ nrm() {
 nprint() {
 	${NOTES_PRINT_CMD:-pandoc -t plain} $(_ngetfilepath $*)
 }
-alias np='nprint'
-alias npp='nprint'
+alias np="nprint"
+alias npp="nprint"
 
 ncat() {
 	cat $(_ngetfilepath $*)
