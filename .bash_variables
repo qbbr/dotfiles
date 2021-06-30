@@ -7,7 +7,7 @@
 HISTSIZE=5000
 HISTFILESIZE=5000
 # ignore cmds
-HISTIGNORE="l:ll:ls:ps:p:psg:history:h:hh"
+HISTIGNORE="l:ll:ls:ps:p:pm:m:df:history:h:hh:n:nls:nrm:nprint:np:ncat"
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 # share history across all terminals
@@ -17,7 +17,7 @@ HISTTIMEFORMAT="$(tput setaf 6)%d.%m %H:%M:%S $(tput setaf 7)\$$(tput sgr0) "
 # colorful `time` output
 TIMEFORMAT=$'\nreal: \e[0;36m%3lR\e[0;0m\nuser: \e[0;33m%3lU\e[0;0m\nsys:  \e[0;34m%3lS\e[0;0m\ncpu:  \e[0;35m%P%%\e[0;0m\n'
 # set default editor
-EDITOR=vim
+export EDITOR=vim
 # grep highlight matched (non-empty) text color
 GREP_COLOR="01;32" # green
 # run hello_msg() on bash start
