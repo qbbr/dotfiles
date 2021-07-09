@@ -2,6 +2,7 @@
 
 alias q="exit"
 alias qq="exit"
+alias :q="exit"
 alias c="clear"
 alias cc="clear"
 alias h="history"
