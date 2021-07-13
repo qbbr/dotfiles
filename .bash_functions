@@ -15,7 +15,7 @@ hello_msg() {
 	fi
 
 	if [[ -n "${ips}" ]]; then
-		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)), $(echo -e $(tput setaf 1))/g") # separator color fix
+		ips=$(echo -e ${ips} | sed "s/ /$(echo -e $(tput sgr0)),\n      $(echo -e $(tput setaf 1))/g") # separator color fix
 		echo -e "$(tput bold)IPs:$(tput sgr0)  $(tput setaf 1)${ips}$(tput sgr0)"
 	fi
 
@@ -335,12 +335,23 @@ md() {
 # pretty-print
 # @depends: pygments (python), perl
 function pp() {
-	if [[ "$1" == "-l" ]]; then
+	local print_lines=0
+	for arg do
 		shift
-		# print line numbers
-		pygmentize -f terminal -g $* | perl -e 'for(<>){print sprintf("%3s %s", ++$i,$_);}'
+		if [[ "$arg" == "-l" ]]; then
+			print_lines=1
+			continue
+		fi
+		set -- "$@" "$arg"
+	done
+
+	local cmd="pygmentize -f terminal16m -O bg=dark,style=solarizeddark -g"
+
+	if [[ "${print_lines}" == 1 ]]; then
+		echo 'show line'
+		${cmd} "$*" | perl -e 'for(<>){print sprintf("%3s %s", ++$i,$_);}'
 	else
-		pygmentize -f terminal -g $*
+		${cmd} "$*"
 	fi
 }
 
