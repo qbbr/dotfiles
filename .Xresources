@@ -32,9 +32,9 @@ xterm*jumpScroll:                      false
 xterm*multiScroll:                     true
 xterm*utf8Title:                       true
 xterm*on2Clicks:                       word
-xterm*on3Clicks:                       regex [^ \n<>()]+
-xterm*on4Clicks:                       regex [^\n\$]+
-xterm*on5Clicks:                       line
+xterm*on3Clicks:                       regex [^ \n""''``@\\/:;,<>()\[]+
+xterm*on4Clicks:                       regex [^ \n""''``;()\[]+
+xterm*on5Clicks:                       regex [^\n]+
 xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N -g -i -J --line-numbers --underline-special <&3' 3<&0
 xterm*translations:                    #override \n\
                                            Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)\n\
