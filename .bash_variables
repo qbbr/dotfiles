@@ -30,6 +30,8 @@ EDITOR=vim
 SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM
 FORCE_COLOR_PS1=1
+# theme ("dark" by default or "light")
+#export THEME_MODE="light"
 
 ##
 # print markdown (`md()` fn .bash_functions)
