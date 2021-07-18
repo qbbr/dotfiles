@@ -10,25 +10,25 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xset -b
 
 # dual monitor
-#xrandr --output DVI-1 --primary --left-of DVI-0
+xrandr --output DVI-1 --primary --left-of HDMI-0
 
 # add my fonts to the font path
 #xset +fp ~/.fonts/
 #xset fp rehash
 
 # pulseaudio
-#pulseaudio --start &
+pulseaudio --start &
 
 # notification daemon
 # https://github.com/dunst-project/dunst
-#dunst &
+dunst &
 
 # enable numlock
-#numlockx on &
+numlockx on &
 
 # fix java bug
 # https://tools.suckless.org/x/wmname/
-#wmname LG3D &
+wmname LG3D &
 
 # set background
 #sh ~/.fehbg &
@@ -45,11 +45,11 @@ xsetroot -cursor_name left_ptr &
 #xcompmgr -CcfF -I-.03 -O-.06 -D2 -t-2 -l-5 -r4.2 -o.55 &
 
 # open terminal
-#uxterm &
+uxterm &
 #uxterm -class="xterm-float" -geometry 80x20+200+600@1 &
 
 # hello msg
-#on-online-runner && say-greatwords --notify &
+on-online-runner && say-greatwords --notify &
 
 # my-tray
 #~/git/my-tray/my-tray.py &
