@@ -11,6 +11,8 @@ set menu-complete-display-prefix on
 set visible-stats on
 # Keymaps for when we're in command mode (e.g., after hitting ESC)
 set keymap vi-command
+# The color definitions are taken from the value of the LS_COLORS environment variable. The default is `off'.
+set colored-stats on
 # Insert the arguments from the last command
 "p": "i !!*\r"
 
