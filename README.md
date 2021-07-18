@@ -53,6 +53,7 @@ see [.bash_functions](.bash_functions)
 
 ## Requirements
 
+ * [fonts-hack](https://packages.debian.org/source/bullseye/fonts-hack)
  * [bash-completion](https://packages.debian.org/jessie/bash-completion) (optional for simple-notes)
  * [gawk](https://www.gnu.org/software/gawk/)
  * [tree](https://packages.debian.org/jessie/tree) (optional for simple-notes)
