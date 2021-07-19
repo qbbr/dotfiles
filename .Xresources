@@ -10,17 +10,11 @@
 xterm*termName:                        xterm-256color
 xterm*geometry:                        80x25
 xterm*faceName:                        Hack
-xterm*faceSize:                        11
+xterm*faceSize:                        10
 !xterm*faceName:                        xft:Hack:size=11
 !xterm*faceName:                        Hack:style=Regular:size=12
-!xterm*faceName:                        xft:Ubuntu Mono:style=Regular:size=12
 !xterm*boldFont:                        Hack:style=Bold:size=12
 !xterm*faceNameDoublesize:              xft:FontAwesome:size=12
-xft.dpi:                               96
-xft.antialias:                         true
-xft.rgba:                              rgb
-xft.hinting:                           true
-xft.hintstyle:                         hintslight
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            true
