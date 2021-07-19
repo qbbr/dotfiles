@@ -327,6 +327,11 @@ swap() {
 	mv "${tmp_file}" "$2"
 }
 
+# backup file
+bak() {
+	cp "$1" "$1.bak"
+}
+
 # print markdown
 md() {
 	${MD_PRINT_CMD:-cat} $*
@@ -500,13 +505,13 @@ function unset-tor-proxy() {
 NOTES_DIR="${NOTES_DIR:-$HOME/.notes/}"
 
 _ngetfilepath() {
-	local file_name="default"
+	local file_name="default.md"
 
 	if [[ -n "$*" ]]; then
 		file_name="$*"
 	fi
 
-	echo "${NOTES_DIR}${file_name}.markdown"
+	echo "${NOTES_DIR}${file_name}"
 }
 
 n() {
@@ -520,14 +525,12 @@ nls() {
 		'
 		{
 			if (NR > 1) { # skip 1st line \w notes dir
-				gsub(/.markdown/, "");
-
 				if (NF == 1) {
 					print $1;
 				} else if (NF == 2) { # 1 lvl
-					printf "⭐%s\n", $2;
+					printf "⊳ %s\n", $2;
 				} else if (NF == 3) { # 2 lvl
-					printf "    ⭐%s\n", $3;
+					printf "    ⊳ %s\n", $3;
 				}
 			}
 		}

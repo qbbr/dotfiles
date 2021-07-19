@@ -37,6 +37,7 @@ see [.bash_functions](.bash_functions)
  * `df` - colorful df
  * `extract` - extract any archive
  * `swap` - swap 2 files
+ * `bak` - backup file
  * `md` - print markdown
  * `pp` - pretty-print any file (pygmentize)
  * `apt-history` - install/upgrade/remove/rollback

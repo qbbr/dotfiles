@@ -13,6 +13,8 @@ set visible-stats on
 set keymap vi-command
 # The color definitions are taken from the value of the LS_COLORS environment variable. The default is `off'.
 set colored-stats on
+# The length in characters of the common prefix of a list of possible completions that is displayed without modification.
+#set completion-prefix-display-length 2
 # Insert the arguments from the last command
 "p": "i !!*\r"
 

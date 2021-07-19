@@ -7,7 +7,7 @@ _simplenotes()
 
 	COMPREPLY=()
 	cur="${COMP_WORDS[COMP_CWORD]}"
-	opts=`ls -1 "$NOTES_DIR/" | sed -e 's/\..*$//'`
+	opts=$(ls -1 "${NOTES_DIR}/")
 
 	COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 	return 0;
