@@ -1,5 +1,5 @@
 [global]
-	font = "Terminus 10"
+	font = "Hack 11"
 	markup = no
 	format = "<b>%a</b>\n<b>%s %p</b>\n%b"
 	sort = yes
@@ -21,7 +21,7 @@
 	horizontal_padding = 5
 	separator_color = frame
 	startup_notification = false
-	dmenu = /usr/local/bin/dmenu -fn "Terminus:size=12" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
+	;dmenu = /usr/local/bin/dmenu -fn "Hack:size=11" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
 	browser = /usr/bin/firefox -new-tab
 	icon_path = "/usr/share/icons/Numix/32/status/:/usr/share/icons/Numix/32/devices/:/usr/share/icons/Numix/32/apps/"
 	icon_position = left
