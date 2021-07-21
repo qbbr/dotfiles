@@ -76,8 +76,8 @@ alias web-server-dir="web-server-dir-php" # default web-server
 # sudo curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 #alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
 alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
-alias start-docker='sudo systemctl start docker.socket; sudo systemctl start docker.service'
-alias stop-docker='sudo systemctl stop docker.service; sudo systemctl stop docker.socket'
+alias start-docker='sudo systemctl start docker.socket docker.service'
+alias stop-docker='sudo systemctl stop docker.service docker.socket containerd.service'
 
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
