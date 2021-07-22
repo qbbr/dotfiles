@@ -14,15 +14,18 @@
 
 ## Bash binds
 
- * `Selected text + Shift + MouseBtn1` - open url/path in browser (ff)
- * `Selected text + Shift + MouseBtn2` - open url/path in idea (intellij)
- * `Ctrl + Shift + c` - copy selected text to CLIPBOARD
- * `Ctrl + Shift + v` - paste from CLIPBOARD
+ * `Selected text + Shift + MouseBtn1` - open url/path in browser (ff) [PRIMARY]
+ * `Selected text + Shift + MouseBtn2` - open url/path in idea (intellij) [PRIMARY]
+ * `Ctrl + Shift + c` - copy selected text [CLIPBOARD]
+ * `Ctrl + Shift + v` - paste [CLIPBOARD]
  * `Shift + Home` - scroll to top
  * `Shift + End` - scroll to bottom
- * `Ctrl + /` - bash history
+ * `Ctrl + /` - print all session history
 
-for X see [.xbindkeysrc](.xbindkeysrc)
+for X global keys see [.xbindkeysrc](.xbindkeysrc)  
+see [XTerm](.Xresources#L32) `on*Clicks` kung-fu for mouse selection [PRIMARY]
+
+[X_Window_selection](https://en.wikipedia.org/wiki/X_Window_selection#Clipboard)
 
 ## Bash functions
 
@@ -63,6 +66,13 @@ see [.bash_functions](.bash_functions)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
  * [pygmentize](https://pygments.org/) (optional)
 
+all depends:
+
+```bash
+apt install fonts-hack bash-completion gawk tree pandoc xttitle
+pip install pygments pygments-style-solarized
+```
+
 ## Scripts
 
  * [backlight-brightness-control](bin/backlight-brightness-control)
@@ -89,6 +99,8 @@ sudo ln -sf ${PWD}/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
  * `ncat <note>` - cat `<note>.markdown`
 
 ## Screenshots
+
+*old with terminus font*
 
 \w [dwm](https://github.com/qbbr/dwm) + [dzenbar](https://github.com/qbbr/dzenbar)
 
