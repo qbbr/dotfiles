@@ -29,8 +29,7 @@ see [XTerm](.Xresources#L32) `on*Clicks` kung-fu for mouse selection [PRIMARY]
 
 ## Bash functions
 
-see [.bash_variables](.bash_variables)  
-see [.bash_functions](.bash_functions)
+see [.bash_variables](.bash_variables), [.bash_functions](.bash_functions)
 
  * `hello_msg`
  * `f` - fork
