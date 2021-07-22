@@ -16,8 +16,14 @@ xrandr --output DVI-1 --primary --left-of HDMI-0
 #xset +fp ~/.fonts/
 #xset fp rehash
 
-# pulseaudio
-pulseaudio --start &
+# start pulseaudio in the background
+if hash pulseaudio 2> /dev/null; then
+	pulseaudio --start &
+fi
+# register pulseaudio
+if hash /usr/bin/start-pulseaudio-x11 2> /dev/null; then
+	start-pulseaudio-x11 &
+fi
 
 # notification daemon
 # https://github.com/dunst-project/dunst

@@ -65,7 +65,7 @@ see [.bash_variables](.bash_variables), [.bash_functions](.bash_functions)
  * [lua](https://www.lua.org/), [lua-json](https://www.eharning.us/wiki/luajson/), [lua-socket](http://w3.impa.br/~diego/software/luasocket/) for [conky](https://github.com/brndnmtthws/conky) scripts (optional)
  * [pygmentize](https://pygments.org/) (optional)
 
-all depends:
+all:
 
 ```bash
 apt install fonts-hack bash-completion gawk tree pandoc xttitle
