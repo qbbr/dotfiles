@@ -5,15 +5,15 @@
 # depends: dmenu, mpc
 # author: @qbbr
 
-DMENU_FN="Terminus:size=12"
+DMENU_FN="Hack:size=10"
 DMENU_NB="#002B36"
 DMENU_NF="#657B83"
 DMENU_SB="#B58900"
 DMENU_SF="#EEE8D5"
 DMENU_EXTRA=""
 
-SONG=$(mpc playlist | dmenu -i -p 'playlist:' -fn ${DMENU_FN} -nb ${DMENU_NB} -nf ${DMENU_NF} -sb ${DMENU_SB} -sf ${DMENU_SF} ${DMENU_EXTRA})
-SONG_NUMBER=$(mpc playlist | sed -n "/${SONG}/=" | head -n 1)
+SONG="$(mpc playlist | dmenu -i -p 'playlist:' -fn ${DMENU_FN} -nb ${DMENU_NB} -nf ${DMENU_NF} -sb ${DMENU_SB} -sf ${DMENU_SF} ${DMENU_EXTRA})"
+SONG_NUMBER="$(mpc playlist | sed -n "/${SONG}/=" | head -n 1)"
 
 if [[ ! -z "${SONG_NUMBER}" ]] ; then
     mpc play ${SONG_NUMBER} > /dev/null
