@@ -41,7 +41,7 @@ alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 alias tree="tree -Csuh"
 # replaced by _df() fn
 #alias df="df -Th --total"
-alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)'"
+alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)' --draw-exif --draw-tinted"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__\$wx\$h.png' -e 'mv \$f /media/strg1/screenshots/'"
 
 # save pwd on exit (F10 only)

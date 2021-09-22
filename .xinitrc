@@ -60,6 +60,9 @@ on-online-runner && say-greatwords --notify &
 # my-tray
 #~/git/my-tray/my-tray.py &
 
+# tray-screenshot-tools
+#~/git/tray-screenshot-tools/tray-screenshot-tools &
+
 # conky
 startconky &
 
