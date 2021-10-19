@@ -39,6 +39,7 @@ alias pong="ping -c 3 www.google.com"
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 
 alias tree="tree -Csuh"
+alias t="tree"
 # replaced by _df() fn
 #alias df="df -Th --total"
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)' --draw-exif --draw-tinted"
