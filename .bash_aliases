@@ -32,7 +32,10 @@ alias diff="diff --color=auto"
 
 alias rm="rm -i"
 alias crontab="crontab -i"
+alias ping="ping -4"
 alias pong="ping -c 3 www.google.com"
+
+alias dmesg="dmesg -Tw"
 
 # replaced by m() fn
 #alias m="mount | column -t"
