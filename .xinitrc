@@ -12,6 +12,9 @@ xset -b
 # dual monitor
 xrandr --output DVI-1 --primary --left-of HDMI-0
 
+# fix DBus.Error.TimedOut (telegram freezes)
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+
 # add my fonts to the font path
 #xset +fp ~/.fonts/
 #xset fp rehash
@@ -61,7 +64,7 @@ on-online-runner && say-greatwords --notify &
 #~/git/my-tray/my-tray.py &
 
 # tray-screenshot-tools
-#~/git/tray-screenshot-tools/tray-screenshot-tools &
+~/git/tray-screenshot-tools/tray-screenshot-tools &
 
 # conky
 startconky &

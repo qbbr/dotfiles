@@ -67,15 +67,16 @@ alias more="less"
 #alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 
 # static web servers
-alias web-server-dir-php="x-www-browser http://127.0.0.1:8666/; php -S 127.0.0.1:8666"
-alias web-server-dir-python2="x-www-browser http://127.0.0.1:8666/; python2 -m SimpleHTTPServer 8666"
-alias web-server-dir-python="x-www-browser http://127.0.0.1:8666/; python3 -m http.server 8666"
-alias web-server-dir-ruby="x-www-browser http://127.0.0.1:8666/; ruby -run -e httpd . -p 8666" # ruby 1.9+:
-alias web-server-dir-ruby-webrick="x-www-browser http://127.0.0.1:8666/; ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
-alias web-server-dir-busybox="x-www-browser http://127.0.0.1:8666/; busybox -v httpd -f -p 8666"
-alias web-server-dir-webfs="x-www-browser http://127.0.0.1:8666/; webfsd -d -F -p 8666 -f index.html"
-alias web-server-dir-perl-mojolicious="x-www-browser http://127.0.0.1:8666/; perl -MMojolicious::Lite -MCwd -e 'app->static->paths->[0]=getcwd; app->start' daemon -l http://127.0.0.1:8666"
+alias web-server-dir-php="php -S 127.0.0.1:8666"
+alias web-server-dir-python2="python2 -m SimpleHTTPServer 8666"
+alias web-server-dir-python="python3 -m http.server 8666"
+alias web-server-dir-ruby="ruby -run -e httpd . -p 8666" # ruby 1.9+:
+alias web-server-dir-ruby-webrick="ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8666, :DocumentRoot => Dir.pwd).start'"
+alias web-server-dir-busybox="busybox -v httpd -f -p 8666"
+alias web-server-dir-webfs="webfsd -d -F -p 8666 -f index.html"
+alias web-server-dir-perl-mojolicious="perl -MMojolicious::Lite -MCwd -e 'app->static->paths->[0]=getcwd; app->start' daemon -l http://127.0.0.1:8666"
 alias web-server-dir="web-server-dir-php" # default web-server
+alias web-server-open-browser="x-www-browser http://127.0.0.1:8666/"
 
 # sudo curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 #alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
