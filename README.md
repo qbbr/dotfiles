@@ -91,11 +91,11 @@ sudo ln -sf ${PWD}/etc/bash_completion.d/simplenotes /etc/bash_completion.d/
 
 ### Usage
 
- * `n <note>` - edit `<note>.markdown`
+ * `n <note>` - edit `<note>.md`
  * `nls` - ls notes dir
- * `nrm <note>` - rm `<note>.markdown`
- * `nprint <note>` - print `<note>.markdown` via `$NOTES_PRINT_CMD`
- * `ncat <note>` - cat `<note>.markdown`
+ * `nrm <note>` - rm `<note>.md`
+ * `nprint <note>` - print `<note>.md` via `$NOTES_PRINT_CMD`
+ * `ncat <note>` - cat `<note>.md`
 
 ## Screenshots
 
