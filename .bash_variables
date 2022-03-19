@@ -7,7 +7,7 @@
 HISTSIZE=5000
 HISTFILESIZE=5000
 # ignore cmds
-HISTIGNORE="l:ll:ls:ps:p:pm:m:df:history:h:hh:n:nls:nrm:nprint:np:ncat"
+HISTIGNORE="l:ll:ls:ps:p:pm:m:df:history:h:hh:n:nls:nrm:nprint:np:ncat:q"
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 # share history across all terminals
@@ -30,8 +30,6 @@ EDITOR=vim
 SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM
 FORCE_COLOR_PS1=1
-# theme ("dark" by default or "light")
-#export THEME_MODE="light"
 
 ##
 # print markdown (`md()` fn .bash_functions)

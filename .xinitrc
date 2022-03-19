@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # load .Xresources file
-xrdb -merge ~/.Xresources
+xrdb -merge ~/.Xresources # SOLARIZED_DARK
+#xrdb -DSOLARIZED_LIGHT -merge ~/.Xresources
 
 # kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
@@ -44,7 +45,7 @@ wmname LG3D &
 xsetroot -solid '#0D3642'
 
 # default cursor
-xsetroot -cursor_name left_ptr &
+xsetroot -cursor_name left_ptr
 
 # grabbing keys
 #xbindkeys &
