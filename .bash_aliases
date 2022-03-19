@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# for !vimshell
+shopt -s expand_aliases
+
 alias q="exit"
 alias qq="exit"
 alias :q="exit"
@@ -89,7 +92,10 @@ alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vco
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
 alias youtube-dl-mp3="youtube-dl --extract-audio --audio-format mp3"
 
+# php
 alias set-php-version="sudo update-alternatives --config php"
+alias php-cs-fixer-diff="PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix -v --rules=@Symfony --using-cache=no --diff --dry-run"
+alias php-cs-fixer-fix="PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix -v --rules=@Symfony --using-cache=no --diff"
 
 # cygwin aliases
 #if [[ "$(uname -s)" == "CYGWIN"* ]]; then
