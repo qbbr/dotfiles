@@ -10,23 +10,27 @@ rm -f $MY_HOME_DIR/.cache/dmenu_run
 rm -rf $MY_HOME_DIR/.w3m/*
 rm -f $MY_HOME_DIR/.local/share/recently-used.xbel
 rm -f $MY_HOME_DIR/.recently-used
+# wget
+rm -f $MY_HOME_DIR/.wget-hsts
 # mc
 rm -rf $MY_HOME_DIR/.cache/mc/*
-> $MY_HOME_DIR/.local/share/mc/history
+rm -f $MY_HOME_DIR/.local/share/mc/history
 # vim
 > $MY_HOME_DIR/.viminfo
 rm -f $MY_HOME_DIR/.cache/ctrlp/mru/cache.txt
 # easytag
-> $MY_HOME_DIR/.easytag/easytag.log
+rm -f $MY_HOME_DIR/.easytag/easytag.log # old
+rm -f $MY_HOME_DIR/.cache/easytag.log
 # fucking flash
 rm -rf $MY_HOME_DIR/.adobe/
 rm -rf $MY_HOME_DIR/.macromedia/
 # ff
 rm -rf $MY_HOME_DIR/.cache/mozilla/
 # thumbnails
-rm -rf $MY_HOME_DIR/.thumbnails/
+rm -rf $MY_HOME_DIR/.thumbnails/ # old
+rm -rf $MY_HOME_DIR/.cache/thumbnails/
 # gthumb
-> $MY_HOME_DIR/.config/gthumb/history.xbel
+rm -f $MY_HOME_DIR/.config/gthumb/history.xbel
 # python
 rm -f $MY_HOME_DIR/.python_history
 # sqlite/posgresql history
