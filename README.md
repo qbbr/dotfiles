@@ -69,7 +69,7 @@ all:
 
 ```bash
 apt install fonts-hack bash-completion gawk tree pandoc xttitle
-pip install pygments pygments-style-solarized
+pip install pygments pygments-solarized-style
 ```
 
 ## Scripts

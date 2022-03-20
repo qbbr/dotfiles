@@ -338,7 +338,7 @@ md() {
 }
 
 # pretty-print
-# @depends: pygments, pygments-style-solarized
+# @depends: pygments, pygments-solarized-style
 function pp() {
 	local print_lines=0
 	for arg do

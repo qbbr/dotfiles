@@ -37,7 +37,7 @@ FORCE_COLOR_PS1=1
 ##
 #MD_PRINT_CMD="pandoc -t plain"              # apt install pandoc
 #MD_PRINT_CMD="pygmentize -l md -f terminal" # pip install pygments
-#MD_PRINT_CMD="pygmentize -l md -f terminal16m -O bg=dark,style=solarizeddark" # pip install pygments-style-solarized
+#MD_PRINT_CMD="pygmentize -l md -f terminal16m -O bg=dark,style=solarizeddark" # pip install pygments-solarized-style
 #MD_PRINT_CMD="mdv"                          # pip install mdv
 #MD_PRINT_CMD="mdless"                       # gem install mdless
 #MD_PRINT_CMD="glow"                         # go get github.com/charmbracelet/glow
