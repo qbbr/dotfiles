@@ -338,7 +338,7 @@ md() {
 }
 
 # pretty-print
-# @depends: pygments, pygments-solarized-style
+# @depends: pygments, pygments-solarized-style, perl
 function pp() {
 	local print_lines=0
 	for arg do
@@ -353,7 +353,6 @@ function pp() {
 	local cmd="pygmentize -f terminal16m -O bg=dark,style=solarizeddark -g"
 
 	if [[ "${print_lines}" == 1 ]]; then
-		echo 'show line'
 		${cmd} "$*" | perl -e 'for(<>){print sprintf("%3s %s", ++$i,$_);}'
 	else
 		${cmd} "$*"
