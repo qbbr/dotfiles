@@ -70,11 +70,20 @@ on-online-runner && say-greatwords --notify &
 # conky
 startconky &
 
-# start dwm + dzenbar with logging (see dwm.log, default at $HOME)
-dzenbar &
-#DWM_LOG_PATH="$HOME/dwm.log" startdwm
-startdwm
+# startx          # dwm by default
+# s=xmonad startx # start $s
+s=${s:-dwm}
 
-# xmonad + xmobar + trayer
-#trayer --edge top --align right --height 18 --padding 0 --widthtype request --tint 0x002b36 --distancefrom right --distance 1 --expand true &
-#xmonad
+case $s in
+	# start dwm + dzenbar with logging (see dwm.log, default at $HOME)
+	dwm)
+		dzenbar &
+		#DWM_LOG_PATH="$HOME/dwm.log" startdwm
+		startdwm
+		;;
+	# start xmonad + xmobar + trayer
+	xmonad)
+		trayer --edge top --align right --height 18 --padding 0 --widthtype request --tint 0x002b36 --distancefrom right --distance 1 --expand true &
+		xmonad
+		;;
+esac
