@@ -45,6 +45,7 @@ alias dmesg="dmesg -Tw"
 # replaced by m() fn
 #alias m="mount | column -t"
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
+alias iostat="iostat -m -h 1 2" # -y
 
 alias tree="tree -Csuh"
 alias t="tree"
@@ -59,8 +60,10 @@ alias scrot-me="scrot '%d.%m.%Y_%H%M%S__\$wx\$h.png' -e 'mv \$f /media/strg1/scr
 alias mutt="neomutt"
 alias lynx="lynx -accept_all_cookies"
 
-alias python="python3"
-alias pip="pip3"
+#alias python="python3"
+#alias pip="pip3"
+
+#alias phantomjs="OPENSSL_CONF=/etc/ssl/ phantomjs"
 
 # apt install source-highlight
 #export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
@@ -88,6 +91,9 @@ alias web-server-open-browser="x-www-browser http://127.0.0.1:8666/"
 alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
 alias start-docker='sudo systemctl start docker.socket docker.service'
 alias stop-docker='sudo systemctl stop docker.service docker.socket containerd.service'
+
+alias start-libvirt='sudo systemctl start libvirtd.service'
+alias stop-libvirt='sudo systemctl stop libvirtd.service libvirtd-ro.socket libvirtd-admin.socket libvirtd.socket'
 
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
