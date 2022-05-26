@@ -7,6 +7,10 @@ user_pref("browser.startup.homepage_override.buildID", "20100101");
 user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36");
 // ^^^ detected is "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" - OK
 
+// dark mode
+user_pref("browser.in-content.dark-mode", true);
+user_pref("layout.css.prefers-color-scheme.content-override", 0);
+
 user_pref("dom.serviceWorkers.enabled", false);
 user_pref("dom.webnotifications.enabled", false);
 user_pref("dom.enable_performance", false);
