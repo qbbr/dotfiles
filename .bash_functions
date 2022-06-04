@@ -8,6 +8,7 @@ hello_msg() {
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 3)${HOME}$(tput sgr0)"
 	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
+	echo -e "$(tput bold)UPT:$(tput sgr0)  $(tput setaf 2)$(uptime -p)$(tput sgr0)"
 	# '--all-ip-addresses' unrecognized option in darwin/termux
 	#local ips="$(hostname --all-ip-addresses)"
 	if command -v ip > /dev/null; then

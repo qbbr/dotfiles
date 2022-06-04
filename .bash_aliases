@@ -11,6 +11,9 @@ alias cc="clear"
 alias h="history"
 alias hh="history"
 
+alias bb="sudo shutdown -h now"
+alias reboot="sudo reboot"
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
