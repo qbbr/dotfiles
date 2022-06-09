@@ -1,6 +1,7 @@
 [user]
 	name = Sokolov Innokenty
 	email = im@qbbr.io
+	signingkey = 0C454FFE25D6A051
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -49,3 +50,5 @@
 	helper = cache --timeout=36000
 [pull]
 	ff = only
+[commit]
+	gpgsign = true
