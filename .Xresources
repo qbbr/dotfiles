@@ -8,6 +8,7 @@
 ! xterm
 ! =========================================================
 xterm*termName:                        xterm-256color
+xterm*disallowedWindowOps:             20,21,SetXprop
 xterm*geometry:                        80x25
 xterm*faceName:                        Hack
 xterm*faceSize:                        10
