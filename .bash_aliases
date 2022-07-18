@@ -30,17 +30,19 @@ alias getclip="xclip -o"
 alias ls="ls --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
+alias rm="rm -i"
 
 alias grep="grep --color=auto"
+alias g="grep"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias diff="diff --color=auto"
 
 alias ip="ip --color=auto"
 
-alias rm="rm -i"
 alias crontab="crontab -i"
-alias ping="ping -4"
+
+test -f /proc/net/if_inet6 || alias ping="ping -4"
 alias pong="ping -c 3 www.google.com"
 
 alias dmesg="dmesg -Tw"
@@ -54,6 +56,7 @@ alias tree="tree -Csuh"
 alias t="tree"
 # replaced by _df() fn
 #alias df="df -Th --total"
+
 alias feh="feh --title '%P [%u / %l] [%wx%h] %n (%s bytes)' --draw-exif --draw-tinted"
 alias scrot-me="scrot '%d.%m.%Y_%H%M%S__\$wx\$h.png' -e 'mv \$f /media/strg1/screenshots/'"
 
