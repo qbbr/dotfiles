@@ -328,9 +328,9 @@ swap() {
 	mv "${tmp_file}" "$2"
 }
 
-# backup file
+# backup file/dir
 bak() {
-	cp "$1" "$1.bak"
+	cp -ri "$1" "${1%/}.bak"
 }
 
 # print markdown

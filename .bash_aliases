@@ -31,6 +31,8 @@ alias ls="ls --color=auto --group-directories-first"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 
 alias grep="grep --color=auto"
 alias g="grep"
