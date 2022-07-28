@@ -41,6 +41,6 @@ rm -f $MY_HOME_DIR/.lesshst
 # transmission
 rm -f $MY_HOME_DIR/.cache/transmission/favicons/*
 # front-end cache
-composer clearcache
-yarn cache clean
-npm cache clean --force
+command -v composer > /dev/null && composer clearcache
+command -v yarn > /dev/null && yarn cache clean
+command -v npm > /dev/null && npm cache clean --force
