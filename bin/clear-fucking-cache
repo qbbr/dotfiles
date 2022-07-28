@@ -2,6 +2,8 @@
 
 MY_HOME_DIR=$HOME
 
+set -x
+
 # bash history
 > $MY_HOME_DIR/.bash_history
 # dmenu
