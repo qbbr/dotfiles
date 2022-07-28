@@ -22,7 +22,7 @@ rm -f $MY_HOME_DIR/.local/share/mc/history
 rm -f $MY_HOME_DIR/.cache/ctrlp/mru/cache.txt
 # easytag
 rm -f $MY_HOME_DIR/.easytag/easytag.log # old
-rm -f $MY_HOME_DIR/.cache/easytag.log
+rm -f $MY_HOME_DIR/.cache/easytag/easytag.log
 # fucking flash
 rm -rf $MY_HOME_DIR/.adobe/
 rm -rf $MY_HOME_DIR/.macromedia/
@@ -42,6 +42,9 @@ rm -f $MY_HOME_DIR/.psql_history
 rm -f $MY_HOME_DIR/.lesshst
 # transmission
 rm -f $MY_HOME_DIR/.cache/transmission/favicons/*
+# bluetoothctl
+rm -f $MY_HOME_DIR/.cache/.bluetoothctl_history
+
 # front-end cache
 command -v composer > /dev/null && composer clearcache
 command -v yarn > /dev/null && yarn cache clean
