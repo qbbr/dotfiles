@@ -24,8 +24,6 @@ GREP_COLOR="01;32" # green
 SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM
 FORCE_COLOR_PS1=1
-# set default editor
-EDITOR=vim
 # run hello_msg() on bash start
 SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM
