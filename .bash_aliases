@@ -8,6 +8,7 @@ alias qq="exit"
 alias :q="exit"
 alias c="clear"
 alias cc="clear"
+alias cfc="clear-fucking-cache"
 alias h="history"
 alias hh="history"
 
@@ -103,6 +104,7 @@ alias stop-docker='sudo systemctl stop docker.service docker.socket containerd.s
 alias start-libvirt='sudo systemctl start libvirtd.service'
 alias stop-libvirt='sudo systemctl stop libvirtd.service libvirtd-ro.socket libvirtd-admin.socket libvirtd.socket'
 
+alias mpvm="mpv --mute=yes"
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
 alias mpv-youtube-720p="mpv --ytdl-format='bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best'"
 alias mpv-youtube-480p="mpv --ytdl-format='bestvideo[height<=480]+bestaudio/best[height<=480]'"
