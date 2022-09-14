@@ -66,6 +66,8 @@ alias scrot-me="scrot '%d.%m.%Y_%H%M%S__\$wx\$h.png' -e 'mv \$f /media/strg1/scr
 # save pwd on exit (F10 only)
 #alias mc=". /usr/share/mc/bin/mc-wrapper.sh"
 
+alias ssh="ssh -o VisualHostKey=yes"
+
 alias mutt="neomutt"
 alias lynx="lynx -accept_all_cookies"
 

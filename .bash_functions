@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+# example output:
+#  GNU/Linux Debian 11 (bullseye) {5.10.0-18-amd64}
+#  GNU/Linux Raspbian 10 (buster) {5.10.103-v7+} armv7l
+#  GNU/Linux Ubuntu 22.04 (jammy) {5.15.0-47-generic} amd64
+#  Android {4.4.302-perf+} aarch64
+get_sys_info() {
+	local DIST=$(uname -o)
+	if [[ "${OSTYPE}" == linux* ]]; then
+		if command -v lsb_release > /dev/null; then
+			DIST="${DIST} $(lsb_release -iscr | tr "\n" " " | sed -r 's/([^ ]+) ([^ ]+) ([^ ]+)/\1 \2 (\3)/')"
+		fi
+	fi
+	echo -n ${DIST}
+
+	local ARCH="$(uname -m)"
+	if [[ "${ARCH}" == x86_64 ]]; then
+		ARCH="amd64"
+	fi
+
+	local KERNEL=$(uname -r)
+	echo -n " {${KERNEL}}"
+	if [[ "${KERNEL}" != *"${ARCH}"* ]]; then
+		echo -n " $ARCH"
+	fi
+}
+
 hello_msg() {
 	if [[ "${TERM}" == "linux" ]]; then
 		echo
@@ -8,11 +34,11 @@ hello_msg() {
 	echo -e "$(tput bold)DATE:$(tput sgr0) $(tput setaf 6)$(date)$(tput sgr0)"
 	echo -e "$(tput bold)UPT:$(tput sgr0)  $(tput setaf 9)$(uptime -p)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 3)${HOME}$(tput sgr0)"
-	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(uname -norm)$(tput sgr0)"
+	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(get_sys_info)$(tput sgr0)"
 	# '--all-ip-addresses' unrecognized option in darwin/termux
 	#local ips="$(hostname --all-ip-addresses)"
 	if command -v ip > /dev/null; then
-		ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
+		local ips="$(ip -o addr show scope global | awk '{gsub(/\/.*/, " ",$4); print $4}' | tr  '\n' ' ')"
 	fi
 
 	if [[ -n "${ips}" ]]; then
@@ -29,17 +55,12 @@ if [[ -n "${SHOW_HELLO_MSG}" ]]; then
 	hello_msg
 fi
 
+
 # @depends: xttitle
-_update_xttitle() {
-	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
-}
-
 if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xttitle > /dev/null; then
-	_update_xttitle
-
 	cd() {
 		builtin cd "$@"
-		_update_xttitle
+		xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 	}
 fi
 
@@ -551,3 +572,5 @@ alias npp="nprint"
 ncat() {
 	cat $(_ngetfilepath $*)
 }
+
+unset -f _ngetfilepath

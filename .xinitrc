@@ -11,7 +11,12 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xset -b
 
 # dual monitor
-xrandr --output DVI-1 --primary --left-of HDMI-0
+#xrandr --output DVI-1 --auto --primary --left-of HDMI-0 \
+#    --output HDMI-0 --auto
+# triple monitor
+xrandr --output DVI-1 --auto --primary --left-of HDMI-0 \
+	--output HDMI-0 --auto \
+	--output DVI-0 --auto --right-of HDMI-0
 
 # fix DBus.Error.TimedOut (telegram freezes)
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
@@ -54,9 +59,11 @@ xsetroot -cursor_name left_ptr
 #xcompmgr -cCfF &
 #xcompmgr -CcfF -I-.03 -O-.06 -D2 -t-2 -l-5 -r4.2 -o.55 &
 
-# open terminal
-uxterm &
-#uxterm -class="xterm-float" -geometry 80x20+200+600@1 &
+# open terminal apps
+xterm &
+#xterm -class="xterm-float" -geometry 80x20+200+600@1 &
+xterm -class 'htop' -e 'htop' &
+xterm -class 'dmesg' -geometry 239x60 -e 'dmesg -Tw' &
 
 # hello msg
 on-online-runner && say-greatwords --notify &

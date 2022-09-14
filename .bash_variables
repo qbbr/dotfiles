@@ -140,6 +140,8 @@ FORCE_COLOR_PS1=1
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 # mem fix
 #export _JAVA_OPTIONS="-Xms1024m -Xmx1024m"
+# custom adb port
+#export ANDROID_ADB_SERVER_PORT=5038
 
 ##
 # Haskell / Cabal
