@@ -572,5 +572,3 @@ alias npp="nprint"
 ncat() {
 	cat $(_ngetfilepath $*)
 }
-
-unset -f _ngetfilepath
