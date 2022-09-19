@@ -34,9 +34,6 @@ fi
 if [[ -z "${FORCE_COLOR_PS1}" ]] && [[ "${TERM}" == "linux" ]]; then
 	PS1='${debian_chroot:+($debian_chroot)}\u@\H:\w\$ '
 else
-	GIT_PS1_SHOWDIRTYSTATE=true
-	GIT_PS1_SHOWUNTRACKEDFILES=true
-
 	set_prompt() {
 		local last_command=$?
 		local reset='\[\e[0m\]'
@@ -73,7 +70,12 @@ else
 		PS1+="[${bblue}\\w${reset}] "
 		# git
 		if [[ -n "$(command -v __git_ps1)" ]]; then
-			PS1+=$(__git_ps1 "${magenta}{%s}${reset}")
+			local fstype="$(df --output=fstype . | tail -n +2)"
+			if [[ "${fstype}" != *"fuse.sshfs"* ]]; then
+				GIT_PS1_SHOWDIRTYSTATE=true
+				GIT_PS1_SHOWUNTRACKEDFILES=true
+				PS1+=$(__git_ps1 "${magenta}{%s}${reset}")
+			fi
 		fi
 		# line two
 		PS1+="\n└─"
