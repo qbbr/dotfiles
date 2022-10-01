@@ -219,7 +219,7 @@ function pm() {
 
 # colorful mount
 # @depends: gawk
-function m() {
+function _mount() {
 	mount | column -t $* | \
 		awk \
 			-v bbold=$(tput smso) \
@@ -257,6 +257,7 @@ function m() {
 		}
 		'
 }
+alias mount="_mount"
 
 # colorful df
 # @depends: gawk

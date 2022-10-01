@@ -36,7 +36,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 alias grep="grep --color=auto"
-alias g="grep"
+alias g="grep -i"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias diff="diff --color=auto"
@@ -49,6 +49,7 @@ test -f /proc/net/if_inet6 || alias ping="ping -4"
 alias pong="ping -c 3 www.google.com"
 
 alias dmesg="dmesg -Tw"
+alias m="more"
 
 # replaced by m() fn
 #alias m="mount | column -t"
