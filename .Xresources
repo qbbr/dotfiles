@@ -120,11 +120,11 @@ xterm*shading:                         40
 *color7:                 S_base2
 *color9:                 S_orange
 *color8:                 S_base03
-*color10:                S_base01
-*color11:                S_base00
-*color12:                S_base0
+*color10:                S_green
+*color11:                S_yellow
+*color12:                S_blue
 *color13:                S_violet
-*color14:                S_base1
+*color14:                S_cyan
 *color15:                S_base3
 
 ! xpdf
