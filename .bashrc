@@ -96,6 +96,10 @@ else
 			PS1+="(${white}${VIRTUAL_ENV##*/}${reset})─"
 			VIRTUAL_ENV_DISABLE_PROMPT=1
 		fi
+		# vim subshell or fg
+		if [[ -n "$VIMRUNTIME" ]] || jobs -l | grep -q 'vim'; then
+			PS1+="(${white}VIM${reset})-"
+		fi
 		# $ for user, # for root
 		PS1+="${white}\\\$${reset} "
 	}
