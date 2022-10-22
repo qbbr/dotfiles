@@ -1,8 +1,14 @@
 #!/bin/sh
 
+# default is dark, uncomment to set light
+#export THEME_MODE_LIGHT=1
+
 # load .Xresources file
-xrdb -merge ~/.Xresources # SOLARIZED_DARK
-#xrdb -DSOLARIZED_LIGHT -merge ~/.Xresources
+if [ -n "${THEME_MODE_LIGHT}" ]; then
+	xrdb -DTHEME_MODE_LIGHT -merge ~/.Xresources
+else
+	xrdb -merge ~/.Xresources
+fi
 
 # kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
