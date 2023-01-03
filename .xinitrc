@@ -32,11 +32,11 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 #xset fp rehash
 
 # start pulseaudio in the background
-if hash pulseaudio 2> /dev/null; then
+if hash pulseaudio 2> /dev/null && ! pgrep -x pulseaudio > /dev/null; then
 	pulseaudio --start &
 fi
 # register pulseaudio
-if hash /usr/bin/start-pulseaudio-x11 2> /dev/null; then
+if hash /usr/bin/start-pulseaudio-x11 2> /dev/null && ! pgrep -x pulseaudio > /dev/null; then
 	start-pulseaudio-x11 &
 fi
 
