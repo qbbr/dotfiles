@@ -9,8 +9,9 @@
 # depends: curl, bc, jq
 # author: @qbbr
 
-URL="https://api.exchangeratesapi.io/latest?base="
+URL="https://api.apilayer.com/currency_data/live?currencies=RUB&source="
+APIKEY=""
 BASE=${1:-USD}
 
-OUTPUT=$(curl -s ${URL}${BASE} | jq ".rates.RUB")
+OUTPUT=$(curl -s "${URL}${BASE}" --header "apikey: ${APIKEY}" | jq ".quotes.${BASE}RUB")
 echo "scale=2;${OUTPUT}/1" | bc -l
