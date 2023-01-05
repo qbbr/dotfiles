@@ -1,15 +1,15 @@
-#!/usr/bin/env phantomjs
+#!/usr/bin/env node
 // ./get-world-population
 //
 // get data in json format from `https://worldometers.info/world-population/`.
 // worldometers used obfuscated code `https://www.realtimestatistics.net/rts/RTSp.js` with jsoncallback.
-// just not possible to simple parse/get data (curl/wget/etc), using phantomjs.
+// just not possible to simple parse/get data (curl/wget/etc), using puppeteer.
 // jquery already used at worldometers site, we can use it in script.
 //
 // example:
 //   ./get-world-population
-//   phantomjs get-world-population
-//   phantomjs get-world-population --remove-comma
+//   node get-world-population
+//   node get-world-population --remove-comma
 //
 // output:
 //   {
@@ -22,57 +22,47 @@
 //     "absolute_growth_year": "58,326,941"
 //   }
 //
-// depends: phantomjs
+// depends: node, puppeteer
 // author: @qbbr
 
 "use strict";
 
-var system = require('system');
-var removeCommaEnabled = false;
+const puppeteer = require('puppeteer');
 
-// parse args
-if (system.args.length > 1) {
-    system.args.forEach(function (arg, i) {
-        if ('--remove-comma' === arg) {
-            removeCommaEnabled = true;
-        }
-    });
+let removeCommaEnabled = false;
+
+if (process.argv.includes('--remove-comma')) {
+    removeCommaEnabled = true;
 }
 
-var page = require('webpage').create();
-page.settings.userAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/58.0';
+(async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
 
-page.onConsoleMessage = function(msg) {
-    console.log(msg);
-};
+    await page.goto('https://www.worldometers.info/world-population/');
 
-page.open('https://www.worldometers.info/world-population/', function(status) {
-    if (status === "success") {
-        setTimeout(function() {
-            page.evaluate(function(removeCommaEnabled) {
-                if (removeCommaEnabled) {
-                    $('.rts-nr-thsep').remove();
-                }
+    const data = await page.evaluate(removeCommaEnabled => {
+        if (removeCommaEnabled) {
+            $('.rts-nr-thsep').remove();
+        }
 
-                var data = {};
-                data['timestamp'] = Math.floor(+new Date() / 1000);
-                // total
-                data['current_population'] = $('.rts-counter[rel="current_population"]').text();
-                // today
-                data['births_today'] = $('.rts-counter[rel="births_today"]').text();
-                data['deaths_today'] = $('.rts-counter[rel="dth1s_today"]').text();
-                data['absolute_growth'] = $('.rts-counter[rel="absolute_growth"]').text();
-                // year
-                data['births_year'] = $('.rts-counter[rel="births_this_year"]').text();
-                data['deaths_year'] = $('.rts-counter[rel="dth1s_this_year"]').text();
-                data['absolute_growth_year'] = $('.rts-counter[rel="absolute_growth_year"]').text();
+        var data = {};
+        data['timestamp'] = Math.floor(+new Date() / 1000);
+        // total
+        data['current_population'] = $('.rts-counter[rel="current_population"]').text();
+        // today
+        data['births_today'] = $('.rts-counter[rel="births_today"]').text();
+        data['deaths_today'] = $('.rts-counter[rel="dth1s_today"]').text();
+        data['absolute_growth'] = $('.rts-counter[rel="absolute_growth"]').text();
+        // year
+        data['births_year'] = $('.rts-counter[rel="births_this_year"]').text();
+        data['deaths_year'] = $('.rts-counter[rel="dth1s_this_year"]').text();
+        data['absolute_growth_year'] = $('.rts-counter[rel="absolute_growth_year"]').text();
 
-                console.log(JSON.stringify(data));
-            }, removeCommaEnabled);
-            phantom.exit(0);
-        }, 1000);
-    } else {
-      phantom.exit(1);
-    }
-});
+        return data;
+    }, removeCommaEnabled);
 
+    console.log(JSON.stringify(data));
+
+    await browser.close();
+})();
