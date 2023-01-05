@@ -18,7 +18,7 @@ ${alignc}${color9} %s
 
 ${alignc}${color7}Current World Population${color}
 
-${alignc}${font terminus:size=18}${color4}%s${color}${font}
+${alignc}${font size=18}${color4}%s${color}${font}
 
 ${color9}${goto 50}today${goto 105}this year${color}
 ${color9}births${color2}${goto 50}%s${goto 105}%s
