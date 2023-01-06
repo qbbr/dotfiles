@@ -12,6 +12,8 @@
 	| (_| | (_) | |_|  _| | |  __/\__ \
 	 \__,_|\___/ \__|_| |_|_|\___||___/
 
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://github.com/vshymanskyy/StandWithUkraine/blob/main/docs/README.md)
+
 ## Bash binds
 
  * `Selected text + Shift + MouseBtn1` - open url/path in browser (ff) [PRIMARY]
