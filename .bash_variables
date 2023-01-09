@@ -84,6 +84,7 @@ FORCE_COLOR_PS1=1
 ##
 # https://getcomposer.org/download/
 #export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+#export PHP_CS_FIXER_IGNORE_ENV=1
 
 ##
 # JS / NVM
@@ -142,6 +143,8 @@ FORCE_COLOR_PS1=1
 #export _JAVA_OPTIONS="-Xms1024m -Xmx1024m"
 # custom adb port
 #export ANDROID_ADB_SERVER_PORT=5038
+# fix java on non-reparenting WM's for correct render
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
 ##
 # Haskell / Cabal
