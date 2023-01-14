@@ -8,8 +8,9 @@ user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x6
 // ^^^ detected is "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" - OK
 
 // dark mode
-user_pref("browser.in-content.dark-mode", true);
-user_pref("layout.css.prefers-color-scheme.content-override", 0);
+//user_pref("browser.in-content.dark-mode", true);
+//user_pref("ui.systemUsesDarkTheme", 1);
+//user_pref("layout.css.prefers-color-scheme.content-override", 0);
 
 user_pref("dom.serviceWorkers.enabled", false);
 user_pref("dom.webnotifications.enabled", false);
@@ -68,7 +69,8 @@ user_pref("javascript.options.asmjs", false);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.userContext.enabled", true);
-user_pref("privacy.resistFingerprinting", true);
+// todo: resistFingerprinting - reset full screen and dark mode
+//user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.firstparty.isolate", true);
 
 user_pref("plugins.click_to_play", true);
@@ -143,3 +145,7 @@ user_pref("security.OCSP.enabled", 1);
 user_pref("security.ssl.enable_ocsp_stapling", true);
 user_pref("security.ssl.enable_ocsp_must_staple", true);
 //user_pref("security.OCSP.require", true);
+
+// do not load tabs on startup
+user_pref("browser.sessionstore.restore_on_demand", true);
+user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
