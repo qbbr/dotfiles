@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# ./php-parallel-lint
+#
+# usage: ./script path-to-dir
+# depends: parallel
+
+php_lint_path=${1:-src}
+
+php_lint_file() {
+	local php_file="$1"
+	php -l "$php_file" &> /dev/null
+	if [[ "$?" -ne 0 ]]; then
+		echo -e "[FAIL] $php_file"
+		return 1
+	fi
+}
+
+export -f php_lint_file
+
+find ${php_lint_path%/} -name '*.php' | parallel -j $(getconf _NPROCESSORS_ONLN) php_lint_file {}
+
+if [[ "$?" -ne 0 ]]; then
+	exit 1
+fi
