@@ -38,6 +38,7 @@ xterm*printerCommand:                  xterm -T History -e sh -c 'less -r -m -N 
 xterm*translations:                    #override \n\
                                            Shift <Btn1Up>: exec-formatted("firefox '%t'", PRIMARY)\n\
                                            Shift <Btn2Up>: exec-formatted("idea-open-path '%t'", PRIMARY)\n\
+                                           Shift <Btn3Up>: exec-formatted("chromium '%t'", PRIMARY)\n\
                                            Ctrl Shift <Key>C: copy-selection(CLIPBOARD)\n\
                                            Ctrl Shift <Key>V: insert-selection(CLIPBOARD)\n\
                                            Shift <Key>Home: scroll-back(5000)\n\
