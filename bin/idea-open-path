@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# grep file path
+# grep file path and open it
 # {path/to/file}:{line_number}:
 
 IDEA="idea"
-REGEX="^(.*):(.*):$"
+REGEX="^(.*):(.*)(:)?$"
 
 if [[ "$1" =~ $REGEX ]]; then
     ${IDEA} --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
