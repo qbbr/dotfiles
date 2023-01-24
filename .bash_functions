@@ -35,6 +35,16 @@ hello_msg() {
 	echo -e "$(tput bold)UPT:$(tput sgr0)  $(tput setaf 9)$(uptime -p)$(tput sgr0)"
 	echo -e "$(tput bold)HOME:$(tput sgr0) $(tput setaf 3)${HOME}$(tput sgr0)"
 	echo -e "$(tput bold)SYS:$(tput sgr0)  $(tput setaf 4)$(get_sys_info)$(tput sgr0)"
+
+	if [[ -f /sys/firmware/devicetree/base/model ]]; then
+		# example output:
+		#  Raspberry Pi 3 Model B Rev 1.2
+		#  Raspberry Pi 2 Model B Rev 1.1
+		#  Xunlong Orange Pi One
+		local rpi_model="$(tr -d '\0' < /sys/firmware/devicetree/base/model)"
+		echo -e "$(tput bold)RPI:$(tput sgr0)  $(tput setaf 13)${rpi_model}$(tput sgr0)"
+	fi
+
 	# '--all-ip-addresses' unrecognized option in darwin/termux
 	#local ips="$(hostname --all-ip-addresses)"
 	if command -v ip > /dev/null; then
