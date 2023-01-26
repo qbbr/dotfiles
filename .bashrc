@@ -70,7 +70,7 @@ else
 		PS1+="[${bblue}\\w${reset}] "
 		# git
 		if [[ -n "$(command -v __git_ps1)" ]]; then
-			local fstype="$(df --output=fstype . | tail -n +2)"
+			local fstype="$(df --output=fstype . 2> /dev/null | tail -n +2)"
 			if [[ "${fstype}" != *"fuse.sshfs"* ]]; then
 				GIT_PS1_SHOWDIRTYSTATE=true
 				GIT_PS1_SHOWUNTRACKEDFILES=true
