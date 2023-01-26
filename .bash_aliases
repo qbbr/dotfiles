@@ -74,6 +74,7 @@ alias lynx="lynx -accept_all_cookies"
 
 #alias python="python3"
 #alias pip="pip3"
+alias ptp="ptpython"
 
 #alias phantomjs="OPENSSL_CONF=/etc/ssl/ phantomjs"
 
