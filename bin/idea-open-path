@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
 # grep file path and open it
-# {path/to/file}:{line_number}:
 
 IDEA="idea"
-REGEX="^(.*):(.*)(:)?$"
+REGEX="^a?b?/?([^:]+):?([0-9]+)?:?$"
 
 if [[ "$1" =~ $REGEX ]]; then
-    ${IDEA} --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
+	if [[ -n "${BASH_REMATCH[2]}" ]]; then
+		${IDEA} --line "${BASH_REMATCH[2]}" "${BASH_REMATCH[1]}" &
+	else
+		${IDEA} "${BASH_REMATCH[1]}" &
+	fi
 else
-    ${IDEA} $1 &
+	${IDEA} $1 &
 fi
