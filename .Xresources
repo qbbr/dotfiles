@@ -12,10 +12,6 @@ xterm*disallowedWindowOps:             20,21,SetXprop
 xterm*geometry:                        80x25
 xterm*faceName:                        Hack
 xterm*faceSize:                        10
-!xterm*faceName:                        xft:Hack:size=11
-!xterm*faceName:                        Hack:style=Regular:size=12
-!xterm*boldFont:                        Hack:style=Bold:size=12
-!xterm*faceNameDoublesize:              xft:FontAwesome:size=12
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            true
@@ -51,6 +47,11 @@ xterm*translations:                    #override \n\
 xterm*metaSendsEscape:                 true
 xterm*transparent:                     false
 xterm*shading:                         40
+! HiDPI for my Xiaomi RedmiBook 15
+!Xft.dpi:                               192
+!Xcursor.size:                          64
+!xterm*cursorTheme:                     DMZ-White
+!xterm*pointerShape: left_ptr
 
 ! colors
 ! =========================================================
