@@ -28,6 +28,7 @@
 	pul = pull
 	pus = push
 	psh = push
+	puish = push
 	loh = log
 [push]
 	default = simple
