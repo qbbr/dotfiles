@@ -51,8 +51,6 @@ alias pong="ping -c 3 www.google.com"
 alias dmesg="dmesg -Tw"
 alias m="more"
 
-# replaced by m() fn
-#alias m="mount | column -t"
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 alias iostat="iostat -m -h 1 2" # -y
 

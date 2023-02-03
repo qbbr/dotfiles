@@ -267,7 +267,7 @@ function _mount() {
 		}
 		'
 }
-alias mount="_mount"
+alias mountl="_mount"
 
 # colorful df
 # @depends: gawk
@@ -500,9 +500,13 @@ function decode-base64 {
 }
 
 # @depends: iconv
-function decode-imap-folder-name {
+function decode-imap-folder-name() {
 	# for i in *; do echo -n "$i == "; decode-imap-folder-name $i; done
 	echo $1 | tr '&' '+' | tr ',' '/' | iconv -f UTF-7 -t UTF-8
+}
+
+function convert-utf8-to-3byte() {
+	echo -n $1 | od -An -tx1 | sed 's/ /\\x/g'
 }
 
 #function youtube-dl-sst() {
