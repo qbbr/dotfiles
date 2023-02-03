@@ -20,7 +20,7 @@
 # author: @qbbr
 
 # for --dzen only
-readonly DZEN_FONT="terminus-12"
+readonly DZEN_FONT="hack-12"
 readonly DZEN_BG="#073642"
 readonly DZEN_FG="#EEE8D5"
 readonly DZEN_WIDTH=272
