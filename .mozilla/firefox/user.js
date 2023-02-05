@@ -149,3 +149,6 @@ user_pref("security.ssl.enable_ocsp_must_staple", true);
 // do not load tabs on startup
 user_pref("browser.sessionstore.restore_on_demand", true);
 user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
+
+// disable ctrl+q
+user_pref("browser.quitShortcut.disabled", true);
