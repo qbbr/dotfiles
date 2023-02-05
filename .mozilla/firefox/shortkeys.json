@@ -1,0 +1,42 @@
+[
+  {
+    "action": "nexttab",
+    "key": "alt+right",
+    "sites": "",
+    "sitesArray": [
+      ""
+    ],
+    "blacklist": false,
+    "activeInInputs": true
+  },
+  {
+    "key": "alt+left",
+    "action": "prevtab",
+    "sites": "",
+    "sitesArray": [
+      ""
+    ],
+    "blacklist": false,
+    "activeInInputs": true
+  },
+  {
+    "sites": "",
+    "sitesArray": [
+      ""
+    ],
+    "key": "alt+shift+right",
+    "action": "movetabright",
+    "activeInInputs": true,
+    "blacklist": false
+  },
+  {
+    "key": "alt+shift+left",
+    "action": "movetableft",
+    "sites": "",
+    "sitesArray": [
+      ""
+    ],
+    "activeInInputs": true,
+    "blacklist": false
+  }
+]
