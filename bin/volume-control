@@ -87,7 +87,7 @@ SCONTROL="Master"
 SCONTROL_HEADPHONE="Headphone"
 
 call_amixer() {
-	amixer ${CARD_ARG} $@
+	amixer ${CARD_ARG} -D pulse $@
 }
 
 # use Headphone if it is on and Master is switch off
