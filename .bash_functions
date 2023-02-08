@@ -72,6 +72,8 @@ if [[ "${TERM}" == "xterm" || "${TERM}" == "xterm-256color" ]] && command -v xtt
 		builtin cd "$@"
 		xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 	}
+
+	xttitle "$$ [${USER}@${HOSTNAME}] ${PWD}" 2> /dev/null
 fi
 
 # fork
