@@ -15,9 +15,9 @@
 # author: @qbbr
 
 # for --dzen only
-readonly DZEN_FONT="hack-12"
-readonly DZEN_BG="#073642"
-readonly DZEN_FG="#EEE8D5"
+readonly DZEN_FONT="hack-10"
+readonly DZEN_BG="#b58900"
+readonly DZEN_FG="#fdf6e3"
 readonly DZEN_WIDTH=272
 
 usage() {
