@@ -47,11 +47,17 @@ xterm*translations:                    #override \n\
 xterm*metaSendsEscape:                 true
 xterm*transparent:                     false
 xterm*shading:                         40
+
+!xterm*pointerShape:                   left_ptr
+xterm*cursorTheme:                     DMZ-White
 ! HiDPI for my Xiaomi RedmiBook 15
-!Xft.dpi:                               192
-!Xcursor.size:                          64
-!xterm*cursorTheme:                     DMZ-White
-!xterm*pointerShape: left_ptr
+#ifdef HIDPI_ENABLED
+Xft.dpi:                               192
+Xcursor.size:                          64
+#else
+!Xft.dpi:                               92
+Xcursor.size:                          32
+#endif
 
 ! colors
 ! =========================================================

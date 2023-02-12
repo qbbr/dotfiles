@@ -3,8 +3,15 @@
 # default is dark, uncomment to set light
 #export THEME_MODE_LIGHT=1
 
+# enable HiDPI
+#export HIDPI_ENABLED=1
+
 # load .Xresources file
-if [ -n "${THEME_MODE_LIGHT}" ]; then
+if [ -n "${HIDPI_ENABLED}" ] && [ -n "${THEME_MODE_LIGHT}" ]; then
+	xrdb -DHIDPI_ENABLED -DTHEME_MODE_LIGHT -merge ~/.Xresources
+elif [ -n "${HIDPI_ENABLED}" ]; then
+	xrdb -DHIDPI_ENABLED -merge ~/.Xresources
+elif [ -n "${THEME_MODE_LIGHT}" ]; then
 	xrdb -DTHEME_MODE_LIGHT -merge ~/.Xresources
 else
 	xrdb -merge ~/.Xresources
