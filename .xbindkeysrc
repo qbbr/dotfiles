@@ -15,5 +15,8 @@
 "volume-control --dzen --toggle"
 	XF86AudioMute
 
+"xterm"
+	Mod4+Shift+KP_Enter
+
 #"amixer set Headphone toggle && amixer set Front toggle"
 #	Control + KP_Add
