@@ -27,9 +27,12 @@ xset -b
 #xrandr --output DVI-1 --auto --primary --left-of HDMI-0 \
 #    --output HDMI-0 --auto
 # triple monitor
-xrandr --output DVI-1 --auto --primary --left-of HDMI-0 \
-	--output HDMI-0 --auto \
-	--output DVI-0 --auto --right-of HDMI-0
+xrandr --output DVI-D-1 --auto --primary \
+	--output DP-1 --auto --right-of DVI-D-1 \
+	--output DP-3 --auto --right-of DP-1 \
+	--output HDMI-1 --off
+# four (HDMI-1 = TV)
+#xrandr --output HDMI-1 --auto --left-of DVI-D-1
 
 # fix DBus.Error.TimedOut (telegram freezes)
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
