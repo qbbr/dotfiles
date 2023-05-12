@@ -16,7 +16,7 @@ set colored-stats on
 # The length in characters of the common prefix of a list of possible completions that is displayed without modification.
 #set completion-prefix-display-length 2
 # Insert the arguments from the last command
-"p": "i !!*\r"
+#"p": "i !!*\r"
 
 # When hitting option-up/option-down, cycle through the previous commands
 # which start with the prefix you've entered, rather than just cycling through
