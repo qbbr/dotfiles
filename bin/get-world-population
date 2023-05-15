@@ -36,7 +36,7 @@ if (process.argv.includes('--remove-comma')) {
 }
 
 (async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({ headless: 'new' });
     const page = await browser.newPage();
 
     await page.goto('https://www.worldometers.info/world-population/');
