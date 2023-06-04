@@ -437,14 +437,14 @@ tailf-monolog() {
 			-v reset=$(tput sgr0) \
 		'
 		{matched=0}
-		/DEBUG:/     {matched=1; print white $0 reset}
-		/INFO:/      {matched=1; print green $0 reset}
-		/NOTICE:/    {matched=1; print cyan $0 reset}
-		/WARNING:/   {matched=1; print yellow $0 reset}
-		/ERROR:/     {matched=1; print red $0 reset}
-		/CRITICAL:/  {matched=1; print red $0 reset}
-		/ALERT:/     {matched=1; print magenta $0 reset}
-		/EMERGENCY:/ {matched=1; print blue $0 reset}
+		/DEBUG/     {matched=1; print white $0 reset}
+		/INFO/      {matched=1; print green $0 reset}
+		/NOTICE/    {matched=1; print cyan $0 reset}
+		/WARNING/   {matched=1; print yellow $0 reset}
+		/ERROR/     {matched=1; print red $0 reset}
+		/CRITICAL/  {matched=1; print red $0 reset}
+		/ALERT/     {matched=1; print magenta $0 reset}
+		/EMERGENCY/ {matched=1; print blue $0 reset}
 		matched==0              {print $0}
 		'
 }
