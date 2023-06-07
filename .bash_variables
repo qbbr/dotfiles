@@ -176,3 +176,8 @@ export LESS_TERMCAP_se=$(tput sgr0)
 export LESS_TERMCAP_so=$(tput setaf 3; tput setab 0) # yellow on black
 export LESS_TERMCAP_ue=$(tput sgr0)
 export LESS_TERMCAP_us=$(tput setaf 7) # white
+
+##
+# jq (https://jqlang.github.io/jq/manual/#Colors)
+##
+export JQ_COLORS="0;33:0;31:1;32:1;31:0;36:1;37:0;0"
