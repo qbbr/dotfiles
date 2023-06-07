@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# ./cache-runner
+#
+# run and cache output of a cmd
+#
+# see --help for usage
+#
+# author: @qbbr
+
+# default values
+TTL=600 # 10 min
+CACHE_DIR=$(dirname $(mktemp -u))
+
+usage() {
+	echo "Usage: ${0##*/} [option] [CMD]"
+	echo
+	echo "Options:"
+	echo "	--ttl              - set time to life (default: ${TTL} sec)"
+	echo "	--cache-dir        - set cache dir (default: ${CACHE_DIR})"
+	echo "	-h, --help         - display this help and exit"
+	exit 0
+}
+
+while [[ $# -gt 0 ]]; do
+	key="$1"
+
+	case ${key} in
+		--ttl)
+			TTL="$2"
+			shift # past argument
+			shift # past value
+			;;
+		--cache-dir)
+			CACHE_DIR="$2"
+			shift # past argument
+			shift # past value
+			;;
+		-h|--help)
+			usage # and exit
+			;;
+		*) # unknown option
+			POSITIONAL+=("$1") # save it in an array for later
+			shift
+			;;
+	esac
+done
+
+set -- "${POSITIONAL[@]}" # restore positional parameter
+
+CMD=$@
+CACHE_PATH="${CACHE_DIR}/${CMD}"
+CACHE_EXPIRES=1
+
+if [[ -f "${CACHE_PATH}" ]]; then
+	NOW_TIMESTAMP=$(date +%s)
+	CACHE_TIMESTAMP=$(date -r "${CACHE_PATH}" +%s)
+
+	if [[ $(expr ${NOW_TIMESTAMP} - ${CACHE_TIMESTAMP}) -le ${TTL} ]]; then
+		CACHE_EXPIRES=0
+	fi
+fi
+
+if [[ ${CACHE_EXPIRES} -eq 1 ]]; then
+	eval "${CMD}" > "${CACHE_PATH}"
+fi
+
+cat "${CACHE_PATH}"
