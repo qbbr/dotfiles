@@ -9,8 +9,19 @@
 # depends: curl, bc, jq
 # author: @qbbr
 
+SOURCE="${BASH_SOURCE[0]}"
+
+while [[ -h "${SOURCE}" ]]; do
+	DIR="$(cd -P "$(dirname "${SOURCE}")" && pwd)"
+	SOURCE="$(readlink "${SOURCE}")"
+	[[ $SOURCE != /* ]] && SOURCE="${DIR}/${SOURCE}"
+done
+
+cd "$(dirname "${SOURCE}")"
+
+. .get-currencyrc
+
 URL="https://api.apilayer.com/currency_data/live?currencies=RUB&source="
-APIKEY=""
 BASE=${1:-USD}
 
 OUTPUT=$(curl -s "${URL}${BASE}" --header "apikey: ${APIKEY}" | jq ".quotes.${BASE}RUB")

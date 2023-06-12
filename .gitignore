@@ -3,3 +3,4 @@
 .ncmpcpp/error.log
 .config/conky/weather_vars.lua
 .mutt/cache/
+bin/.get-currencyrc
