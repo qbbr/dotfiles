@@ -1,10 +1,10 @@
 // put to ff profile dir (about:support / about:profiles)
 
-user_pref("general.buildID.override", "20100101");
-user_pref("browser.startup.homepage_override.buildID", "20100101");
+//user_pref("general.buildID.override", "20100101");
+//user_pref("browser.startup.homepage_override.buildID", "20100101");
 // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36
 // Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0
-user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36");
+//user_pref("general.useragent.override", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36");
 // ^^^ detected is "Mozilla/5.0 (Windows NT 10.0; rv:78.0) Gecko/20100101 Firefox/78.0" - OK
 
 // dark mode
