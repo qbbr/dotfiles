@@ -38,11 +38,13 @@ hello_msg() {
 
 	if [[ -f /sys/firmware/devicetree/base/model ]]; then
 		# example output:
-		#  Raspberry Pi 3 Model B Rev 1.2
-		#  Raspberry Pi 2 Model B Rev 1.1
-		#  Xunlong Orange Pi One
+		#  Raspberry Pi 3 Model B Rev 1.2 (744M)
+		#  Raspberry Pi 2 Model B Rev 1.1 (999M)
+		#  Xunlong Orange Pi One (999M)
+		#  OrangePi 3 LTS (2,0G)
 		local rpi_model="$(tr -d '\0' < /sys/firmware/devicetree/base/model)"
-		echo -e "$(tput bold)RPI:$(tput sgr0)  $(tput setaf 13)${rpi_model}$(tput sgr0)"
+		local rpi_mem="$(free -h --si | awk '/^Mem:/{print $2}')"
+		echo -e "$(tput bold)RPI:$(tput sgr0)  $(tput setaf 13)${rpi_model} $(tput bold)(${rpi_mem})$(tput sgr0)"
 	fi
 
 	# '--all-ip-addresses' unrecognized option in darwin/termux
