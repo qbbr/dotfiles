@@ -15,8 +15,6 @@ alias hh="history"
 alias bb="sudo shutdown -h now"
 alias reboot="sudo reboot"
 
-alias fdisk="sudo fdisk"
-
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
