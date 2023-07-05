@@ -117,6 +117,9 @@ alias set-php-version="sudo update-alternatives --config php"
 alias php-cs-fixer-diff="PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix -v --rules=@Symfony --using-cache=no --diff --dry-run"
 alias php-cs-fixer-fix="PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix -v --rules=@Symfony --using-cache=no --diff"
 
+# rpi
+alias rpi-temp='/usr/bin/vcgencmd measure_temp'
+
 # cygwin aliases
 #if [[ "$(uname -s)" == "CYGWIN"* ]]; then
 #	alias composer="composer.bat"
