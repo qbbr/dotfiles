@@ -28,6 +28,7 @@ usage() {
 	echo "	-t, --toggle    - toggle mute on/off"
 	echo "	-i, --increment - increment by argument in percent"
 	echo "	-d, --decrement - decrement by argument in percent"
+	echo "	-m, --max       - set volume to max"
 	echo "	--dzen          - show dbar in dzen2"
 	echo "	-h, --help      - display this help and exit"
 	exit 0
@@ -61,6 +62,10 @@ while [[ $# -gt 0 ]]; do
 		-d|--decrement)
 			CMD="${2}%-"
 			shift
+			shift
+			;;
+		-m|--max)
+			CMD="100%"
 			shift
 			;;
 		--dzen)
