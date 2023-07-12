@@ -365,8 +365,19 @@ swap() {
 }
 
 # backup file/dir
+#   -r - delete origin path
 bak() {
-	cp -ri "$1" "${1%/}.bak"
+	if [[ "$1" == "-r" ]]; then
+		local need_rm=1
+		local orig_path="$2"
+	else
+		local need_rm=0
+		local orig_path="$1"
+	fi
+	cp -ri "${orig_path}" "${orig_path%/}.bak"
+	if [[ "${need_rm}" == 1 ]]; then
+		rm -rf ${orig_path}
+	fi
 }
 
 # print markdown
