@@ -42,9 +42,10 @@ hello_msg() {
 		#  Raspberry Pi 2 Model B Rev 1.1 (999M)
 		#  Xunlong Orange Pi One (999M)
 		#  OrangePi 3 LTS (2,0G)
-		local rpi_model="$(tr -d '\0' < /sys/firmware/devicetree/base/model)"
-		local rpi_mem="$(free -h --si | awk '/^Mem:/{print $2}')"
-		echo -e "$(tput bold)RPI:$(tput sgr0)  $(tput setaf 13)${rpi_model} $(tput bold)(${rpi_mem})$(tput sgr0)"
+		#  Qualcomm Technologies, Inc. SM 8350 v2.1 MTP (7.7G)
+		local dt_model="$(tr -d '\0' < /sys/firmware/devicetree/base/model)"
+		local dt_mem="$(free -h --si | awk '/^Mem:/{print $2}')"
+		echo -e "$(tput bold)DTM:$(tput sgr0)  $(tput setaf 13)${dt_model} $(tput bold)(${dt_mem})$(tput sgr0)"
 	fi
 
 	# '--all-ip-addresses' unrecognized option in darwin/termux
