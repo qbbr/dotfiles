@@ -11,7 +11,11 @@ xterm*termName:                        xterm-256color
 xterm*disallowedWindowOps:             20,21,SetXprop
 xterm*geometry:                        80x25
 xterm*faceName:                        Hack
+#ifdef HTPC_ENABLED
+xterm*faceSize:                        14
+#else
 xterm*faceSize:                        10
+#endif
 xterm*boldMode:                        false
 xterm*dynamicColors:                   true
 xterm*utf8:                            true
@@ -55,7 +59,7 @@ xterm*cursorTheme:                     DMZ-White
 Xft.dpi:                               192
 Xcursor.size:                          64
 #else
-!Xft.dpi:                               92
+Xft.dpi:                               96
 Xcursor.size:                          32
 #endif
 

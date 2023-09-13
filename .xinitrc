@@ -6,16 +6,21 @@
 # enable HiDPI
 #export HIDPI_ENABLED=1
 
+# HTPC (my TV)
+#export HTPC_ENABLED=1
+
 # load .Xresources file
-if [ -n "${HIDPI_ENABLED}" ] && [ -n "${THEME_MODE_LIGHT}" ]; then
-	xrdb -DHIDPI_ENABLED -DTHEME_MODE_LIGHT -merge ~/.Xresources
-elif [ -n "${HIDPI_ENABLED}" ]; then
-	xrdb -DHIDPI_ENABLED -merge ~/.Xresources
+XRDB_ARGS=""
+
+if [ -n "${HIDPI_ENABLED}" ]; then
+	XRDB_ARGS="${XRDB_ARGS} -DHIDPI_ENABLED"
 elif [ -n "${THEME_MODE_LIGHT}" ]; then
-	xrdb -DTHEME_MODE_LIGHT -merge ~/.Xresources
-else
-	xrdb -merge ~/.Xresources
+	XRDB_ARGS="${XRDB_ARGS} -DTHEME_MODE_LIGHT"
+elif [ -n "${HTPC_ENABLED}" ]; then
+	XRDB_ARGS="${XRDB_ARGS} -DHTPC_ENABLED"
 fi
+
+xrdb ${XRDB_ARGS} -merge ~/.Xresources
 
 # kill X with C-A-BS
 setxkbmap -option terminate:ctrl_alt_bksp
@@ -27,12 +32,17 @@ xset -b
 #xrandr --output DVI-1 --auto --primary --left-of HDMI-0 \
 #    --output HDMI-0 --auto
 # triple monitor
-xrandr --output DVI-D-1 --auto --primary \
-	--output DP-1 --auto --right-of DVI-D-1 \
-	--output DP-3 --auto --right-of DP-1 \
-	--output HDMI-1 --off
-# four (HDMI-1 = TV)
-#xrandr --output HDMI-1 --auto --left-of DVI-D-1
+#xrandr --output DVI-D-1 --auto --primary \
+#    --output DP-1 --auto --right-of DVI-D-1 \
+#    --output DP-3 --auto --right-of DP-1 \
+#    --output HDMI-1
+# four monitors
+xrandr --output HDMI-1 --auto --primary \
+	--output DP-1 --auto --right-of HDMI-1 \
+	--output DVI-D-1 --auto --above HDMI-1 \
+	--output DP-2 --auto --above DP-1
+# +5ive TV (DP-3)
+#xrandr --output DP-3 --auto --left-of DVI-D-1
 
 # fix DBus.Error.TimedOut (telegram freezes)
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
@@ -76,9 +86,9 @@ xsetroot -cursor_name left_ptr
 #xcompmgr -CcfF -I-.03 -O-.06 -D2 -t-2 -l-5 -r4.2 -o.55 &
 
 # open terminal apps
-xterm &
+xterm -class 'xterm-monitor-1' -e "echo -e '\n\n\n'; cowsay -f 'unipony' 'Приветствую тебя, О ВЕЛИКИЙ QBBR.'; echo -e '\n\n\n'; bash" &
 #xterm -class="xterm-float" -geometry 80x20+200+600@1 &
-xterm -class 'htop' -e 'htop' &
+xterm -class 'htop' -e 'bpytop' &
 xterm -class 'dmesg' -geometry 239x60 -e 'dmesg -Tw' &
 
 # hello msg

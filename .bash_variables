@@ -7,7 +7,7 @@
 HISTSIZE=5000
 HISTFILESIZE=5000
 # ignore cmds
-HISTIGNORE="l:ll:ls:ps:p:pm:m:df:history:h:hh:n:nls:nrm:nprint:np:ncat:q"
+HISTIGNORE="l:ll:ls:ps:p:pm:m:history:h:hh:n:nls:nrm:nprint:np:ncat:q"
 # don't put duplicate lines or lines starting with space in the history
 HISTCONTROL=ignoreboth
 # share history across all terminals
@@ -26,8 +26,6 @@ SHOW_HELLO_MSG=1
 FORCE_COLOR_PS1=1
 # run hello_msg() on bash start
 SHOW_HELLO_MSG=1
-# use colorful prompt on "linux" $TERM
-FORCE_COLOR_PS1=1
 
 ##
 # print markdown (`md()` fn .bash_functions)
@@ -164,7 +162,7 @@ FORCE_COLOR_PS1=1
 ##
 # Qt
 ##
-export QT_STYLE_OVERRIDE=gtk2
+#export QT_STYLE_OVERRIDE=gtk2
 
 ##
 # LESS colors (man)
@@ -180,4 +178,4 @@ export LESS_TERMCAP_us=$(tput setaf 7) # white
 ##
 # jq (https://jqlang.github.io/jq/manual/#Colors)
 ##
-export JQ_COLORS="0;33:0;31:1;32:1;31:0;36:1;37:0;0"
+#export JQ_COLORS="0;33:0;31:1;32:1;31:0;36:1;37:0;0"
