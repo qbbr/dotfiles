@@ -1,7 +1,7 @@
 [user]
 	name = Sokolov Innokenty
-	email = im@qbbr.io
-	signingkey = 0C454FFE25D6A051
+	email = imqbbr@gmail.com
+	signingkey = E86D63F398C11C27
 [core]
 	editor = vim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
