@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# ./run-qq-local-app
+#
+# for run my web apps on the right dwm rule
+#
+# author: @qbbr
+
+WM_CLASS="Firefox-qq-local"
+FF_PROFILE="qq-local"
+APP_URL=$1
+
+firefox --disable-pinch -P "${FF_PROFILE}" --class "${WM_CLASS}" --new-window "${APP_URL}" &
+sleep 1
+WIN_IDS="$(xdotool search --class "${WM_CLASS}")"
+for ID in ${WIN_IDS}; do
+	xdotool windowactivate "${ID}"
+done
