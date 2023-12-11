@@ -50,7 +50,6 @@ user_pref("network.manage-offline-status", false);
 user_pref("network.jar.open-unsafe-types", false);
 user_pref("beacon.enabled", false);
 user_pref("browser.send_pings", false);
-user_pref("browser.urlbar.trimURLs", false);
 user_pref("browser.fixup.alternate.enabled", false);
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.navigator.enabled", false);
@@ -112,7 +111,6 @@ user_pref("datareporting.healthreport.service.enabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("browser.discovery.enabled", false);
 user_pref("browser.selfsupport.url", "");
-user_pref("browser.urlbar.filter.javascript", true);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.pagethumbnails.capturing_disabled", true);
 user_pref("browser.newtabpage.enabled", false);
@@ -152,3 +150,10 @@ user_pref("browser.sessionstore.restore_pinned_tabs_on_demand", true);
 
 // disable ctrl+q
 user_pref("browser.quitShortcut.disabled", true);
+
+// urlbar
+user_pref("browser.urlbar.autoFill", false);
+user_pref("browser.urlbar.autoFill.adaptiveHistory.enabled", true);
+user_pref("browser.urlbar.autoFill.adaptiveHistory.minCharsThreshold", 1);
+user_pref("browser.urlbar.filter.javascript", true);
+user_pref("browser.urlbar.trimURLs", false);
