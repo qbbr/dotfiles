@@ -143,6 +143,9 @@ SHOW_HELLO_MSG=1
 #export ANDROID_ADB_SERVER_PORT=5038
 # fix java on non-reparenting WM's for correct render
 #export _JAVA_AWT_WM_NONREPARENTING=1
+# sdkman
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 ##
 # Haskell / Cabal

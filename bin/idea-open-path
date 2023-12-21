@@ -3,7 +3,7 @@
 # grep file path and open it
 
 IDEA="idea"
-REGEX="^a?b?/?([^:]+):?([0-9]+)?:?$"
+REGEX="^a?b?/?([^:]+):?([0-9]+)?:?.*$"
 
 if [[ "$1" =~ $REGEX ]]; then
 	if [[ -n "${BASH_REMATCH[2]}" ]]; then

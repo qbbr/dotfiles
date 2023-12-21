@@ -24,7 +24,7 @@
 	separator_color = frame
 	;dmenu = /usr/local/bin/dmenu -fn "Hack:size=11" -nb "#224488" -nf "#FFFFFF" -sb "#FFFFFF" -sf "#224488" -p dunst
 	browser = /usr/bin/firefox -new-tab
-	icon_path = "/usr/share/icons/Numix/32/status/:/usr/share/icons/Numix/32/devices/:/usr/share/icons/Numix/32/apps/"
+	icon_path = "/usr/share/icons/Numix/32/status/:/usr/share/icons/Numix/32/devices/:/usr/share/icons/Numix/32/apps/:/usr/share/icons/Numix/32/actions/:/usr/share/icons/hicolor/scalable/apps/"
 	icon_position = left
 	max_icon_size = 32
 	history_length = 20
@@ -53,6 +53,12 @@
 [ttytter]
 	summary = "TTYtter*"
 	urgency = low
+
+;[evolution]
+;    appname = "evolution-mail-notification"
+;    urgency = normal
+;    timeout = 10
+;    default_icon = mail_new
 
 [newsbeuter]
 	summary = newsbeuter
