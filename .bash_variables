@@ -20,8 +20,6 @@ TIMEFORMAT=$'\nreal: \e[0;36m%3lR\e[0;0m\nuser: \e[0;33m%3lU\e[0;0m\nsys:  \e[0;
 export EDITOR=vim
 # grep highlight matched (non-empty) text color
 GREP_COLOR="01;32" # green
-# run hello_msg() on bash start
-SHOW_HELLO_MSG=1
 # use colorful prompt on "linux" $TERM
 FORCE_COLOR_PS1=1
 # run hello_msg() on bash start
