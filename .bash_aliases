@@ -25,6 +25,8 @@ alias e="editor"
 
 alias xclip="xclip -selection clipboard"
 
+alias cal="ncal -b"
+
 # replaced by l() fn
 #alias l="ls -lAF --color=always --group-directories-first | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\"%0o \",k);print}'"
 alias ls="ls --color=auto --group-directories-first"
