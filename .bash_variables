@@ -60,7 +60,7 @@ SHOW_HELLO_MSG=1
 ## or for global
 # link/copy skin to /usr/share/mc/skins/
 # sudo ln -sf ~/git/dotfiles/.config/mc/solarized.ini /usr/share/mc/skins/
-# and set `skin=solarized` in `~/config/mc/ini`
+# and set `skin=solarized` in `~/.config/mc/ini`
 ## or for global, replace default skin (for all users by default)
 # sudo mv /usr/share/mc/skins/default.{ini,bak}
 # sudo ln -sf ~/git/dotfiles/.config/mc/solarized.ini /usr/share/mc/skins/default.ini
