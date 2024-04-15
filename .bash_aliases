@@ -49,6 +49,10 @@ alias crontab="crontab -i"
 test -f /proc/net/if_inet6 || alias ping="ping -4"
 alias pong="ping -c 3 www.google.com"
 
+alias wg-up="nmcli connection up WG"
+alias wg-down="nmcli connection down WG"
+alias wg-status='S=$(nmcli -g GENERAL.STATE c s WG); if [ -z "$S" ]; then echo 'off'; else echo $S; fi;'
+
 alias dmesg="dmesg -Tw"
 alias m="more"
 
