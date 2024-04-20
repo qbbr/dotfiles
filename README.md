@@ -23,7 +23,7 @@
  * `Ctrl + /` - print all session history
 
 for X global keys see [.xbindkeysrc](.xbindkeysrc)  
-see [XTerm](.Xresources#L32) `on*Clicks` kung-fu for mouse selection [PRIMARY]
+see [XTerm](.Xresources#L34) `on*Clicks` kung-fu for mouse selection [PRIMARY]
 
 [X_Window_selection](https://en.wikipedia.org/wiki/X_Window_selection#Clipboard)
 
