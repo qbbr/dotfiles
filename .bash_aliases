@@ -49,12 +49,7 @@ alias crontab="crontab -i"
 test -f /proc/net/if_inet6 || alias ping="ping -4"
 alias pong="ping -c 3 www.google.com"
 
-alias wg-up="nmcli connection up WG"
-alias wg-down="nmcli connection down WG"
-alias wg-status='S=$(nmcli -g GENERAL.STATE c s WG); if [ -z "$S" ]; then echo 'off'; else echo $S; fi;'
-
 alias dmesg="dmesg -Tw"
-alias m="more"
 
 alias psg="ps aux | grep -v grep | grep -i -e RSS -e"
 alias iostat="iostat -m -h 1 2" # -y
@@ -88,6 +83,7 @@ alias ptp="ptpython"
 export LESS=" -R "
 #alias less="less -m -N -g -i -J --line-numbers --underline-special"
 alias more="less"
+alias m="more"
 #alias hilite="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style solarized-dark"
 
 # static web servers
@@ -104,12 +100,22 @@ alias web-server-open-browser="x-www-browser http://127.0.0.1:8666/"
 
 # sudo curl -L https://raw.githubusercontent.com/docker/compose/1.29.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 #alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
-alias docker-compose-renew='docker-compose up --force-recreate --renew-anon-volumes'
-alias start-docker='sudo systemctl start docker.socket docker.service'
-alias stop-docker='sudo systemctl stop docker.service docker.socket containerd.service'
+alias docker-compose-renew='docker compose up --force-recreate --renew-anon-volumes'
+alias docker-start='sudo systemctl start docker.socket docker.service'
+alias docker-stop='sudo systemctl stop docker.service docker.socket containerd.service'
+alias docker-status='sudo systemctl status docker.service'
 
-alias start-libvirt='sudo systemctl start libvirtd.service'
-alias stop-libvirt='sudo systemctl stop libvirtd.service libvirtd-ro.socket libvirtd-admin.socket libvirtd.socket'
+alias libvirt-start='sudo systemctl start libvirtd.service'
+alias libvirt-stop='sudo systemctl stop libvirtd.service libvirtd-ro.socket libvirtd-admin.socket libvirtd.socket'
+alias libvirt-status='sudo systemctl status libvirtd.service'
+
+alias syncthing-start='sudo systemctl start syncthing@qbbr'
+alias syncthing-stop='sudo systemctl stop syncthing@qbbr'
+alias syncthing-status='sudo systemctl status syncthing@qbbr'
+
+alias wg-up="nmcli connection up WG"
+alias wg-down="nmcli connection down WG"
+alias wg-status='S=$(nmcli -g GENERAL.STATE c s WG); if [ -z "$S" ]; then echo 'off'; else echo $S; fi;'
 
 alias mpvm="mpv --mute=yes"
 alias mpv-youtube-1080p="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
