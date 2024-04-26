@@ -25,6 +25,9 @@ FORCE_COLOR_PS1=1
 # run hello_msg() on bash start
 SHOW_HELLO_MSG=1
 
+## @see .bash_variables scrot-me
+#SCREENSHOT_DIR="$HOME/Pictures/Screenshots/"
+
 ##
 # print markdown (`md()` fn .bash_functions)
 # if not set $MD_PRINT_CMD used `cat` by default
