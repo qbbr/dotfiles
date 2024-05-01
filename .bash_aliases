@@ -103,7 +103,7 @@ alias web-server-open-browser='-www-browser http://127.0.0.1:8666/'
 #alias docker-compose='TMPDIR=/var/tmp/ docker-compose'
 alias docker-compose-renew='docker compose up --force-recreate --renew-anon-volumes'
 alias docker-start='sudo systemctl start docker.socket docker.service'
-alias docker-stop='sudo systemctl stop docker.service docker.socket containerd.service'
+alias docker-stop='sudo systemctl stop docker.service docker.socket containerd.service && sudo ip link delete docker0 2> /dev/null || true'
 alias docker-status='sudo systemctl status docker.service'
 alias docker-restart='sudo systemctl restart docker.service'
 
