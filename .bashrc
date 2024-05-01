@@ -87,20 +87,24 @@ else
 		fi
 		# ssh
 		if [[ -n "${SSH_CLIENT}" ]]; then
-			PS1+="(${green}SSH${reset})-"
+			PS1+="(${green}ssh${reset})-"
 		fi
 		# chroot
 		if [[ -n "${debian_chroot}" ]]; then
-			PS1+="(${white}${debian_chroot}${reset})-"
+			PS1+="(${white}chroot${reset})-"
 		fi
 		# venv
-		if [[ -n "$VIRTUAL_ENV" ]]; then
-			PS1+="(${white}${VIRTUAL_ENV##*/}${reset})─"
+		if [[ -n "${VIRTUAL_ENV}" ]]; then
+			PS1+="(${white}venv${reset})─"
 			VIRTUAL_ENV_DISABLE_PROMPT=1
 		fi
 		# vim subshell or fg
-		if [[ -n "$VIMRUNTIME" ]] || jobs -l | grep -q 'vim'; then
-			PS1+="(${white}VIM${reset})-"
+		if [[ -n "${VIMRUNTIME}" ]] || jobs -l | grep -q 'vim'; then
+			PS1+="(${white}vim${reset})-"
+		fi
+		# screen
+		if [[ "${TERM}" =~ ^"screen." ]]; then
+			PS1+="(${white}screen${reset})-"
 		fi
 		# $ for user, # for root
 		PS1+="${white}\\\$${reset} "
