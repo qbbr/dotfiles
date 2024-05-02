@@ -375,9 +375,10 @@ bak() {
 		local need_rm=0
 		local orig_path="$1"
 	fi
-	cp -ri "${orig_path}" "${orig_path%/}.bak"
 	if [[ "${need_rm}" == 1 ]]; then
-		rm -rf ${orig_path}
+		mv -i "${orig_path}" "${orig_path%/}.bak"
+	else
+		cp -ri "${orig_path}" "${orig_path%/}.bak"
 	fi
 }
 
