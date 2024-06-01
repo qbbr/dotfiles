@@ -120,6 +120,7 @@ alias wg-up='nmcli connection up WG'
 alias wg-down='nmcli connection down WG'
 alias wg-status='S=$(nmcli -g GENERAL.STATE c s WG); if [ -z "$S" ]; then echo 'off'; else echo $S; fi;'
 
+#alias mpv="gnome-session-inhibit mpv --player-operation-mode=pseudo-gui"
 alias mpvm='mpv --mute=yes'
 alias mpv-youtube-1080p='mpv --ytdl-format="bestvideo[height<=1080]+bestaudio/best[height<=1080]"'
 alias mpv-youtube-720p='mpv --ytdl-format="bestvideo[height<=?720][fps<=?30][vcodec!=?vp9]+bestaudio/best"'
@@ -133,6 +134,10 @@ alias php-cs-fixer-fix='PHP_CS_FIXER_FUTURE_MODE=1 php-cs-fixer fix -v --rules=@
 
 # rpi
 alias rpi-temp='/usr/bin/vcgencmd measure_temp'
+
+# custom
+alias mount-qq-htpc='sshfs qbbr@qq-htpc.local:/media /media/qq-htpc/'
+alias umount-qq-htpc='umount /media/qq-htpc/'
 
 # cygwin aliases
 #if [[ "$(uname -s)" == "CYGWIN"* ]]; then
