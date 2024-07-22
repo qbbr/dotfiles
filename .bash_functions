@@ -338,6 +338,7 @@ extract() {
 				*.tar.bz2) tar xvjf $1   ;;
 				*.tar.gz)  tar xvzf $1   ;;
 				*.tar.xz)  tar xvJf $1   ;;
+				*.tar.zst) tar --use-compress-program=unzstd -xvf $1 ;;
 				*.lzma)    unlzma $1     ;;
 				*.bz2)     bunzip2 $1    ;;
 				*.rar)     unrar x $1    ;;
@@ -603,4 +604,12 @@ alias npp="nprint"
 
 ncat() {
 	cat $(_ngetfilepath $*)
+}
+
+# custom
+mount-crypt() {
+	sudo cryptsetup open $1 crypt && sudo mount /dev/mapper/crypt /media/crypt
+}
+umount-crypt() {
+	sudo umount /media/crypt && sudo cryptsetup close crypt
 }
