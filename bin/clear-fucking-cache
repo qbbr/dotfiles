@@ -19,7 +19,7 @@ rm -rf $MY_HOME_DIR/.cache/mc/*
 rm -f $MY_HOME_DIR/.local/share/mc/history
 # vim
 > $MY_HOME_DIR/.viminfo
-rm -f $MY_HOME_DIR/.cache/ctrlp/mru/cache.txt
+rm -rf $MY_HOME_DIR/.cache/ctrlp/
 # easytag
 rm -f $MY_HOME_DIR/.easytag/easytag.log # old
 rm -f $MY_HOME_DIR/.cache/easytag/easytag.log
@@ -44,6 +44,8 @@ rm -f $MY_HOME_DIR/.lesshst
 rm -f $MY_HOME_DIR/.cache/transmission/favicons/*
 # bluetoothctl
 rm -f $MY_HOME_DIR/.cache/.bluetoothctl_history
+# mpv
+rm -rf $MY_HOME_DIR/.cache/mpv/
 
 # front-end cache
 command -v composer > /dev/null && composer clearcache
