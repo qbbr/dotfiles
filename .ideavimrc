@@ -1,3 +1,13 @@
 Plug 'tpope/vim-surround'
 
-set ignorecase
+set hlsearch                                " включаем подсветку выражения, которое ищется в тексте (:nohlsearch,:noh отключает подсветку)
+set incsearch                               " поиск по набору текста
+set ignorecase                              " игнорировать регистр
+set smartcase                               " если искомое выражения содержит символы в верхнем регистре – ищет с учётом регистра, иначе – без учёта
+
+" <space> - выключает подсветку поиска :nohlsearch
+nnoremap <silent> <Space> :noh<Bar>:echo<CR>
+
+"source ~/.vimrc
+"
+"set nowrap
