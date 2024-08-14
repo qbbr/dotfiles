@@ -162,6 +162,11 @@ SHOW_HELLO_MSG=1
 #export PATH="$HOME/.cabal/bin:$PATH"
 
 ##
+# Rust
+##
+#[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+##
 # Git
 ##
 #export GIT_SSL_NO_VERIFY=1
