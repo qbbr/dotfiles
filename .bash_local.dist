@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+# for enable: cp .bash_local{.dist,}

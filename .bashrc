@@ -120,6 +120,11 @@ else
 	eval $(dircolors -b $HOME/.dircolors)
 fi
 
+# ~/.bash_local
+if [[ -f ~/.bash_local ]]; then
+	. ~/.bash_local
+fi
+
 # ~/.bash_functions
 if [[ -f ~/.bash_functions ]]; then
 	. ~/.bash_functions
