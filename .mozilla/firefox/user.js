@@ -36,24 +36,33 @@ user_pref("dom.netinfo.enabled", false);
 user_pref("dom.network.enabled", false);
 user_pref("dom.maxHardwareConcurrency", 2);
 
+// dont let sites disable copy and paste
+user_pref("dom.event.clipboardevents.enabled", false);
+
 user_pref("accessibility.force_disabled", 1);
 
 user_pref("app.update.auto", false);
 user_pref("browser.search.update", false);
 user_pref("loop.enabled", false);
 user_pref("loop.logDomains", false);
-user_pref("pdfjs.disabled", true);
+
+// disable pocket
 user_pref("browser.pocket.enabled", false);
 user_pref("extensions.pocket.enabled", false);
+user_pref("extensions.pocket.showHome", false);
+user_pref("extensions.pocket.onSaveRecs", false);
+user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+
 user_pref("browser.uitour.enabled", false);
 user_pref("camera.control.face_detection.enabled", false);
 user_pref("webgl.disabled", true);
 user_pref("webgl.disable-extension", true);
 user_pref("webgl.min_capability_mode", true);
 user_pref("webgl.enable-debug-renderer-info", false);
-user_pref("beacon.enabled", false);
 user_pref("browser.send_pings", false);
 user_pref("browser.fixup.alternate.enabled", false);
+user_pref("media.autoplay.default", 5); // block autoplay for audio and video
 user_pref("media.peerconnection.enabled", false);
 user_pref("media.navigator.enabled", false);
 user_pref("media.navigator.video.enabled", false);
@@ -67,13 +76,20 @@ user_pref("media.gmp-manager.url", "");
 user_pref("device.sensors.enabled", false);
 user_pref("javascript.options.wasm", false);
 user_pref("javascript.options.asmjs", false);
+user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.newtabpage.activity-stream.feeds.system.topstories", false);
 
+user_pref("beacon.enabled", false);
+user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.pbmode.enabled", true);
 user_pref("privacy.userContext.enabled", true);
 // todo: resistFingerprinting - reset full screen and dark mode
 //user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.firstparty.isolate", true);
+user_pref("browser.vpn_promo.enabled", false);
+
+//user_pref("gfx.webrender.all", true); // enable GPU render
 
 user_pref("plugins.click_to_play", true);
 
@@ -83,6 +99,7 @@ user_pref("geo.wifi.logging.enabled", false);
 user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.update.enabled", false);
 user_pref("extensions.systemAddon.update.enabled", false);
+user_pref("extensions.formautofill.creditCards.available", false);
 user_pref("lightweightThemes.update.enabled", false);
 user_pref("plugin.state.flash", 0);
 user_pref("dom.ipc.plugins.flash.subprocess.crashreporter.enabled", false);
@@ -126,9 +143,12 @@ user_pref("toolkit.telemetry.previousBuildID", "");
 
 user_pref("trailhead.firstrun.branches", "");
 
+// disable experiments
+user_pref("experiments.activeExperiment", false)
 user_pref("experiments.supported", false);
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
+
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.enabled", false);
@@ -219,7 +239,7 @@ user_pref("browser.aboutHomeSnippets.updateUrl", "");
 user_pref("browser.casting.enabled", false);
 
 // pdfjs
-user_pref("pdfjs.disabled", false);
+user_pref("pdfjs.disabled", true);
 user_pref("pdfjs.enableScripting", false);
 
 user_pref("webextensions.storage.sync.serverURL", "");
